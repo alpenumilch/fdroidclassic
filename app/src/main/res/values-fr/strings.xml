@@ -297,8 +297,8 @@ perdues. Elle ne requiert aucune autorisation particulière.</string>
         <item quantity="one">Actualisé il y a un an en %1$d</item>
         <item quantity="other">Actualisé en %1$d ans</item>
     </plurals>
-    <string name="warning_no_internet">Impossible de mettre à jour, êtes-vous connecté à l\'internet \?</string>
-    <string name="menu_appinfo">App Info (Paramètres du système)</string>
+    <string name="warning_no_internet">Impossible de mettre à jour, êtes-vous connecté(e) à internet \?</string>
+    <string name="menu_appinfo">Infos de l\'appli (Paramètres du système)</string>
     <string name="antiknownvulnlist">Cette application contient une faille de sécurité connue</string>
     <string name="details_last_updated_today">Mis à jour aujourd\'hui</string>
     <string name="app_permission_storage">F-Droid Classic a besoin de l\'autorisation de stockage pour l\'installer sur le stockage. Veuillez l\'autoriser sur l\'écran suivant pour procéder à l\'installation.</string>
@@ -318,7 +318,7 @@ perdues. Elle ne requiert aucune autorisation particulière.</string>
     <string name="copied_to_clipboard">Copie dans le presse-papiers</string>
     <string name="screenshot">Capture d\'écran</string>
     <string name="liberapay">Liberapay</string>
-    <string name="show_screenshots">Afficher Les Captures D\'Écran</string>
+    <string name="show_screenshots">Afficher les captures d\'écran</string>
     <string name="screenshots_pref_summary">Nécessite un clic supplémentaire avant de commencer à récupérer des captures d\'écran</string>
     <string name="screenshots_on_demand">Charger des captures d\'écran à la demande</string>
     <string name="opencollective">Open Collective</string>
