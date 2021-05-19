@@ -36,10 +36,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/version"
+        android:maxWidth="250dp"
         android:ellipsize="end"
         android:maxLines="2"
         android:textSize="13sp"
-        tools:text="Installed" />
+        tools:text="Installed (from Privileged Extension)" />
 
     <TextView
         android:id="@+id/repository"
@@ -47,9 +48,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/status"
         android:ellipsize="end"
-        android:singleLine="true"
+        android:maxWidth="250dp"
         android:textSize="13sp"
-        tools:text="Provided By F-Droid archive" />
+        tools:text="Repository: F-Droid" />
 
     <LinearLayout
         android:id="@+id/container_added_nativecode"
@@ -77,8 +78,9 @@
             android:ellipsize="end"
             android:gravity="end"
             android:textAlignment="viewEnd"
-            android:textSize="13sp"
-            tools:text="" />
+            android:textSize="12sp"
+            android:textColor="?android:attr/textColorSecondary"
+            tools:text="arm64-v8a armeabi-v7a x86" />
 
     </LinearLayout>
 
@@ -86,31 +88,31 @@
         android:id="@+id/buildtype"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/api"
         android:layout_alignParentEnd="true"
         android:layout_marginBottom="4sp"
-        android:textSize="13sp"
+        android:textSize="12sp"
+        android:textColor="?android:attr/textColorSecondary"
         tools:text="source" />
 
     <TextView
         android:id="@+id/size"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/buildtype"
         android:layout_alignParentEnd="true"
         android:layout_marginBottom="4sp"
         android:textSize="13sp"
-        tools:text="12mb" />
+        tools:text="12 MiB" />
+
 
     <TextView
         android:id="@+id/api"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/buildtype"
-        android:layout_marginEnd="16sp"
-        android:layout_toStartOf="@id/size"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/size"
         android:textSize="13sp"
-        tools:text="" />
-
+        tools:text="4.4 or ater" />
 
     <TextView
         android:id="@+id/incompatible_reasons"
