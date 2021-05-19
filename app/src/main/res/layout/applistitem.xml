@@ -1,99 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="?attr/listPreferredItemHeight"
-    android:paddingStart="?attr/listPreferredItemPaddingLeft"
-    android:paddingEnd="?attr/listPreferredItemPaddingRight"
-    android:baselineAligned="false">
+    android:paddingStart="?attr/listPreferredItemPaddingStart"
+    android:paddingEnd="?attr/listPreferredItemPaddingEnd">
 
     <ImageView
         android:id="@+id/icon"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:contentDescription="@string/app_icon"
-        android:layout_width="48dip"
-        android:layout_height="48dip"
-        android:layout_gravity="center_vertical"
         android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:src="@mipmap/ic_launcher" />
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:baselineAligned="false">
+        android:layout_marginStart="?attr/listPreferredItemPaddingStart"
+        android:layout_marginEnd="16dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/summary"
+        app:layout_constraintEnd_toStartOf="@id/status"
+        app:layout_constraintStart_toEndOf="@+id/icon"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="This is an overly Long app name. It goes on and on." />
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:baselineAligned="false">
+    <TextView
+        android:id="@+id/status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textAlignment="viewEnd"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/name"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="Installed" />
 
-            <TextView android:id="@+id/name"
-                android:textSize="16sp"
-                android:maxLines="1"
-                android:ellipsize="end"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingStart="?attr/listPreferredItemPaddingLeft"
-                android:paddingEnd="?attr/listPreferredItemPaddingRight"
-                android:layout_gravity="center_vertical"
-                android:gravity="start"
-                android:textAlignment="viewStart"
-                tools:text="F-Droid" />
+    <TextView
+        android:id="@+id/summary"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="?attr/listPreferredItemPaddingStart"
+        android:layout_marginEnd="16dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="?android:attr/textColorSecondary"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/license"
+        app:layout_constraintStart_toEndOf="@+id/icon"
+        app:layout_constraintTop_toBottomOf="@+id/name"
+        tools:text="Application manager. Long ass description is long. Too long." />
 
-            <TextView android:id="@+id/status"
-                android:textSize="14sp"
-                android:maxLines="1"
-                android:ellipsize="end"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:gravity="end"
-                android:textAlignment="viewEnd"
-                tools:text="Installed" />
+    <TextView
+        android:id="@+id/license"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textColor="?android:attr/textColorSecondary"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/summary"
+        tools:text="GPLv3+" />
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:baselineAligned="false">
-
-            <TextView android:id="@+id/summary"
-                android:textSize="14sp"
-                android:textColor="?android:attr/textColorSecondary"
-                android:singleLine="true"
-                android:ellipsize="end"
-                android:layout_weight="1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:paddingStart="?attr/listPreferredItemPaddingLeft"
-
-                android:paddingEnd="?attr/listPreferredItemPaddingRight"
-                android:gravity="start"
-                android:textAlignment="viewStart"
-                tools:text="Application manager" />
-
-            <TextView android:id="@+id/license"
-                android:textSize="14sp"
-                android:textColor="?android:attr/textColorSecondary"
-                android:singleLine="true"
-                android:ellipsize="end"
-                android:layout_weight="0"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:gravity="end"
-                android:textAlignment="viewEnd"
-                tools:text="GPLv3+" />
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

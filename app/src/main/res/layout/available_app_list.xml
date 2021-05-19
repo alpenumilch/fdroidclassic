@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -28,11 +29,13 @@
 
     <ListView
         style="@style/AppList"
-        android:layout_below="@id/category_wrapper" />
+        android:layout_below="@id/category_wrapper"
+        tools:listitem="@layout/applistitem"/>
 
     <TextView
         style="@style/AppListEmptyText"
         android:layout_below="@id/category_wrapper"
-        android:text="@string/empty_available_app_list" />
+        android:text="@string/empty_available_app_list"
+        tools:visibility="gone"/>
 
 </RelativeLayout>
