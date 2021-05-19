@@ -1,3 +1,12 @@
+### 1.2-beta1 (20.05.2020)
+
+* fix install button visibility for launcher apps
+* fix a potential crash related to repo categories
+* fix longs app names overflowing into version number in app list
+* fix some overflows in app details version list
+* Fix user agent
+* update dependencies and translations
+
 ### 1.1 (07.02.2020)
 
 * Translation updates
