@@ -2,7 +2,7 @@
 
 * fix install button visibility for launcher apps
 * fix a potential crash related to repo categories
-* fix longs app names overflowing into version number in app list
+* fix long app names overflowing into version number in app list
 * fix some overflows in app details version list
 * Fix user agent
 * update dependencies and translations
