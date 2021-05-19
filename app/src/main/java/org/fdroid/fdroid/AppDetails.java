@@ -775,7 +775,7 @@ public class AppDetails extends AppCompatActivity {
         MenuItem item = menu.findItem(R.id.action_ignore_this_updates);
         item.setChecked(app.getPrefs(context).ignoreThisUpdate >= app.suggestedVersionCode);
         if (app.hasUpdates())
-           item.setVisible(true);
+            item.setVisible(true);
         else
             item.setVisible(false);
 
@@ -1117,7 +1117,7 @@ public class AppDetails extends AppCompatActivity {
             TextView whatsNewView = view.findViewById(R.id.whats_new);
             RecyclerView screenshots = view.findViewById(R.id.screnshot_list);
             TextView show_screenshots_button = view.findViewById(R.id.show_screenshots);
-            if(Preferences.get().onlyShowScreenshotsOnDemand()){
+            if (Preferences.get().onlyShowScreenshotsOnDemand()) {
                 show_screenshots_button.setVisibility(View.VISIBLE);
                 screenshots.setVisibility(View.GONE);
                 show_screenshots_button.setOnClickListener(v -> {
@@ -1186,7 +1186,7 @@ public class AppDetails extends AppCompatActivity {
             final TextView linksHeader = view.findViewById(R.id.information);
             linksHeader.setOnClickListener(expanderLinks);
 
-            if(app.hasDonationOptions()){
+            if (app.hasDonationOptions()) {
                 linksHeader.setText(R.string.links_and_donations);
             }
 
@@ -1429,8 +1429,7 @@ public class AppDetails extends AppCompatActivity {
                 if (app.isInstalled(getContext())) {
                     appDetails.openAppInfo();
                     return true;
-                }
-                else {
+                } else {
                     return false;
                 }
             });
