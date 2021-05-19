@@ -167,7 +167,7 @@ public class AppDetails extends AppCompatActivity {
         private String getInstalledStatus(final Apk apk) {
             // Definitely not installed.
             if (apk.versionCode != app.installedVersionCode) {
-                return getString(R.string.app_not_installed);
+                return "";
             }
             // Definitely installed this version.
             if (apk.sig != null && apk.sig.equals(app.installedSig)) {
@@ -179,7 +179,7 @@ public class AppDetails extends AppCompatActivity {
                 installerPkgName = packageManager.getInstallerPackageName(app.packageName);
             } catch (IllegalArgumentException e) {
                 Log.w(TAG, "Application " + app.packageName + " is not installed anymore");
-                return getString(R.string.app_not_installed);
+                return "";
             }
             if (TextUtils.isEmpty(installerPkgName)) {
                 return getString(R.string.app_inst_unknown_source);
