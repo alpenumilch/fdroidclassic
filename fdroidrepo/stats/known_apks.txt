@@ -17,5 +17,6 @@ eu.bubu1.fdroidclassic_1103.apk eu.bubu1.fdroidclassic 2020-09-17
 eu.bubu1.fdroidclassic_1104.apk eu.bubu1.fdroidclassic 2020-12-29
 eu.bubu1.fdroidclassic_1105.apk eu.bubu1.fdroidclassic 2021-02-02
 eu.bubu1.fdroidclassic_1106.apk eu.bubu1.fdroidclassic 2021-02-07
+eu.bubu1.fdroidclassic_1107.apk eu.bubu1.fdroidclassic 2021-05-19
 eu.bubu1.privext_3000.apk eu.bubu1.privext 2020-10-16
 eu.bubu1.privext_3000.apk.idsig eu.bubu1.privext 2020-10-16

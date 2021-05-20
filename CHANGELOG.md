@@ -1,4 +1,4 @@
-### 1.2-beta1 (20.05.2020)
+### 1.2-beta1 (20.05.2021)
 
 * fix install button visibility for launcher apps
 * fix a potential crash related to repo categories
@@ -7,11 +7,11 @@
 * Fix user agent
 * update dependencies and translations
 
-### 1.1 (07.02.2020)
+### 1.1 (07.02.2021)
 
 * Translation updates
 
-### 1.1-rc1 (02.02.2020)
+### 1.1-rc1 (02.02.2021)
 
 * Add option to only load screenshots on demand
 * Fix screenshot placeholder image not being visible when using light theme
