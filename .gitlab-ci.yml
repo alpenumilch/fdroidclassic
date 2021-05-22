@@ -17,7 +17,7 @@ fdroid:build:
   before_script:
     - rm -rf fdroidserver
     - mkdir fdroidserver
-    - commit=$(git ls-remote https://git.bubu1.eu/Bubu/fdroidserver.git master | cut -f1)
+    - commit=$(git ls-remote https://git.bubu1.eu/Bubu/fdroidserver.git main | cut -f1)
     - echo "Using fdroidserver ${commit}"
     - curl --silent https://git.bubu1.eu/Bubu/fdroidserver/repository/${commit}/archive.tar.gz
         | tar -xz --directory=fdroidserver --strip-components=1
