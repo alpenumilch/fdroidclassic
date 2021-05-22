@@ -19,7 +19,7 @@ fdroid:build:
     - mkdir fdroidserver
     - commit=$(git ls-remote https://git.bubu1.eu/Bubu/fdroidserver.git main | cut -f1)
     - echo "Using fdroidserver ${commit}"
-    - curl --silent https://git.bubu1.eu/Bubu/fdroidserver/repository/${commit}/archive.tar.gz
+    - curl --silent https://git.bubu1.eu/Bubu/fdroidserver/-/archive/${commit}/fdroidserver-${commit}.tar.gz
         | tar -xz --directory=fdroidserver --strip-components=1
     - export PATH="$PWD/fdroidserver:$PATH"
     - ln -s fdroidserver/gradlew-fdroid fdroidserver/gradle
