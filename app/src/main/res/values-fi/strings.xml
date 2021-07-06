@@ -137,7 +137,7 @@
     <string name="allPerms">Kaikki</string>
     <string name="newPerms">Uusi</string>
     <string name="links">Linkit</string>
-    <string name="more">Lue Lisää</string>
+    <string name="more">Lue lisää</string>
     <string name="less">Vähemmän</string>
     <string name="tab_installed_apps">Asennettu</string>
     <string name="tab_installed_apps_count">Asennettu (%d)</string>
@@ -286,7 +286,7 @@
     <string name="antiknownvulnlist">Tämä sovellus sisältää tunnetun tietoturvaheikkouden</string>
     <string name="warning_no_internet">Et voi päivittää, oletko yhteydessä Internetiin\?</string>
     <string name="details_last_updated_today">Päivitetty tänään</string>
-    <string name="qr_code">QR-Code</string>
+    <string name="qr_code">QR-koodi</string>
     <string name="app_name">F-Droid Classic</string>
     <plurals name="details_last_update_months">
         <item quantity="one">Päivitetty %1$d kuukausi sitten</item>
