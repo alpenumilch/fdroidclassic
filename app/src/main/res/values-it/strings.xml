@@ -323,4 +323,6 @@ non saranno rimossi. Non richiede alcun permesso speciale.</string>
     <string name="show_screenshots">Mostra schermate</string>
     <string name="liberapay">Liberapay</string>
     <string name="opencollective">Open Collective</string>
+    <string name="screenshots_on_demand">Carica schermate su richiesta</string>
+    <string name="screenshots_pref_summary">Richiede un click extra prima di iniziare a recuperare gli screenshot</string>
 </resources>
