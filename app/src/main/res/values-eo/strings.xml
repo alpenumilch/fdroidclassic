@@ -109,7 +109,7 @@
     <string name="automatic_scan_wifi_on">Ĝisdatigi listojn aŭtomate nur per netarifaj retoj kiel sendrata reto</string>
     <string name="update_history_summ">Trakti aplikaĵojn kiel novajn aŭ ĝisdatigajn por: %s tagoj</string>
     <string name="system_installer">Privilegia aldonaĵo</string>
-    <string name="system_installer_on">Uzi privilegian aldonaĵon por instali, ĝisdatigi kaj forigi pakaĵojn</string>
+    <string name="system_installer_on">Uzi la privilegian aldonaĵon por instali, ĝisdatigi kaj forigi pakaĵojn</string>
     <string name="login_title">Aŭtentokontrolo nepra</string>
     <string name="login_name">Uzantnomo</string>
     <string name="login_password">Pasvorto</string>
