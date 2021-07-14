@@ -21,7 +21,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.3.0'
     implementation 'androidx.annotation:annotation:1.2.0'
     implementation 'androidx.preference:preference:1.1.1'
-    implementation 'androidx.recyclerview:recyclerview:1.2.0'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
     implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.0.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
 
@@ -33,16 +33,16 @@ dependencies {
     implementation 'com.github.ligi.tracedroid:lib:d0048245ab'
     implementation 'com.github.ligi.tracedroid:supportemail:d0048245ab'
 
-    implementation 'com.fasterxml.jackson.core:jackson-core:2.12.2'
-    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.12.2'
-    implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.2'
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.12.4'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.12.4'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.4'
 
     // Don't update this to junit5 or remove this, it makes Roboelectric tests fail with SIGSEGV (what?)
     // https://git.bubu1.eu/Bubu/fdroidclassic/-/jobs/666
     testImplementation 'junit:junit:4.13.2'
-    testImplementation "org.mockito:mockito-core:3.6.0"
+    testImplementation "org.mockito:mockito-core:3.10.0"
     testImplementation "com.google.truth:truth:1.1.2"
-    testImplementation 'androidx.test:core:1.3.0'
+    testImplementation 'androidx.test:core:1.4.0'
     testImplementation 'org.robolectric:robolectric:4.5.1'
 }
 
