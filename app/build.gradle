@@ -30,7 +30,7 @@ dependencies {
     // image loading
     implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
     // QR
-    implementation('com.journeyapps:zxing-android-embedded:4.1.0') { transitive = false }
+    implementation('com.journeyapps:zxing-android-embedded:4.2.0') { transitive = false }
     // noinspection GradleDependency - needed for SDK 23 compatibility, in combination with com.journeyapps:zxing-android-embedded:4.1.0
     implementation 'com.google.zxing:core:3.3.3'
     // Tor proxy support
@@ -39,9 +39,10 @@ dependencies {
     implementation 'com.github.ligi.tracedroid:lib:d0048245ab'
     implementation 'com.github.ligi.tracedroid:supportemail:d0048245ab'
     // index-json parsing
-    implementation 'com.fasterxml.jackson.core:jackson-core:2.12.4'
-    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.12.4'
-    implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.4'
+    def jackson_version = "2.12.4"
+    implementation "com.fasterxml.jackson.core:jackson-core:$jackson_version"
+    implementation "com.fasterxml.jackson.core:jackson-annotations:$jackson_version"
+    implementation "com.fasterxml.jackson.core:jackson-databind:$jackson_version"
 
     // Don't update this to junit5 or remove this, it makes Roboelectric tests fail with SIGSEGV (what?)
     // https://git.bubu1.eu/Bubu/fdroidclassic/-/jobs/666

@@ -5,6 +5,7 @@
  * Copyright (C) 2014-2018 Hans-Christoph Steiner
  * Copyright (C) 2016 Dominik Schürmann
  * Copyright (C) 2018 Torsten Grote
+ * Copyright (C) 2021 Marcus Hoffmann
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -24,6 +25,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="org.fdroid.fdroid"
     android:installLocation="auto">
+
+    <uses-sdk tools:overrideLibrary="com.google.zxing.client.android" />
 
     <uses-feature
         android:name="android.hardware.telephony"
@@ -113,8 +116,8 @@
 
         <activity
             android:name=".FDroid"
-            android:label="@string/app_name"
             android:configChanges="layoutDirection|locale|keyboardHidden|orientation|screenSize"
+            android:label="@string/app_name"
             android:launchMode="singleTop"
             android:windowSoftInputMode="adjustResize">
 
@@ -483,8 +486,9 @@
         <activity
             android:name=".installer.FileInstallerActivity"
             android:theme="@style/AppThemeTransparent" />
-        <activity android:name=".views.ScreenShotsActivity"
-            android:theme="@style/ScreenShotActivityTheme"/>
+        <activity
+            android:name=".views.ScreenShotsActivity"
+            android:theme="@style/ScreenShotActivityTheme" />
     </application>
 
 </manifest>

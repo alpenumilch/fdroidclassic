@@ -1,19 +1,16 @@
 package org.fdroid.fdroid;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.Point;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.util.Log;
 import android.view.Display;
 import android.widget.ImageView;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;
-import com.google.zxing.encode.Contents;
-import com.google.zxing.encode.QRCodeEncoder;
+import com.journeyapps.barcodescanner.BarcodeEncoder;
 
 public class QrGenAsyncTask extends AsyncTask<String, Void, Void> {
     private static final String TAG = "QrGenAsyncTask";
@@ -38,11 +35,11 @@ public class QrGenAsyncTask extends AsyncTask<String, Void, Void> {
         y = outSize.y;
         qrCodeDimension = Math.min(x, y);
         Utils.debugLog(TAG, "generating QRCode Bitmap of " + qrCodeDimension + "x" + qrCodeDimension);
-        QRCodeEncoder qrCodeEncoder = new QRCodeEncoder(qrData, null,
-                Contents.Type.TEXT, BarcodeFormat.QR_CODE.toString(), qrCodeDimension);
+        BarcodeEncoder qrCodeEncoder = new BarcodeEncoder();
 
         try {
-            qrBitmap = qrCodeEncoder.encodeAsBitmap();
+            qrBitmap = qrCodeEncoder.encodeBitmap(qrData, BarcodeFormat.QR_CODE,
+                    qrCodeDimension, qrCodeDimension);
         } catch (WriterException e) {
             Log.e(TAG, "Could not encode QR as bitmap", e);
         }
