@@ -46,11 +46,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.loader.app.LoaderManager;
 import androidx.loader.content.CursorLoader;
 import androidx.loader.content.Loader;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.fdroid.fdroid.FDroidApp;
 import org.fdroid.fdroid.IndexV1Updater;
@@ -108,6 +111,10 @@ public class ManageReposActivity extends AppCompatActivity
             Repo repo = new Repo((Cursor) repoList.getItemAtPosition(position));
             editRepo(repo);
         });
+
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(view -> showAddRepo());
+
     }
 
     @Override
@@ -152,9 +159,6 @@ public class ManageReposActivity extends AppCompatActivity
             case R.id.action_update_repo:
                 UpdateService.updateNow(this);
                 return true;
-            case R.id.action_add_repo:
-                showAddRepo();
-                return true;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -164,7 +168,7 @@ public class ManageReposActivity extends AppCompatActivity
         ClipboardManager clipboardManager = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
         if (clipboardManager.hasPrimaryClip()) {
             ClipData data = clipboardManager.getPrimaryClip();
-            if (data.getItemCount() > 0) {
+            if (data != null && data.getItemCount() > 0) {
                 text = data.getItemAt(0).getText();
 
                 if (text == null) {
@@ -187,7 +191,7 @@ public class ManageReposActivity extends AppCompatActivity
         String text = getPrimaryClipAsText();
         String fingerprint = null;
         String username = null;
-        String password = null;
+        StringBuilder password = null;
         if (!TextUtils.isEmpty(text)) {
             try {
                 new URL(text);
@@ -203,9 +207,9 @@ public class ManageReposActivity extends AppCompatActivity
                     String[] userInfoTokens = userInfo.split(":");
                     if (userInfoTokens.length >= 2) {
                         username = userInfoTokens[0];
-                        password = userInfoTokens[1];
+                        password = new StringBuilder(userInfoTokens[1]);
                         for (int i = 2; i < userInfoTokens.length; i++) {
-                            password += ":" + userInfoTokens[i];
+                            password.append(":").append(userInfoTokens[i]);
                         }
                     }
                 }
@@ -219,10 +223,11 @@ public class ManageReposActivity extends AppCompatActivity
         if (TextUtils.isEmpty(text)) {
             text = DEFAULT_NEW_REPO_TEXT;
         }
-        showAddRepo(text, fingerprint, username, password);
+        showAddRepo(text, fingerprint, username, password != null ? password.toString() : null);
     }
 
-    private void showAddRepo(String newAddress, String newFingerprint, String username, String password) {
+    private void showAddRepo(String newAddress, String newFingerprint, String username,
+                             @Nullable String password) {
         new AddRepo(newAddress, newFingerprint, username, password);
     }
 
@@ -510,7 +515,7 @@ public class ManageReposActivity extends AppCompatActivity
          */
         @SuppressLint("StaticFieldLeak")
         private void prepareToCreateNewRepo(final String originalAddress, final String fingerprint,
-                                            final String username, final String password) {
+                                            final String username, @Nullable final String password) {
 
             final View addRepoForm = addRepoDialog.findViewById(R.id.add_repo_form);
             addRepoForm.setVisibility(View.GONE);
