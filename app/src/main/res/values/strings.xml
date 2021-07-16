@@ -369,5 +369,7 @@
     <string name="screenshots_pref_summary">Requires an extra click before starting to fetch screenshots</string>
     <string name="add_repo_enter_details">Enter details</string>
     <string name="scan_qr_code">Scan QR code</string>
+    <string name="repo_url_invalid">Not a valid repo URL!</string>
+    <string name="button_close_menu">Close menu</string>
 
 </resources>

@@ -113,25 +113,43 @@ public class ManageReposActivity extends AppCompatActivity
             Repo repo = new Repo((Cursor) repoList.getItemAtPosition(position));
             editRepo(repo);
         });
-        SpeedDialView speedDialView = findViewById(R.id.speedDial);
-        speedDialView.inflate(R.menu.add_repo_speed_dial);
-        speedDialView.setOnActionSelectedListener(actionItem -> {
-            if (actionItem.getId() == R.id.fab_action_enter_details) {
-                speedDialView.close();
+        SpeedDialView speedDial = findViewById(R.id.speedDial);
+        speedDial.getMainFab().setContentDescription(getString(R.string.repo_add_title));
+        speedDial.inflate(R.menu.add_repo_speed_dial);
+        speedDial.setOnChangeListener(new SpeedDialView.OnChangeListener() {
+            @Override
+            public boolean onMainActionSelected() {
+                return false;
+            }
+            @Override
+            public void onToggleChanged(boolean isOpen) {
+                if (isOpen) {
+                    speedDial.getMainFab().setContentDescription(getString(R.string.button_close_menu));
+                } else {
+                    speedDial.getMainFab().setContentDescription(getString(R.string.repo_add_title));
+                }
+            }
+        });
+        speedDial.setOnActionSelectedListener(actionItem -> {
+            int actionId = actionItem.getId();
+            if (actionId == R.id.fab_action_enter_details) {
+                speedDial.close();
                 showAddRepo();
                 return true;
-            } else if (actionItem.getId() == R.id.fab_action_scan_qr) {
-                speedDialView.close();
-                IntentIntegrator integrator = new IntentIntegrator(this);
-                integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE);
-                integrator.setBeepEnabled(false);
-                integrator.setOrientationLocked(false);
-                integrator.setPrompt(getResources().getString(R.string.repo_add_title));
-                integrator.initiateScan();
-                return true;
+            } else if (actionId == R.id.fab_action_scan_qr) {
+                scanQRCode();
             }
             return false;
         });
+    }
+
+    private void scanQRCode() {
+        new IntentIntegrator(this)
+                .setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
+                .setBeepEnabled(false)
+                .setOrientationLocked(false)
+                .setPrompt(getResources().getString(R.string.repo_add_title))
+                .initiateScan();
     }
 
     // Get the scanner results:
@@ -143,8 +161,7 @@ public class ManageReposActivity extends AppCompatActivity
                 RepoInfo repoInfo = extractRepoInfo(result.getContents());
                 if (TextUtils.isEmpty(repoInfo.url)) {
                     // We couldn't even extract an URL. Abort!
-                    Toast.makeText(this, "Not a valid repo URL!", Toast.LENGTH_SHORT)
-                            .show();
+                    Toast.makeText(this, R.string.repo_url_invalid, Toast.LENGTH_SHORT).show();
                 } else {
                     new AddRepo(repoInfo);
                 }
@@ -188,14 +205,14 @@ public class ManageReposActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.clear_etags:
-                RepoProvider.Helper.clearEtags(this);
-                UpdateService.updateNow(this);
-                return true;
-            case R.id.action_update_repo:
-                UpdateService.updateNow(this);
-                return true;
+        int itemId = item.getItemId();
+        if (itemId == R.id.clear_etags) {
+            RepoProvider.Helper.clearEtags(this);
+            UpdateService.updateNow(this);
+            return true;
+        } else if (itemId == R.id.action_update_repo) {
+            UpdateService.updateNow(this);
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }
