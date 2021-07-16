@@ -121,6 +121,7 @@ public class ManageReposActivity extends AppCompatActivity
             public boolean onMainActionSelected() {
                 return false;
             }
+
             @Override
             public void onToggleChanged(boolean isOpen) {
                 if (isOpen) {
@@ -133,9 +134,7 @@ public class ManageReposActivity extends AppCompatActivity
         speedDial.setOnActionSelectedListener(actionItem -> {
             int actionId = actionItem.getId();
             if (actionId == R.id.fab_action_enter_details) {
-                speedDial.close();
                 showAddRepo();
-                return true;
             } else if (actionId == R.id.fab_action_scan_qr) {
                 scanQRCode();
             }

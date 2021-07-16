@@ -18,7 +18,7 @@
     <com.leinardi.android.speeddial.SpeedDialOverlayLayout
         android:id="@+id/speedDialOverlay"
         android:layout_width="match_parent"
-        android:background="@color/zxing_transparent"
+        android:background="@color/almostTransparent"
         android:layout_height="match_parent" />
 
     <com.leinardi.android.speeddial.SpeedDialView
