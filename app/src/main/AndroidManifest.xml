@@ -115,6 +115,11 @@
             android:value=".FDroid" />
 
         <activity
+            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+            android:screenOrientation="fullSensor"
+            tools:replace="screenOrientation" />
+
+        <activity
             android:name=".FDroid"
             android:configChanges="layoutDirection|locale|keyboardHidden|orientation|screenSize"
             android:label="@string/app_name"

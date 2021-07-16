@@ -53,7 +53,9 @@ import androidx.loader.app.LoaderManager;
 import androidx.loader.content.CursorLoader;
 import androidx.loader.content.Loader;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
+import com.leinardi.android.speeddial.SpeedDialView;
 
 import org.fdroid.fdroid.FDroidApp;
 import org.fdroid.fdroid.IndexV1Updater;
@@ -111,10 +113,45 @@ public class ManageReposActivity extends AppCompatActivity
             Repo repo = new Repo((Cursor) repoList.getItemAtPosition(position));
             editRepo(repo);
         });
+        SpeedDialView speedDialView = findViewById(R.id.speedDial);
+        speedDialView.inflate(R.menu.add_repo_speed_dial);
+        speedDialView.setOnActionSelectedListener(actionItem -> {
+            if (actionItem.getId() == R.id.fab_action_enter_details) {
+                speedDialView.close();
+                showAddRepo();
+                return true;
+            } else if (actionItem.getId() == R.id.fab_action_scan_qr) {
+                speedDialView.close();
+                IntentIntegrator integrator = new IntentIntegrator(this);
+                integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE);
+                integrator.setBeepEnabled(false);
+                integrator.setOrientationLocked(false);
+                integrator.setPrompt(getResources().getString(R.string.repo_add_title));
+                integrator.initiateScan();
+                return true;
+            }
+            return false;
+        });
+    }
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(view -> showAddRepo());
-
+    // Get the scanner results:
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        if (result != null) {
+            if (result.getContents() != null) {
+                RepoInfo repoInfo = extractRepoInfo(result.getContents());
+                if (TextUtils.isEmpty(repoInfo.url)) {
+                    // We couldn't even extract an URL. Abort!
+                    Toast.makeText(this, "Not a valid repo URL!", Toast.LENGTH_SHORT)
+                            .show();
+                } else {
+                    new AddRepo(repoInfo);
+                }
+            }
+        } else {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
     }
 
     @Override
@@ -189,46 +226,11 @@ public class ManageReposActivity extends AppCompatActivity
          * Otherwise use "https://" as default repo string.
          */
         String text = getPrimaryClipAsText();
-        String fingerprint = null;
-        String username = null;
-        StringBuilder password = null;
-        if (!TextUtils.isEmpty(text)) {
-            try {
-                new URL(text);
-                Uri uri = Uri.parse(text);
-                fingerprint = uri.getQueryParameter("fingerprint");
-                // uri might contain a QR-style, all uppercase URL:
-                if (TextUtils.isEmpty(fingerprint)) {
-                    fingerprint = uri.getQueryParameter("FINGERPRINT");
-                }
-
-                String userInfo = uri.getUserInfo();
-                if (userInfo != null) {
-                    String[] userInfoTokens = userInfo.split(":");
-                    if (userInfoTokens.length >= 2) {
-                        username = userInfoTokens[0];
-                        password = new StringBuilder(userInfoTokens[1]);
-                        for (int i = 2; i < userInfoTokens.length; i++) {
-                            password.append(":").append(userInfoTokens[i]);
-                        }
-                    }
-                }
-
-                text = NewRepoConfig.sanitizeRepoUri(uri);
-            } catch (MalformedURLException e) {
-                text = null;
-            }
+        RepoInfo repoInfo = extractRepoInfo(text);
+        if (TextUtils.isEmpty(repoInfo.url)) {
+            repoInfo.url = DEFAULT_NEW_REPO_TEXT;
         }
-
-        if (TextUtils.isEmpty(text)) {
-            text = DEFAULT_NEW_REPO_TEXT;
-        }
-        showAddRepo(text, fingerprint, username, password != null ? password.toString() : null);
-    }
-
-    private void showAddRepo(String newAddress, String newFingerprint, String username,
-                             @Nullable String password) {
-        new AddRepo(newAddress, newFingerprint, username, password);
+        new AddRepo(repoInfo);
     }
 
     /**
@@ -250,6 +252,10 @@ public class ManageReposActivity extends AppCompatActivity
         private final Button addButton;
 
         private AddRepoState addRepoState;
+
+        AddRepo(RepoInfo repoInfo) {
+            this(repoInfo.url, repoInfo.fingerprint, repoInfo.username, repoInfo.password);
+        }
 
         /**
          * Create new instance, setup GUI, and build maps for quickly looking
@@ -282,6 +288,7 @@ public class ManageReposActivity extends AppCompatActivity
                     getString(R.string.cancel),
                     (dialog, which) -> {
                         dialog.dismiss();
+                        Utils.closeKeyboard(context);
                         if (isImportingRepo) {
                             ManageReposActivity.this.finish();
                         }
@@ -341,6 +348,7 @@ public class ManageReposActivity extends AppCompatActivity
                                 finishedAddingRepo();
                                 break;
                         }
+                        Utils.closeKeyboard(context);
                     }
             );
 
@@ -358,6 +366,10 @@ public class ManageReposActivity extends AppCompatActivity
                 // the first place, is necessary to move the cursor to the end of the input.
                 uriEditText.setText("");
                 uriEditText.append(newAddress);
+            }
+            if (uriEditText.getText().toString().equals(DEFAULT_NEW_REPO_TEXT)) {
+                uriEditText.requestFocus();
+                Utils.showKeyboard(context);
             }
 
             final TextWatcher textChangedListener = new TextWatcher() {
@@ -830,7 +842,7 @@ public class ManageReposActivity extends AppCompatActivity
         NewRepoConfig newRepoConfig = new NewRepoConfig(this, intent);
         if (newRepoConfig.isValidRepo()) {
             isImportingRepo = true;
-            showAddRepo(newRepoConfig.getRepoUriString(), newRepoConfig.getFingerprint(),
+            new AddRepo(newRepoConfig.getRepoUriString(), newRepoConfig.getFingerprint(),
                     newRepoConfig.getUsername(), newRepoConfig.getPassword());
         } else if (newRepoConfig.getErrorMessage() != null) {
             Toast.makeText(this, newRepoConfig.getErrorMessage(), Toast.LENGTH_LONG).show();
@@ -909,5 +921,60 @@ public class ManageReposActivity extends AppCompatActivity
      */
     private void notifyDataSetChanged() {
         getSupportLoaderManager().restartLoader(0, null, this);
+    }
+
+    private RepoInfo extractRepoInfo(String repoString) {
+        String repoUrl = null;
+        String fingerprint = null;
+        String username = null;
+        StringBuilder password = null;
+        if (!TextUtils.isEmpty(repoString)) {
+            try {
+                new URL(repoString);
+                Uri uri = Uri.parse(repoString);
+                fingerprint = uri.getQueryParameter("fingerprint");
+                // uri might contain a QR-style, all uppercase URL:
+                if (TextUtils.isEmpty(fingerprint)) {
+                    fingerprint = uri.getQueryParameter("FINGERPRINT");
+                }
+
+                String userInfo = uri.getUserInfo();
+                if (userInfo != null) {
+                    String[] userInfoTokens = userInfo.split(":");
+                    if (userInfoTokens.length >= 2) {
+                        username = userInfoTokens[0];
+                        password = new StringBuilder(userInfoTokens[1]);
+                        for (int i = 2; i < userInfoTokens.length; i++) {
+                            password.append(":").append(userInfoTokens[i]);
+                        }
+                    }
+                }
+
+                repoUrl = NewRepoConfig.sanitizeRepoUri(uri);
+            } catch (MalformedURLException ignored) {
+            }
+        }
+        return new RepoInfo(repoUrl, fingerprint, username, password != null ? password.toString() : null);
+    }
+}
+
+class RepoInfo {
+    @Nullable
+    String url;
+    @Nullable
+    String fingerprint;
+    @Nullable
+    String username;
+    @Nullable
+    String password;
+
+    public RepoInfo(@Nullable String url,
+                    @Nullable String fingerprint,
+                    @Nullable String username,
+                    @Nullable String password) {
+        this.url = url;
+        this.fingerprint = fingerprint;
+        this.username = username;
+        this.password = password;
     }
 }

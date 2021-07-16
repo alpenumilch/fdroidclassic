@@ -10,16 +10,23 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="vertical"
+        android:paddingBottom="?android:attr/listPreferredItemHeight"
+        android:clipToPadding="false"
+        android:scrollbarStyle="outsideOverlay"
         tools:listitem="@layout/repo_item" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
+    <com.leinardi.android.speeddial.SpeedDialOverlayLayout
+        android:id="@+id/speedDialOverlay"
+        android:layout_width="match_parent"
+        android:background="@color/zxing_transparent"
+        android:layout_height="match_parent" />
+
+    <com.leinardi.android.speeddial.SpeedDialView
+        android:id="@+id/speedDial"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
-        android:clickable="true"
         android:contentDescription="@string/menu_add_repo"
-        android:focusable="true"
-        app:srcCompat="@drawable/ic_add_white" />
+        app:sdMainFabClosedSrc="@drawable/ic_add_white"
+        app:sdOverlayLayout="@id/speedDialOverlay"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

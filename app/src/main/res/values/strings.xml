@@ -367,5 +367,7 @@
     <string name="show_screenshots">Show Screenshots</string>
     <string name="screenshots_on_demand">Load screenshots on demand</string>
     <string name="screenshots_pref_summary">Requires an extra click before starting to fetch screenshots</string>
+    <string name="add_repo_enter_details">Enter details</string>
+    <string name="scan_qr_code">Scan QR code</string>
 
 </resources>
