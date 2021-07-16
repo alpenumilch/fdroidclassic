@@ -1,3 +1,9 @@
+### 1.2-beta2 (16.07.2021)
+
+* make it possible to scan repo QR codes from the repositories screen
+* link to correct repository from About screen
+* update dependencies and translations
+
 ### 1.2-beta1 (20.05.2021)
 
 * fix install button visibility for launcher apps
