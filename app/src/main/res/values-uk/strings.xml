@@ -298,7 +298,6 @@
     <string name="reset_transient_title">Скинути базу даних\?</string>
     <string name="details_last_updated_today">Оновлено сьогодні</string>
     <string name="repo_exists_add_mirror">Це копія %1$s, додати її як дзеркало\?</string>
-    <string name="app_name">F-Droid Classic</string>
     <string name="repo_user_mirrors">Користувацьки дзеркала</string>
     <string name="menu_update_this_repo">Оновити цей репозиторій</string>
     <string name="menu_appinfo">Про програму (Системні Налаштування)</string>

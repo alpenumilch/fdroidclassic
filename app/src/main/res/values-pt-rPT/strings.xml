@@ -301,7 +301,6 @@ A aplicação atualizada não requer qualquer acesso especial.</string>
     <string name="antidisabledalgorithmlist">Esta aplicação tem uma assinatura fraca</string>
     <string name="app_permission_storage">F-Droid Clássico necessita de aceder ao armazenamento para instalar aplicações. Deve conceder as permissões necessárias no próximo ecrã.</string>
     <string name="signed">Assinado: %s</string>
-    <string name="app_name">F-Droid Clássico</string>
     <string name="repo_user_mirrors">Utilizar mirrors</string>
     <string name="repo_exists_add_mirror">Esta é uma cópia de %1$s, adicionar como mirror\?</string>
     <string name="menu_appinfo">Informação (definições do sistema)</string>

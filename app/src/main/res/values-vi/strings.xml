@@ -298,7 +298,6 @@
     <string name="details_last_updated_today">Đã cập nhật hôm nay</string>
     <string name="repo_exists_add_mirror">Đây là bản sao của %1$s, có thêm không\?</string>
     <string name="app_permission_storage">F-Droid Cổ điển cần quyền truy cập bộ nhớ để cài đặt cái này vào bộ nhớ. Hãy cho phép nó trong màn hình tiếp theo để tiếp tục cài đặt.</string>
-    <string name="app_name">F-Droid Cổ điển</string>
     <string name="signed">Đã ký: %s</string>
     <string name="antinosourcesince">Mã nguồn không còn nữa, không thể có cập nhật.</string>
     <string name="status_inserting_x_apps">Đang lưu chi tiết ứng dụng (%1$d/%2$d) từ %3$s</string>

@@ -303,7 +303,6 @@ Den kräver inte någon särskild tillgång.</string>
         <item quantity="other">Uppdaterad %1$d månader sedan</item>
     </plurals>
     <string name="opencollective">Öppet Kollektiv</string>
-    <string name="app_name">F-Droid Classic</string>
     <plurals name="details_last_update_days">
         <item quantity="one">Uppdaterad %1$d dag sedan</item>
         <item quantity="other">Uppdaterad %1$d dagar sedan</item>

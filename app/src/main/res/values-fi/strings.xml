@@ -287,7 +287,6 @@
     <string name="warning_no_internet">Et voi päivittää, oletko yhteydessä Internetiin\?</string>
     <string name="details_last_updated_today">Päivitetty tänään</string>
     <string name="qr_code">QR-Code</string>
-    <string name="app_name">F-Droid Classic</string>
     <plurals name="details_last_update_months">
         <item quantity="one">Päivitetty %1$d kuukausi sitten</item>
         <item quantity="other">Päivitetty %1$d kuukautta sitten</item>

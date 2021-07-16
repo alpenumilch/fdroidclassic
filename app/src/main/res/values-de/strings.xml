@@ -296,7 +296,6 @@ Um darin bereitgestellte Anwendungen anzuzeigen, muss sie aktiviert werden.</str
     <string name="repo_official_mirrors">Offizielle Mirrors</string>
     <string name="menu_update_this_repo">Diese Paketquellen aktualisieren</string>
     <string name="reset_transient_message">Sind Sie sicher, dass Sie Ihren Client zurücksetzen wollen\? Alle Paketquellenindizes müssen erneut heruntergeladen werden.</string>
-    <string name="app_name">F-Droid Classic</string>
     <string name="install_all_updates">Aktualisierungen installieren</string>
     <string name="force_update">Aktualisierung zwingen</string>
     <string name="reset_transient_title">Datenbank zurücksetzen\?</string>

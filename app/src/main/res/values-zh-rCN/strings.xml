@@ -264,7 +264,6 @@
     <string name="reset_transient_message">你确定要重置客户端吗？重置后需要再次下载所有的仓库目录。</string>
     <string name="menu_appinfo">应用信息(系统设置)</string>
     <string name="qr_code">二维码</string>
-    <string name="app_name">F-Droid Classic</string>
     <string name="repo_official_mirrors">官方镜像</string>
     <string name="repo_user_mirrors">用户镜像</string>
     <string name="repo_exists_add_mirror">这是%1$s的一个拷贝，将其添加为一个镜像？</string>

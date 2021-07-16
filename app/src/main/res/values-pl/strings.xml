@@ -108,7 +108,6 @@
     <string name="system_install_denied_title">Odmówiono uprawnień systemowych</string>
     <string name="system_install_denied_body">Opcja dostępna tylko wtedy, gdy F-Droid został zainstalowany jako aplikacja systemowa.</string>
     <string name="open_qr_code_scanner">Otwórz skaner QR</string>
-    <string name="app_name">F-Droid Classic</string>
     <string name="SignatureMismatch">Nowa wersja jest podpisana cyfrowo z innym kluczem niż obecna wersja. Aby zainstalować nową wersję, obecna musi zostać najpierw odinstalowana (odinstalowanie aplikacji spowoduje usunięcie jej danych i ustawień)</string>
     <string name="installDowngrade">Próbujesz zainstalować starszą wersję tej aplikacji. Wykonanie tej operacji może powodować błędy w jej działaniu lub utratę danych. Czy chcesz kontynuować?</string>
     <string name="update_interval">Okres pomiędzy sprawdzaniem aktualizacji</string>

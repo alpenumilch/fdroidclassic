@@ -280,7 +280,6 @@
     <string name="link_translate">Перевод</string>
     <string name="opencollective">Open Collective</string>
     <string name="reset_transient_title">Сбросить базу данных\?</string>
-    <string name="app_name">F-Droid Classic</string>
     <string name="repo_user_mirrors">Пользовательские зеркала</string>
     <string name="repo_exists_add_mirror">Это копия %1$s, добавить как зеркало\?</string>
     <string name="antidisabledalgorithmlist">Это приложение имеет слабую подпись безопасности</string>

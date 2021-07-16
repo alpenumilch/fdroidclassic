@@ -312,7 +312,6 @@ perdues. Elle ne requiert aucune autorisation particulière.</string>
     <string name="force_update">Forcer la MàJ</string>
     <string name="reset_transient_message">Êtes-vous sûr·e de vouloir réinitialiser votre client \? Tous les index de dépôt devront être à nouveau téléchargés.</string>
     <string name="reset_transient_title">Réinitialiser la base de données \?</string>
-    <string name="app_name">F-Droid Classic</string>
     <string name="link_translate">Traductions</string>
     <string name="links_and_donations">Liens et dons</string>
     <string name="copied_to_clipboard">Copie dans le presse-papiers</string>

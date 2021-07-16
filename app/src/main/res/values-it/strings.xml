@@ -139,7 +139,6 @@ Puoi attivarlo per vedere le applicazioni che fornisce.</string>
     <string name="system_install_denied_title">Estensione privilegiata di F-Droid non disponibile</string>
     <string name="system_install_denied_body">Questa opzione è disponibile solo quando F-Droid è installato come app di sistema.</string>
     <string name="open_qr_code_scanner">Apri lo scanner per codici QR</string>
-    <string name="app_name">F-Droid Classic</string>
     <string name="app_incompatible">Non compatibile</string>
     <string name="app_inst_known_source">Installato (da %s)</string>
     <string name="app_inst_unknown_source">Installato (da fonte sconosciuta)</string>
