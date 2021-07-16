@@ -2,6 +2,7 @@
 
 * make it possible to scan repo QR codes from the repositories screen
 * link to correct repository from About screen
+* make app name not translatable
 * update dependencies and translations
 
 ### 1.2-beta1 (20.05.2021)

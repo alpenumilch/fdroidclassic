@@ -34,7 +34,7 @@ public class InstallerFactory {
 
     /**
      * Returns an instance of an appropriate installer.
-     * Either DefaultInstaller, PrivilegedInstaller, or FileInstaller
+     * Either DefaultInstaller or PrivilegedInstaller
      *
      * @param context current {@link Context}
      * @param apk     to be installed, always required.
@@ -46,10 +46,7 @@ public class InstallerFactory {
         }
 
         Installer installer;
-        if (!apk.isApk()) {
-            Utils.debugLog(TAG, "Using FileInstaller for non-apk file");
-            installer = new FileInstaller(context, apk);
-        } else if (PrivilegedInstaller.isDefault(context)) {
+        if (PrivilegedInstaller.isDefault(context)) {
             Utils.debugLog(TAG, "privileged extension correctly installed -> PrivilegedInstaller");
             installer = new PrivilegedInstaller(context, apk);
         } else {

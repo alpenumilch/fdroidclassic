@@ -370,5 +370,6 @@
     <string name="scan_qr_code">Scan QR code</string>
     <string name="repo_url_invalid">Not a valid repo URL!</string>
     <string name="button_close_menu">Close menu</string>
+    <string name="button_download">Download</string>
 
 </resources>

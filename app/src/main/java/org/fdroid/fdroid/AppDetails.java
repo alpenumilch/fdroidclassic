@@ -1575,6 +1575,16 @@ public class AppDetails extends AppCompatActivity {
                 btMain.setText(R.string.downloading);
                 btMain.setEnabled(false);
                 btMain.setVisibility(View.GONE);
+            } else if (!app.isApk) {
+                // Media file, just download it with a browser
+                btMain.setText(R.string.button_download);
+                btMain.setOnClickListener(v -> {
+                    Apk suggestedMediaFile = ApkProvider.Helper.findSuggestedApk(getActivity(), app);
+                    Intent downloadIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(suggestedMediaFile.getCanonicalUrl()));
+                    startActivity(downloadIntent);
+                });
+                btMain.setEnabled(true);
+                btMain.setVisibility(View.VISIBLE);
             } else if (!app.isInstalled(this.getContext()) && app.suggestedVersionCode > 0 &&
                     appDetails.adapter.getCount() > 0) {
                 // Check count > 0 due to incompatible apps resulting in an empty list.
@@ -1699,7 +1709,12 @@ public class AppDetails extends AppCompatActivity {
         public void onListItemClick(ListView l, @NonNull View v, int position, long id) {
             App app = appDetails.getApp();
             final Apk apk = appDetails.getApks().getItem(position - l.getHeaderViewsCount());
-            if (app.installedVersionCode == apk.versionCode) {
+            if (!app.isApk){
+                // media file - give it to the browser
+                Intent downloadIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(apk.getCanonicalUrl()));
+                startActivity(downloadIntent);
+            }
+            else if (app.installedVersionCode == apk.versionCode) {
                 appDetails.uninstallApk();
             } else if (app.installedVersionCode > apk.versionCode) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
