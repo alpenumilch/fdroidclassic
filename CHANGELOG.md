@@ -1,6 +1,7 @@
-### 1.2-beta2 (16.07.2021)
+### 1.2-beta2 (?)
 
 * make it possible to scan repo QR codes from the repositories screen
+* open mediafiles from F-Droid repos in the browser instead of trying to "install" them somewhere.
 * link to correct repository from About screen
 * make app name not translatable
 * update dependencies and translations
