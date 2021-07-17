@@ -218,7 +218,6 @@
     <string name="repo_exists_and_enabled">正被戴入的倉庫已設置好並在啟用中。</string>
     <string name="bad_fingerprint">指紋無效</string>
     <string name="status_download_unknown_size">正在從\n%1$s 下載\n%2$s</string>
-    <string name="malformed_repo_uri">略過無效的倉庫 URI：%s</string>
 
     <string name="status_processing_xml_percent">正在從 %1$s\n處理 %2$s / %3$s (%4$d%%)</string>
     <string name="repo_not_yet_updated">此軟件倉庫還未被啟用。

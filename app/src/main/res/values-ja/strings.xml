@@ -47,8 +47,7 @@
   <string name="repo_exists_enable">このﾘﾎﾟｼﾞﾄﾘはすでに設定されています｡再度有効にするか確認してください｡</string>
   <string name="repo_exists_and_enabled">入力中のﾘﾎﾟｼﾞﾄﾘはすでに設定されて有効にされています｡</string>
   <string name="repo_delete_to_overwrite">異なる鍵でﾘﾎﾟｼﾞﾄﾘを追加する前に､このﾘﾎﾟｼﾞﾄﾘを削除する必要があります｡</string>
-  <string name="malformed_repo_uri">不正な形式のﾘﾎﾟｼﾞﾄﾘURIを無視します: %s</string>
-  <string name="menu_update_repo">ﾘﾎﾟｼﾞﾄﾘの更新</string>
+    <string name="menu_update_repo">ﾘﾎﾟｼﾞﾄﾘの更新</string>
   <string name="menu_manage">ﾘﾎﾟｼﾞﾄﾘ</string>
     <string name="menu_about">F-Droidについて</string>
   <string name="menu_search">検索</string>

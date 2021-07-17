@@ -276,7 +276,6 @@
     <string name="no_handler_app">คุณไม่มีโปรแกรมที่รองรับการใช้งาน %s</string>
     <string name="hide_anti_feature_apps_on">แสดงโปรแกรมที่มีฟังก์ชั่นไม่พึงประสงค์เป็นสีเทา</string>
     <string name="hide_anti_feature_apps">ให้โปรแกรมที่มีฟังก์ชั่นไม่พึงประสงค์เป็นสีเทา</string>
-    <string name="malformed_repo_uri">กำลังข้ามแหล่งโปรแกรมที่มี URI ผิดรูป: %s</string>
     <string name="update_auto_install_summary">ดาวน์โหลดและติดตั้งโปรแกรมที่อัดเดต แบบเบื้องหลัง</string>
     <string name="update_auto_install">ติดตั้งโปรแกรมที่อัพเดต โดยอัดโนมัติ</string>
     <string name="all_other_repos_fine">แหล่งโปรแกรมอื่นๆ ไม่ได้มีข้อผิดพลาด</string>

@@ -104,7 +104,6 @@
     <string name="repo_exists_and_enabled">Sarrera biltegia ezarrita eta gaituta dago jada.</string>
     <string name="repo_delete_to_overwrite">Biltegi hau ezabatu behar duzu gako ezberdin batekin sinatutako beste bat gehitu aurretik.</string>
     <string name="invalid_url">URL hau baliogabea da.</string>
-    <string name="malformed_repo_uri">Ezikusi biltegi URI okerra: %s</string>
     <string name="expert_on">Bistaratu informazio eta ezarpen gehigarriak</string>
     <string name="show_incompat_versions_on">Bistaratu gailu honekin bateraezinak diren bertsioak</string>
     <string name="ignoreTouch_on">Beti gehitu ukipen-pantaila behar duten aplikazioak</string>

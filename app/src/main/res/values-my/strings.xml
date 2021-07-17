@@ -79,7 +79,6 @@
     <string name="repo_delete_to_overwrite">ကီးအသစ္တစ္ခုႏွင့္ထည့္သြင္းရန္မတိုင္မီ ဒီရီပိုကိုအရင္ဖ်က္မွရမည္.</string>
     <string name="bad_fingerprint">လက္ေဗြရာမမွန္ကန္ပါ</string>
     <string name="invalid_url">မွန္ကန္ေသာ URL မဟုတ္ပါ.</string>
-    <string name="malformed_repo_uri">repo URI မွားယြင္းျပဳလုပ္မႈကိုလ်စ္လ်ဴရႈမလား : %s</string>
     <string name="repo_provider">Repository: %s</string>
 
     <string name="menu_update_repo">Repo မ်ားအသစ္မြမ္းမံမည္</string>

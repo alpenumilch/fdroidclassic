@@ -75,7 +75,6 @@
     <string name="repo_delete_to_overwrite">Unofanirwa kutanga wadzima pfimbi iyi usati wawedzera imwe nesvumbunuro yakasiyana.</string>
     <string name="bad_fingerprint">Chidhindo chechigunwe ichi chakaipa</string>
     <string name="invalid_url">URL iri harina kururama.</string>
-    <string name="malformed_repo_uri">Kufuratira URI yepfimbi yakapeyama: %s</string>
     <string name="repo_provider">Pfimbi: %s</string>
 
     <string name="menu_update_repo">Natsa pfimbi idzi</string>

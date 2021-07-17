@@ -47,7 +47,6 @@
     <string name="repo_exists_enable">Bu depo zaten ayarlanmıştır, tekrar etkinleştirmek istediğinizi teyit ediniz.</string>
     <string name="repo_exists_and_enabled">Gelen depo zaten kuruludur ve etkinleştirilmiştir.</string>
     <string name="repo_delete_to_overwrite">Değişik anahtarla depo eklemeden evvel bu depoyu silmeniz gerekmektedir.</string>
-    <string name="malformed_repo_uri">Yanlış yapılandırılmış depo URI\'si görmezden geliniyor: %s</string>
     <string name="menu_update_repo">Depoları güncelle</string>
     <string name="menu_manage">Depoları Yönet</string>
     <string name="menu_about">Hakkında</string>

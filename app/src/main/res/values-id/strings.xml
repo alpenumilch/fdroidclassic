@@ -65,7 +65,6 @@
     <string name="repo_delete_to_overwrite">Anda harus menghapus repo ini terlebh dahulu sebelum Anda bisa menambahkan yang baru dengan kunci yang berbeda.</string>
     <string name="bad_fingerprint">Sidik jari buruk</string>
     <string name="invalid_url">Ini bukan URL yang valid.</string>
-    <string name="malformed_repo_uri">Mengabaikan URI repo yang tidak valid: %s</string>
 
     <string name="menu_update_repo">Perbarui Repo</string>
     <string name="menu_manage">Repositori</string>

@@ -85,7 +85,6 @@
     <string name="menu_email">Saada autorile meil</string>
     <string name="empty_search_can_update_app_list">Puudub värskendusele vastav rakendus.</string>
 
-    <string name="malformed_repo_uri">Vahele jäetakse hoidla ebakorrektne URI: %s</string>
     <string name="repo_provider">Hoidla: %s</string>
 
     <string name="menu_update_repo">Värskenda hoidlaid</string>

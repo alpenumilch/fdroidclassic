@@ -45,7 +45,6 @@
     <string name="repo_exists_enable">Questo repository è già configurato, conferma di volerlo attivare nuovamente.</string>
     <string name="repo_exists_and_enabled">Il nuovo repo è già configurato e attivato.</string>
     <string name="repo_delete_to_overwrite">È necessario eliminare questo repo prima di poter aggiungerne uno con una chiave differente.</string>
-    <string name="malformed_repo_uri">Ignora URI repo malformati: %s</string>
     <string name="menu_update_repo">Aggiorna i repository</string>
     <string name="menu_manage">Repository</string>
     <string name="menu_about">Informazioni</string>

@@ -210,7 +210,6 @@
     <string name="theme_night">شب</string>
     <string name="repo_exists_and_enabled">مخزنن ورودی از پیش برپا و فعّال شده است.</string>
     <string name="repo_delete_to_overwrite">باید پیش از افزودن مخزن جدیدی با کلید متفاوت، این را حذف کنید.</string>
-    <string name="malformed_repo_uri">نادیده گرفتن نشانی اینترنتی مخزن ناهنجار: %s</string>
 
     <string name="all_other_repos_fine">تمام مخزن‌های دیگر خطایی ایاد نکردند.</string>
     <string name="repo_not_yet_updated">این مخزن هنوز استفاده نشده است. برای دیدن کاره‌هایی که فراهم می‌کند، باید فعّالش کنید.</string>

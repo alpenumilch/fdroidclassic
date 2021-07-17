@@ -41,7 +41,6 @@
     <string name="fdroid_updates_available">Налични актуализации от F-Droid</string>
     <string name="repo_add_url">Адрес на хранилището</string>
     <string name="repo_add_fingerprint">Отпечатък (незадължително)</string>
-    <string name="malformed_repo_uri">Игнориране на неправилен URI адрес на хранилище: %s</string>
     <string name="menu_update_repo">Актуализиране на хранилищата</string>
     <string name="menu_manage">Хранилища</string>
     <string name="menu_about">Относно</string>

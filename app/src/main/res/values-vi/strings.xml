@@ -43,7 +43,6 @@
     <string name="fdroid_updates_available">Có cập nhật F-Droid</string>
     <string name="repo_add_url">Địa chỉ kho</string>
     <string name="repo_delete_to_overwrite">Bạn phải xoá kho này trước thì mới có thể thêm kho có mã khác.</string>
-    <string name="malformed_repo_uri">Bỏ qua địa chỉ lỗi: %s</string>
     <string name="menu_update_repo">Cập nhật kho</string>
     <string name="menu_manage">Kho ứng dụng</string>
     <string name="menu_about">Giới thiệu</string>

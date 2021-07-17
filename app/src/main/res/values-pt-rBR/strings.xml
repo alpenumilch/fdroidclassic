@@ -47,7 +47,6 @@
     <string name="repo_exists_enable">Este repositório já está configurado, confirma que quer reativá-lo.</string>
     <string name="repo_exists_and_enabled">O repositório já está configurado e habilitado.</string>
     <string name="repo_delete_to_overwrite">Você deve apagar este repositório antes para poder adicionar um com uma chave diferente.</string>
-    <string name="malformed_repo_uri">Ignorando URI de repositório mal formada: %s</string>
     <string name="menu_update_repo">Atualizar repositórios</string>
     <string name="menu_manage">Repositórios</string>
     <string name="menu_about">Sobre</string>

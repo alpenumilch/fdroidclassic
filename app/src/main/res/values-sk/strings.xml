@@ -46,8 +46,7 @@
   <string name="repo_exists_add_fingerprint">Toto repo je už nastavené, toto pridá nové info o kľúčoch.</string>
   <string name="repo_exists_enable">Toto repo je už nastavené, potvrďte jeho znovuzapnutie.</string>
   <string name="repo_delete_to_overwrite">Najprv musíte zmazať tento repozitár. Až potom ho môžete pridať s iným kľúčom.</string>
-  <string name="malformed_repo_uri">Ignorujem chybné URI(adresu) repozitára: %s</string>
-  <string name="menu_update_repo">Aktualizovať repozitáre</string>
+    <string name="menu_update_repo">Aktualizovať repozitáre</string>
   <string name="menu_manage">Repozitáre</string>
     <string name="menu_about">O</string>
   <string name="menu_search">Hľadať</string>

@@ -164,7 +164,6 @@
     <string name="repo_exists_enable">Цей репозиторії вже налаштовано, підтвердіть, що бажаєте знову ввімкнути його.</string>
     <string name="repo_exists_and_enabled">Репозиторій вже налаштовано і увімкнено.</string>
     <string name="repo_delete_to_overwrite">Спершу ви маєте видалити цей репозиторій, а потім додати його з іншим ключем.</string>
-    <string name="malformed_repo_uri">Ігнорування не правильного URI репозиторію: %s</string>
     <string name="antinonfreeadlist">Цей додаток пропонує не вільні доповнення</string>
     <string name="antinonfreenetlist">Цей додаток пропонує не вільні мережеві послуги</string>
     <string name="antiupstreamnonfreelist">Джерельний код не є повністю вільним</string>

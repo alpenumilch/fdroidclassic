@@ -135,7 +135,6 @@
     <string name="bad_fingerprint">Malĝusta fingrospuro</string>
     <string name="repo_delete_to_overwrite">Vi devas unue forigi tiun ĉi deponejon antaŭ vi povos aldoni alian kun malsama ŝlosilo.</string>
     <string name="invalid_url">Tio ĉi ne estas ĝusta ligilo.</string>
-    <string name="malformed_repo_uri">Transsaltis eraran ligilon de deponejo: %s</string>
     <string name="menu_settings">Agordoj</string>
     <string name="menu_email">Retletero al programisto</string>
     <string name="menu_changelog">Ŝanĝoprotokolo</string>

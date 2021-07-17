@@ -55,7 +55,6 @@
     <string name="repo_delete_to_overwrite">תחילה עליך למחוק את מאגר זה בטרם תעמוד לרשותך האפשרות להוסיף אחד עם מפתח אחר.</string>
     <string name="bad_fingerprint">טביעת אצבע רעה</string>
     <string name="invalid_url">אין זה URL תקין.</string>
-    <string name="malformed_repo_uri">מתעלם מן URI מאגר פגום: %s</string>
 
     <string name="menu_update_repo">עדכן מאגרים</string>
     <string name="menu_manage">מאגרים</string>

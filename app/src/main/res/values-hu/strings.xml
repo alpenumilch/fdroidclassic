@@ -121,7 +121,6 @@ Engedélyeznie kell, hogy megtekinthesse az általa kínált appokat.</string>
 
     <string name="bad_fingerprint">Rossz ujjlenyomat</string>
     <string name="invalid_url">Ez nem egy érvényes URL.</string>
-    <string name="malformed_repo_uri">Hibás repo URI figyelmen kívül hagyva: %s</string>
 
     <string name="menu_settings">Beállítások</string>
     <string name="menu_changelog">Változásnapló</string>

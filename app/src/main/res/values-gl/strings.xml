@@ -98,7 +98,6 @@
     <string name="repo_delete_to_overwrite">Primeiro debes eliminar éste repositorio antes de poder engadir outro con diferente chave.</string>
     <string name="bad_fingerprint">Pegada dixital incorrecta</string>
     <string name="invalid_url">Ésta non é unha URL válida.</string>
-    <string name="malformed_repo_uri">Ignorouse unha URL de repositorio mal formada: %s</string>
 
     <string name="menu_changelog">Historial de cambios</string>
     <string name="menu_bitcoin">Bitcoin</string>

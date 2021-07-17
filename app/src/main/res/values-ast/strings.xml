@@ -47,7 +47,6 @@
     <string name="repo_exists_enable">Yá ta configuráu esti respositoriu, confirma que quies rehabilitalu.</string>
     <string name="repo_exists_and_enabled">Yá ta configuráu y habilitáu\'l repositoriu d\'entrada.</string>
     <string name="repo_delete_to_overwrite">Primero tienes de desaniciar esti repositoriu enantes que pueas amestar otru con una clave diferente.</string>
-    <string name="malformed_repo_uri">Inorando l\'URI de repositoriu mal formáu: %s</string>
     <string name="menu_update_repo">Anovar repositorios</string>
     <string name="menu_manage">Repositorios</string>
     <string name="menu_about">Tocante a</string>

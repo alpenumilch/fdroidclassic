@@ -67,7 +67,6 @@
     <string name="repo_delete_to_overwrite">Du skal først slette dette depot, før du kan tilføje et med en forskellig nøgle.</string>
     <string name="bad_fingerprint">Misdannet fingeraftryk</string>
     <string name="invalid_url">Dette er ikke en gyldig URL.</string>
-    <string name="malformed_repo_uri">Ignorerer misdannet depot URI: %s</string>
     <string name="menu_update_repo">Opdater Depoter</string>
     <string name="menu_manage">Depoter</string>
     <string name="menu_settings">Indstillinger</string>

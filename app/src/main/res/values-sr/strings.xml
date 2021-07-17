@@ -47,7 +47,6 @@
     <string name="repo_exists_enable">Ова ризница је већ постављена, потврдите да желите поново да је омогућите.</string>
     <string name="repo_exists_and_enabled">Ризница је већ постављена и омогућена.</string>
     <string name="repo_delete_to_overwrite">Најпре морате да обришете ову ризницу да бисте могли да додате ризницу са другачијим кључем.</string>
-    <string name="malformed_repo_uri">Занемарујем лошу адресу ризнице: %s</string>
     <string name="menu_update_repo">Освежи ризнице</string>
     <string name="menu_manage">Ризнице</string>
     <string name="menu_about">О програму</string>

@@ -47,7 +47,6 @@
     <string name="repo_exists_enable">Diese Paketquelle ist bereits eingerichtet, bestätigen Sie, dass Sie diese wieder aktivieren möchten.</string>
     <string name="repo_exists_and_enabled">Die eingehende Paketquelle ist bereits eingerichtet und aktiviert.</string>
     <string name="repo_delete_to_overwrite">Sie müssen diese Paketquelle zuerst löschen, bevor Sie eine mit einem anderen Schlüssel hinzuzufügen.</string>
-    <string name="malformed_repo_uri">Fehlerhafte Paketquellenadresse wird übergangen: %s</string>
     <string name="menu_update_repo">Paketquellen aktualisieren</string>
     <string name="menu_manage">Paketquellen</string>
     <string name="menu_about">Über</string>

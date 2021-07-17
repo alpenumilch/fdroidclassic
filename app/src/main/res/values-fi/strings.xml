@@ -204,7 +204,6 @@
     <string name="installing">Asennetaan…</string>
     <string name="downloading_apk">Ladataan %1$s</string>
     <string name="update_auto_install_summary">Lataa ja asenna päivitykset sovelluksiin taustalla</string>
-    <string name="malformed_repo_uri">Ohitetaan virheellisesti muodostettu sovelluslähteen URI: %s</string>
     <string name="antinonfreeassetslist">Tämä sovellus sisältää epävapaata omaisuutta</string>
     <string name="rooted_on">Älä himmennä sovelluksia jotka edellyttävät root-oikeuksia</string>
     <string name="hide_anti_feature_apps">Himmennä anti-feature sovellukset</string>

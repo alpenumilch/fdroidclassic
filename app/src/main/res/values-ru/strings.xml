@@ -47,7 +47,6 @@
     <string name="repo_exists_enable">Этот репозиторий уже настроен, подтвердите, что вы хотите снова включить его.</string>
     <string name="repo_exists_and_enabled">Репозиторий уже настроен и включён.</string>
     <string name="repo_delete_to_overwrite">Вы должны сначала удалить этот репозиторий, а потом добавить его с другим ключом.</string>
-    <string name="malformed_repo_uri">Игнорирование неверного URI репозитория: %s</string>
     <string name="menu_update_repo">Обновить репозитории</string>
     <string name="menu_manage">Репозитории</string>
     <string name="menu_about">О программе</string>

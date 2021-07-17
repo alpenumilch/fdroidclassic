@@ -47,7 +47,6 @@
     <string name="repo_exists_enable">저장소가 이미 설치되었으며, 다시 사용할 것인지 확인하세요.</string>
     <string name="repo_exists_and_enabled">도착하는 저장소가 이미 설치되었으며 사용 가능합니다!</string>
     <string name="repo_delete_to_overwrite">다른 키가 할당된 저장소를 추가하기 전에 이 저장소를 먼저 삭제해야 합니다!</string>
-    <string name="malformed_repo_uri">잘못된 형식의 저장소 URI를 무시하는 중: %s</string>
     <string name="menu_update_repo">저장소 업데이트</string>
     <string name="menu_manage">저장소 관리</string>
     <string name="menu_about">대하여</string>
