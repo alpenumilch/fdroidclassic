@@ -28,6 +28,7 @@ import android.os.StrictMode;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
 import androidx.collection.LongSparseArray;
 import androidx.multidex.MultiDexApplication;
 
@@ -135,7 +136,7 @@ public class FDroidApp extends MultiDexApplication {
     }
 
     @Override
-    public void onConfigurationChanged(Configuration newConfig) {
+    public void onConfigurationChanged(@NonNull Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         applyLanguage();
     }
@@ -276,7 +277,7 @@ public class FDroidApp extends MultiDexApplication {
         return 2;
     }
 
-    private static volatile LongSparseArray<String> lastWorkingMirrorArray = new LongSparseArray<>(1);
+    private static final LongSparseArray<String> lastWorkingMirrorArray = new LongSparseArray<>(1);
     private static volatile int numTries = Integer.MAX_VALUE;
     private static volatile int timeout = 10000;
     public static void resetMirrorVars() {
