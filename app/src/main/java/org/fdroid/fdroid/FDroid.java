@@ -242,10 +242,10 @@ public class FDroid extends AppCompatActivity implements SearchView.OnQueryTextL
         // http://stackoverflow.com/a/14820849
         if (!intent.hasExtra(ADD_REPO_INTENT_HANDLED)) {
             intent.putExtra(ADD_REPO_INTENT_HANDLED, true);
-            NewRepoConfig parser = new NewRepoConfig(this, intent);
+            NewRepoConfig parser = new NewRepoConfig(intent.getData());
             if (parser.isValidRepo()) {
                 startActivity(new Intent(ACTION_ADD_REPO, intent.getData(), this, ManageReposActivity.class));
-            } else if (parser.getErrorMessage() != null) {
+            } else if (parser.getErrorMessage() != 0) {
                 Toast.makeText(this, parser.getErrorMessage(), Toast.LENGTH_LONG).show();
             }
         }

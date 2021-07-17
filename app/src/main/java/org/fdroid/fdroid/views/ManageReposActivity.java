@@ -855,12 +855,12 @@ public class ManageReposActivity extends AppCompatActivity
 
     private void addRepoFromIntent(Intent intent) {
         /* an URL from a click, NFC, QRCode scan, etc */
-        NewRepoConfig newRepoConfig = new NewRepoConfig(this, intent);
+        NewRepoConfig newRepoConfig = new NewRepoConfig(intent.getData());
         if (newRepoConfig.isValidRepo()) {
             isImportingRepo = true;
             new AddRepo(newRepoConfig.getRepoUriString(), newRepoConfig.getFingerprint(),
                     newRepoConfig.getUsername(), newRepoConfig.getPassword());
-        } else if (newRepoConfig.getErrorMessage() != null) {
+        } else if (newRepoConfig.getErrorMessage() != 0) {
             Toast.makeText(this, newRepoConfig.getErrorMessage(), Toast.LENGTH_LONG).show();
         }
     }

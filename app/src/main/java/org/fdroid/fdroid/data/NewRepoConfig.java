@@ -1,9 +1,8 @@
 package org.fdroid.fdroid.data;
 
-import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
+
 import org.fdroid.fdroid.R;
 import org.fdroid.fdroid.Utils;
 
@@ -14,7 +13,7 @@ public class NewRepoConfig {
 
     private static final String TAG = "NewRepoConfig";
 
-    private String errorMessage;
+    private int errorMessage = 0;
     private boolean isValidRepo;
 
     private String uriString;
@@ -23,18 +22,12 @@ public class NewRepoConfig {
     private String username;
     private String password;
     private String fingerprint;
-    private String bssid;
-    private String ssid;
 
-    public NewRepoConfig(Context context, String uri) {
-        init(context, uri != null ? Uri.parse(uri) : null);
+    public NewRepoConfig(Uri incomingUri) {
+        init(incomingUri);
     }
 
-    public NewRepoConfig(Context context, Intent intent) {
-        init(context, intent.getData());
-    }
-
-    private void init(Context context, Uri incomingUri) {
+    private void init(Uri incomingUri) {
         /* an URL from a click, NFC, QRCode scan, etc */
         Uri uri = incomingUri;
         if (uri == null) {
@@ -49,7 +42,7 @@ public class NewRepoConfig {
         host = uri.getHost();
         port = uri.getPort();
         if (TextUtils.isEmpty(scheme) || TextUtils.isEmpty(host)) {
-            errorMessage = String.format(context.getString(R.string.malformed_repo_uri), uri);
+            errorMessage = R.string.repo_url_invalid;
             isValidRepo = false;
             return;
         }
@@ -62,7 +55,7 @@ public class NewRepoConfig {
              * should be downcased.
              */
             uri = Uri.parse(uri.toString().toLowerCase(Locale.ENGLISH));
-        } else if (uri.getPath().endsWith("/FDROID/REPO")) {
+        } else if (uri.getPath() != null && uri.getPath().endsWith("/FDROID/REPO")) {
             /*
              * some QR scanners chop off the fdroidrepo:// and just try http://,
              * then the incoming URI does not get downcased properly, and the
@@ -73,43 +66,42 @@ public class NewRepoConfig {
         }
 
         // make scheme and host lowercase so they're readable in dialogs
+        assert scheme != null;
         scheme = scheme.toLowerCase(Locale.ENGLISH);
         host = host.toLowerCase(Locale.ENGLISH);
 
         if (uri.getPath() == null
                 || !Arrays.asList("https", "http", "fdroidrepos", "fdroidrepo").contains(scheme)) {
             isValidRepo = false;
+            errorMessage = R.string.repo_url_invalid;
             return;
         }
 
         String userInfo = uri.getUserInfo();
         if (userInfo != null) {
             String[] userInfoTokens = userInfo.split(":");
-            if (userInfoTokens != null && userInfoTokens.length >= 2) {
+            if (userInfoTokens.length >= 2) {
                 username = userInfoTokens[0];
                 password = userInfoTokens[1];
                 for (int i = 2; i < userInfoTokens.length; i++) {
+                    //noinspection StringConcatenationInLoop
                     password += ":" + userInfoTokens[i];
                 }
             }
         }
 
         fingerprint = uri.getQueryParameter("fingerprint");
-        bssid = uri.getQueryParameter("bssid");
-        ssid = uri.getQueryParameter("ssid");
         uriString = sanitizeRepoUri(uri);
         isValidRepo = true;
     }
 
-    public String getBssid() {
-        return bssid;
-    }
-
-    public String getSsid() {
-        return ssid;
-    }
-
     public int getPort() {
+        if (port == -1) {
+            if (uriString.startsWith("https://"))
+                return 443;
+            if (uriString.startsWith("http://"))
+                return 80;
+        }
         return port;
     }
 
@@ -144,7 +136,7 @@ public class NewRepoConfig {
         return isValidRepo;
     }
 
-    public String getErrorMessage() {
+    public int getErrorMessage() {
         return errorMessage;
     }
 
@@ -154,8 +146,11 @@ public class NewRepoConfig {
     public static String sanitizeRepoUri(Uri uri) {
         String scheme = uri.getScheme();
         String host = uri.getHost();
+        assert host != null;
+        assert scheme != null;
         String userInfo = uri.getUserInfo();
         return uri.toString()
+                .replaceAll("#.*$", "") //remove fragment
                 .replaceAll("\\?.*$", "") // remove the whole query
                 .replaceAll("/*$", "") // remove all trailing slashes
                 .replace(userInfo + "@", "") // remove user authentication

@@ -84,7 +84,6 @@
     <string name="repo_delete_to_overwrite">You must first delete this repo before you can add one with a different key.</string>
     <string name="bad_fingerprint">Bad fingerprint</string>
     <string name="invalid_url">This is not a valid URL.</string>
-    <string name="malformed_repo_uri">Ignoring malformed repo URI: %s</string>
     <string name="repo_provider">Repository: %s</string>
 
     <string name="repo_official_mirrors">Official mirrors</string>

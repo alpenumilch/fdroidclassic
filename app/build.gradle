@@ -1,4 +1,7 @@
 apply plugin: 'com.android.application'
+// keep some basic stuff from the android.jar platform code
+// see https://github.com/bjoernQ/unmock-plugin#how-to-use
+apply plugin: 'de.mobilej.unmock'
 
 /* gets the version name from the latest Git tag */
 def getVersionName = { ->
