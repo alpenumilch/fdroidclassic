@@ -1,3 +1,8 @@
+### 1.2-rc1 (?)
+
+**NOTE**: F-Droid Classic 1.2 will be that last version to support Android 4.4
+
+
 ### 1.2-beta2 (18.07.2021)
 
 * make it possible to scan repo QR codes from repositories screen
