@@ -7,6 +7,7 @@
 
     <style name="AppBaseThemeDark" parent="Theme.AppCompat">
         <!-- backward-compatibility theme options go here -->
+        <item name="swipeRefreshLayoutProgressSpinnerBackgroundColor">@color/fdroid_night_light</item>
         <item name="detailPanel">@drawable/details_panel_donate_background_dark</item>
         <item name="colorPrimary">@color/fdroid_blue_dark</item>
         <item name="colorPrimaryLight">@color/fdroid_blue</item>
@@ -42,6 +43,7 @@
 
     <style name="AppThemeNight" parent="AppThemeDark">
         <!-- customizations that are not API-level specific go here. -->
+        <item name="swipeRefreshLayoutProgressSpinnerBackgroundColor">@color/fdroid_night</item>
         <item name="detailPanel">@drawable/details_panel_donate_background_night</item>
         <item name="colorPrimary">@color/fdroid_night</item>
         <item name="colorPrimaryLight">@color/fdroid_night_light</item>
