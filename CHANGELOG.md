@@ -1,7 +1,8 @@
 ### 1.2-beta2 (?)
 
 * make it possible to scan repo QR codes from the repositories screen
-* open mediafiles from F-Droid repos in the browser instead of trying to "install" them somewhere.
+* open mediafiles from F-Droid repos in the browser instead of trying to "install" them somewhere
+* Only show repo force-update options in expert mode
 * link to correct repository from About screen
 * make app name not translatable
 * update dependencies and translations

@@ -196,7 +196,7 @@ public class ManageReposActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.manage_repos, menu);
-        MenuItem force_update = menu.findItem(R.id.force_refresh_repo);
+        MenuItem force_update = menu.findItem(R.id.clear_etags);
         if (Preferences.get().expertMode())
             force_update.setVisible(true);
         return super.onCreateOptionsMenu(menu);
