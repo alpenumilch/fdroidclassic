@@ -176,7 +176,7 @@ public class UpdateService extends IntentService {
     private void sendRepoErrorStatus(int statusCode, ArrayList<CharSequence> repoErrors) {
         Intent intent = new Intent(LOCAL_ACTION_STATUS);
         intent.putExtra(EXTRA_STATUS_CODE, statusCode);
-        intent.putExtra(EXTRA_REPO_ERRORS, repoErrors.toArray(new CharSequence[repoErrors.size()]));
+        intent.putExtra(EXTRA_REPO_ERRORS, repoErrors.toArray(new CharSequence[0]));
         LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
     }
 
@@ -187,11 +187,7 @@ public class UpdateService extends IntentService {
         @Override
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
-            if (TextUtils.isEmpty(action)) {
-                return;
-            }
-
-            if (!action.equals(LOCAL_ACTION_STATUS)) {
+            if (TextUtils.isEmpty(action) || !action.equals(LOCAL_ACTION_STATUS)) {
                 return;
             }
 
@@ -223,9 +219,11 @@ public class UpdateService extends IntentService {
                 case STATUS_ERROR_LOCAL_SMALL:
                     StringBuilder msgBuilder = new StringBuilder();
                     CharSequence[] repoErrors = intent.getCharSequenceArrayExtra(EXTRA_REPO_ERRORS);
-                    for (CharSequence error : repoErrors) {
-                        if (msgBuilder.length() > 0) msgBuilder.append('\n');
-                        msgBuilder.append(error);
+                    if (repoErrors != null) {
+                        for (CharSequence error : repoErrors) {
+                            if (msgBuilder.length() > 0) msgBuilder.append('\n');
+                            msgBuilder.append(error);
+                        }
                     }
                     if (resultCode == STATUS_ERROR_LOCAL_SMALL) {
                         msgBuilder.append('\n').append(context.getString(R.string.all_other_repos_fine));
