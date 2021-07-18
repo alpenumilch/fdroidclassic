@@ -224,7 +224,9 @@ public class ManageReposActivity extends AppCompatActivity
 
         /* let's see if someone is trying to send us a new repo */
         addRepoFromIntent(getIntent());
-
+        // We don't know if we are still updating, but we will only receive updates if we are,
+        // so we need to disable this and potentially will restart the spinner a second later *shrug*
+        pullToRefresh.setRefreshing(false);
         // Starts a new or restarts an existing Loader in this manager
         LoaderManager.getInstance(this).restartLoader(0, null, this);
     }
