@@ -6,6 +6,7 @@
 * add swipe to refresh handling in the repos screen
 * fix bug where repo list didn't refresh after initial repo updating
 * allow uninstalling updates of system apps
+* make tab titles somewhat work again (See Bubu/fdroidclassic#23)
 * link to correct repository from About screen
 * make app name not translatable
 * update dependencies and translations
