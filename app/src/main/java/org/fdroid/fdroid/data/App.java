@@ -1182,9 +1182,7 @@ public class App extends ValueObject implements Comparable<App>, Parcelable {
     }
 
     public boolean isUninstallable(Context context) {
-        if (this.isMediaInstalled(context)) {
-            return true;
-        } else if (this.isInstalled(context)) {
+        if (this.isInstalled(context)) {
             PackageManager pm = context.getPackageManager();
             ApplicationInfo appInfo;
             try {
@@ -1194,9 +1192,13 @@ public class App extends ValueObject implements Comparable<App>, Parcelable {
                 return false;
             }
 
-            // System apps aren't uninstallable.
             final boolean isSystem = (appInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0;
-            return !isSystem && this.isInstalled(context);
+            final boolean isUpdate = (appInfo.flags & ApplicationInfo.FLAG_UPDATED_SYSTEM_APP) != 0;
+            // Cannot remove system apps unless we're uninstalling updates
+            if (isSystem && ! isUpdate) {
+                return false;
+            }
+            else return this.isInstalled(context);
         } else {
             return false;
         }
