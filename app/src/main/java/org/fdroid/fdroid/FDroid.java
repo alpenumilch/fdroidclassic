@@ -296,28 +296,23 @@ public class FDroid extends AppCompatActivity implements SearchView.OnQueryTextL
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        switch (item.getItemId()) {
-
-            case R.id.action_update_repo:
-                UpdateService.updateNow(this);
-                return true;
-
-            case R.id.action_update_all:
-                UpdateService.autoDownloadUpdates(this);
-                return true;
-
-            case R.id.action_manage_repos:
-                startActivity(new Intent(this, ManageReposActivity.class));
-                return true;
-
-            case R.id.action_settings:
-                Intent prefs = new Intent(getBaseContext(), PreferencesActivity.class);
-                startActivityForResult(prefs, REQUEST_PREFS);
-                return true;
-
-            case R.id.action_about:
-                startActivity(new Intent(this, AboutActivity.class));
-                return true;
+        int itemId = item.getItemId();
+        if (itemId == R.id.action_update_repo) {
+            UpdateService.updateNow(this);
+            return true;
+        } else if (itemId == R.id.action_update_all) {
+            UpdateService.autoDownloadUpdates(this);
+            return true;
+        } else if (itemId == R.id.action_manage_repos) {
+            startActivity(new Intent(this, ManageReposActivity.class));
+            return true;
+        } else if (itemId == R.id.action_settings) {
+            Intent prefs = new Intent(getBaseContext(), PreferencesActivity.class);
+            startActivityForResult(prefs, REQUEST_PREFS);
+            return true;
+        } else if (itemId == R.id.action_about) {
+            startActivity(new Intent(this, AboutActivity.class));
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -325,23 +320,20 @@ public class FDroid extends AppCompatActivity implements SearchView.OnQueryTextL
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        switch (requestCode) {
-            case REQUEST_PREFS:
-                // The automatic update settings may have changed, so reschedule (or
-                // unschedule) the service accordingly. It's cheap, so no need to
-                // check if the particular setting has actually been changed.
-                UpdateService.schedule(getBaseContext());
+        if (requestCode == REQUEST_PREFS) {// The automatic update settings may have changed, so reschedule (or
+            // unschedule) the service accordingly. It's cheap, so no need to
+            // check if the particular setting has actually been changed.
+            UpdateService.schedule(getBaseContext());
 
-                if ((resultCode & PreferencesActivity.RESULT_RESTART) != 0) {
-                    ((FDroidApp) getApplication()).reloadTheme();
-                    final Intent intent = getIntent();
-                    overridePendingTransition(0, 0);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                    finish();
-                    overridePendingTransition(0, 0);
-                    startActivity(intent);
-                }
-                break;
+            if ((resultCode & PreferencesActivity.RESULT_RESTART) != 0) {
+                ((FDroidApp) getApplication()).reloadTheme();
+                final Intent intent = getIntent();
+                overridePendingTransition(0, 0);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                finish();
+                overridePendingTransition(0, 0);
+                startActivity(intent);
+            }
         }
     }
 
