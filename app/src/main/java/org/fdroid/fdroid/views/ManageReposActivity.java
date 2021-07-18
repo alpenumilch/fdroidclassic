@@ -20,12 +20,14 @@
 package org.fdroid.fdroid.views;
 
 import android.annotation.SuppressLint;
+import android.content.BroadcastReceiver;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.res.ColorStateList;
 import android.database.Cursor;
 import android.net.Uri;
@@ -52,6 +54,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.loader.app.LoaderManager;
 import androidx.loader.content.CursorLoader;
 import androidx.loader.content.Loader;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
@@ -79,9 +83,14 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Locale;
 
+import static org.fdroid.fdroid.UpdateService.EXTRA_STATUS_CODE;
+import static org.fdroid.fdroid.UpdateService.LOCAL_ACTION_STATUS;
+import static org.fdroid.fdroid.UpdateService.STATUS_INFO;
+
 public class ManageReposActivity extends AppCompatActivity
         implements LoaderManager.LoaderCallbacks<Cursor>, RepoAdapter.EnabledListener {
     private static final String TAG = "ManageReposActivity";
+    private BroadcastReceiver receiver;
 
     private enum AddRepoState {
         DOESNT_EXIST, EXISTS_FINGERPRINT_MISMATCH, EXISTS_ADD_MIRROR,
@@ -89,11 +98,27 @@ public class ManageReposActivity extends AppCompatActivity
         IS_SWAP
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        LocalBroadcastManager.getInstance(this).registerReceiver((receiver),
+                new IntentFilter(LOCAL_ACTION_STATUS)
+        );
+    }
+
+    @Override
+    protected void onStop() {
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(receiver);
+        super.onStop();
+    }
+
     /**
      * True if activity started with an intent such as from QR code. False if
      * opened from, e.g. the main menu.
      */
     private boolean isImportingRepo;
+
+    private SwipeRefreshLayout pullToRefresh;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -138,6 +163,29 @@ public class ManageReposActivity extends AppCompatActivity
             }
             return false;
         });
+        pullToRefresh = findViewById(R.id.pullToRefresh);
+        pullToRefresh.setColorSchemeResources(R.color.fdroid_green);
+        pullToRefresh.setOnRefreshListener(() -> {
+            UpdateService.updateNow(this);
+        });
+        receiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                String s = intent.getAction();
+                String action = intent.getAction();
+                if (TextUtils.isEmpty(action) || !action.equals(LOCAL_ACTION_STATUS)) {
+                    return;
+                }
+
+                int resultCode = intent.getIntExtra(EXTRA_STATUS_CODE, -1);
+                if (resultCode == STATUS_INFO) {
+                    pullToRefresh.setRefreshing(true);
+                }
+                // all other status codes are success/error, so we are finished then.
+                if (resultCode < STATUS_INFO)
+                    pullToRefresh.setRefreshing(false);
+            }
+        };
     }
 
     private void scanQRCode() {
@@ -210,6 +258,7 @@ public class ManageReposActivity extends AppCompatActivity
             UpdateService.updateNow(this);
             return true;
         } else if (itemId == R.id.action_update_repo) {
+            pullToRefresh.setRefreshing(true);
             UpdateService.updateNow(this);
             return true;
         }
