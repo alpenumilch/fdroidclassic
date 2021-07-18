@@ -287,7 +287,7 @@ perdues. Elle ne requiert aucune autorisation particulière.</string>
     </plurals>
     <string name="signed">Signé : %s</string>
     <string name="app_installed_media">Fichier installé sur %s</string>
-    <string name="qr_code">QR-Code</string>
+    <string name="qr_code">Code QR</string>
     <plurals name="details_last_update_months">
         <item quantity="one">Actualisé il y a un mois en %1$d</item>
         <item quantity="other">Actualisé il y a %1$d mois</item>

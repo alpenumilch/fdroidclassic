@@ -300,7 +300,7 @@ Um darin bereitgestellte Anwendungen anzuzeigen, muss sie aktiviert werden.</str
     <string name="reset_transient_title">Datenbank zurücksetzen\?</string>
     <string name="link_translate">Übersetzungen</string>
     <string name="liberapay">Liberapay</string>
-    <string name="links_and_donations">Links &amp; Spenden</string>
+    <string name="links_and_donations">Links und Spenden</string>
     <string name="copied_to_clipboard">In die Zwischenablage kopiert</string>
     <string name="screenshot">Bildschirmfoto</string>
     <string name="show_screenshots">Bildschirmfotos anzeigen</string>

@@ -141,7 +141,7 @@ Puoi attivarlo per vedere le applicazioni che fornisce.</string>
     <string name="app_incompatible">Non compatibile</string>
     <string name="app_inst_known_source">Installato (da %s)</string>
     <string name="app_inst_unknown_source">Installato (da fonte sconosciuta)</string>
-    <string name="more">Altro</string>
+    <string name="more">Leggi altro</string>
     <string name="back">Indietro</string>
     <string name="less">Meno</string>
     <string name="tab_installed_apps">Installate</string>
@@ -299,7 +299,7 @@ non saranno rimossi. Non richiede alcun permesso speciale.</string>
     <string name="signed">Siglato: %s</string>
     <string name="app_installed_media">File installato a %s</string>
     <string name="download_all_updates">Scarica aggiornamenti</string>
-    <string name="qr_code">QR-Code</string>
+    <string name="qr_code">Codice QR</string>
     <string name="repo_official_mirrors">Specchi ufficiali</string>
     <string name="repo_exists_add_mirror">Questa è una copia di %1$s, aggiungerla come specchio\?</string>
     <string name="details_new_in_version">Nuovo in versione %s</string>
@@ -317,5 +317,10 @@ non saranno rimossi. Non richiede alcun permesso speciale.</string>
     <string name="link_translate">Traduzioni</string>
     <string name="copied_to_clipboard">Copiato negli appunti</string>
     <string name="screenshot">Immagine</string>
-    <string name="links_and_donations">Link e donazioni</string>
+    <string name="links_and_donations">Collegamenti e donazioni</string>
+    <string name="show_screenshots">Mostra schermate</string>
+    <string name="liberapay">Liberapay</string>
+    <string name="opencollective">Open Collective</string>
+    <string name="screenshots_on_demand">Carica schermate su richiesta</string>
+    <string name="screenshots_pref_summary">Richiede un click extra prima di iniziare a recuperare gli screenshot</string>
 </resources>
