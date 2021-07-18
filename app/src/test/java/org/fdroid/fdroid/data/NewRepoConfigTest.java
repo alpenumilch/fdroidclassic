@@ -24,6 +24,34 @@ public class NewRepoConfigTest {
     }
 
     @Test
+    public void stripTrailingSlash() {
+        final Uri repoUrl = Uri.parse("https://bubu1.eu/cctg/fdroid/repo/");
+        final NewRepoConfig newRepoConfig = new NewRepoConfig(repoUrl);
+        assertThat(newRepoConfig.isValidRepo()).isTrue();
+        assertThat(newRepoConfig.getErrorMessage()).isEqualTo(0);
+        assertThat(newRepoConfig.getRepoUriString()).isEqualTo("https://bubu1.eu/cctg/fdroid/repo");
+        assertThat(newRepoConfig.getFingerprint()).isNull();
+        assertThat(newRepoConfig.getPassword()).isNull();
+        assertThat(newRepoConfig.getUsername()).isNull();
+        assertThat(newRepoConfig.getHost()).isEqualTo("bubu1.eu");
+        assertThat(newRepoConfig.getPort()).isEqualTo(443);
+    }
+
+    @Test
+    public void stripTrailingSlashWithFingerprintPresent() {
+        final Uri repoUrl = Uri.parse("https://bubu1.eu/cctg/fdroid/repo/?fingerprint=abc");
+        final NewRepoConfig newRepoConfig = new NewRepoConfig(repoUrl);
+        assertThat(newRepoConfig.isValidRepo()).isTrue();
+        assertThat(newRepoConfig.getErrorMessage()).isEqualTo(0);
+        assertThat(newRepoConfig.getRepoUriString()).isEqualTo("https://bubu1.eu/cctg/fdroid/repo");
+        assertThat(newRepoConfig.getFingerprint()).isEqualTo("abc");
+        assertThat(newRepoConfig.getPassword()).isNull();
+        assertThat(newRepoConfig.getUsername()).isNull();
+        assertThat(newRepoConfig.getHost()).isEqualTo("bubu1.eu");
+        assertThat(newRepoConfig.getPort()).isEqualTo(443);
+    }
+
+    @Test
     public void httpValidRepoTest() {
         final Uri repoUrl = Uri.parse("http://bubu1.eu/cctg/fdroid/repo");
         final NewRepoConfig newRepoConfig = new NewRepoConfig(repoUrl);
@@ -173,5 +201,38 @@ public class NewRepoConfigTest {
         assertThat(newRepoConfig.getPassword()).isEqualTo("bubu1");
         assertThat(newRepoConfig.getRepoUriString()).isEqualTo("https://bubu1.eu:8080/cctg/fdroid/repo");
         assertThat(newRepoConfig.getFingerprint()).isEqualTo("f3f30b6d212d84aea604c3df00e9e4d4a39194a33bf6ec58db53af0ac4b41bec");
+    }
+
+    @Test
+    public void repoWithALLCAPS(){
+        final Uri repoUrl = Uri.parse("HTTPS://BUBU1.EU/CCTG/FDROID/REPO?FINGERPRINT=F3F30B6D212D84AEA604C3DF00E9E4D4A39194A33BF6EC58DB53AF0AC4B41BEC");
+        final NewRepoConfig newRepoConfig = new NewRepoConfig(repoUrl);
+        assertThat(newRepoConfig.isValidRepo()).isTrue();
+        assertThat(newRepoConfig.getErrorMessage()).isEqualTo(0);
+        assertThat(newRepoConfig.getPort()).isEqualTo(443);
+        assertThat(newRepoConfig.getRepoUriString()).isEqualTo("https://bubu1.eu/cctg/fdroid/repo");
+        assertThat(newRepoConfig.getFingerprint()).isEqualTo("f3f30b6d212d84aea604c3df00e9e4d4a39194a33bf6ec58db53af0ac4b41bec");
+    }
+
+    @Test
+    public void repoWithALLCAPSNoFingerprint(){
+        final Uri repoUrl = Uri.parse("HTTPS://BUBU1.EU/CCTG/FDROID/REPO");
+        final NewRepoConfig newRepoConfig = new NewRepoConfig(repoUrl);
+        assertThat(newRepoConfig.isValidRepo()).isTrue();
+        assertThat(newRepoConfig.getErrorMessage()).isEqualTo(0);
+        assertThat(newRepoConfig.getPort()).isEqualTo(443);
+        assertThat(newRepoConfig.getRepoUriString()).isEqualTo("https://bubu1.eu/cctg/fdroid/repo");
+        assertThat(newRepoConfig.getFingerprint()).isNull();
+    }
+    @Test
+    public void repoWithHostAndPathALLCAPS(){
+        // if the /FDROID/REPO part if all caps everything gets downcased. This is probably fine.
+        final Uri repoUrl = Uri.parse("https://BUBU1.EU/CCTG/fdroid/repo");
+        final NewRepoConfig newRepoConfig = new NewRepoConfig(repoUrl);
+        assertThat(newRepoConfig.isValidRepo()).isTrue();
+        assertThat(newRepoConfig.getErrorMessage()).isEqualTo(0);
+        assertThat(newRepoConfig.getPort()).isEqualTo(443);
+        assertThat(newRepoConfig.getRepoUriString()).isEqualTo("https://bubu1.eu/CCTG/fdroid/repo");
+        assertThat(newRepoConfig.getFingerprint()).isNull();
     }
 }
