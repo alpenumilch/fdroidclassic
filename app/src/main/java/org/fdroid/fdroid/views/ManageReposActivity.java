@@ -59,6 +59,7 @@ import com.leinardi.android.speeddial.SpeedDialView;
 
 import org.fdroid.fdroid.FDroidApp;
 import org.fdroid.fdroid.IndexV1Updater;
+import org.fdroid.fdroid.Preferences;
 import org.fdroid.fdroid.R;
 import org.fdroid.fdroid.UpdateService;
 import org.fdroid.fdroid.Utils;
@@ -195,6 +196,9 @@ public class ManageReposActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.manage_repos, menu);
+        MenuItem force_update = menu.findItem(R.id.force_refresh_repo);
+        if (Preferences.get().expertMode())
+            force_update.setVisible(true);
         return super.onCreateOptionsMenu(menu);
     }
 

@@ -10,5 +10,6 @@
         android:id="@+id/clear_etags"
         android:icon="@drawable/ic_refresh_white"
         android:title="@string/force_update"
-        app:showAsAction="never" />
+        app:showAsAction="never"
+        android:visible="false"/>
 </menu>

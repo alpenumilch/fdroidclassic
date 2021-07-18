@@ -24,6 +24,7 @@ import androidx.core.app.NavUtils;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import org.fdroid.fdroid.FDroidApp;
+import org.fdroid.fdroid.Preferences;
 import org.fdroid.fdroid.QrGenAsyncTask;
 import org.fdroid.fdroid.R;
 import org.fdroid.fdroid.UpdateService;
@@ -160,7 +161,10 @@ public class RepoDetailsActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.repo_details_activity, menu);
         MenuItem update_this = menu.findItem(R.id.update_this_repo);
         MenuItem force_update = menu.findItem(R.id.force_refresh_repo);
-        if(!repo.inuse){
+
+        if (Preferences.get().expertMode())
+            force_update.setVisible(true);
+        if (!repo.inuse) {
             update_this.setVisible(false);
             force_update.setVisible(false);
         }
@@ -170,26 +174,26 @@ public class RepoDetailsActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         Intent intent;
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                NavUtils.navigateUpFromSameTask(this);
-                return true;
-            case R.id.update_this_repo:
-                UpdateService.updateRepoNow(repo.address, this);
-                return true;
-            case R.id.force_refresh_repo:
-                RepoProvider.Helper.clearEtagForRepo(this, repo);
-                UpdateService.updateRepoNow(repo.address, this);
-                return true;
-            case R.id.menu_delete:
-                promptForDelete();
-                return true;
-            case R.id.action_share:
-                intent = new Intent(Intent.ACTION_SEND);
-                intent.setType("text/plain");
-                intent.putExtra(Intent.EXTRA_TEXT, shareUrl);
-                startActivity(Intent.createChooser(intent,
-                        getResources().getString(R.string.share_repository)));
+        int itemId = item.getItemId();
+        if (itemId == android.R.id.home) {
+            NavUtils.navigateUpFromSameTask(this);
+            return true;
+        } else if (itemId == R.id.update_this_repo) {
+            UpdateService.updateRepoNow(repo.address, this);
+            return true;
+        } else if (itemId == R.id.force_refresh_repo) {
+            RepoProvider.Helper.clearEtagForRepo(this, repo);
+            UpdateService.updateRepoNow(repo.address, this);
+            return true;
+        } else if (itemId == R.id.menu_delete) {
+            promptForDelete();
+            return true;
+        } else if (itemId == R.id.action_share) {
+            intent = new Intent(Intent.ACTION_SEND);
+            intent.setType("text/plain");
+            intent.putExtra(Intent.EXTRA_TEXT, shareUrl);
+            startActivity(Intent.createChooser(intent,
+                    getResources().getString(R.string.share_repository)));
         }
 
         return super.onOptionsItemSelected(item);
