@@ -749,23 +749,14 @@ public class AppDetails extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.appdetails, menu);
 
         // Launch/Run button; Don't show when the main button say "Run"
-        if (packageManager.getLaunchIntentForPackage(app.packageName) != null
-                && app.canAndWantToUpdate(this))
-            menu.findItem(R.id.action_launch).setVisible(true);
-        else
-            menu.findItem(R.id.action_launch).setVisible(false);
+        menu.findItem(R.id.action_launch).setVisible(packageManager.getLaunchIntentForPackage(app.packageName) != null
+                && app.canAndWantToUpdate(this));
 
         // Uninstall button
-        if (app.isInstalled(this.context) && app.isUninstallable(this.context))
-            menu.findItem(R.id.action_uninstall).setVisible(true);
-        else
-            menu.findItem(R.id.action_uninstall).setVisible(false);
+        menu.findItem(R.id.action_uninstall).setVisible(app.isInstalled(this.context) && app.isUninstallable(this.context));
 
         // AppInfo button
-        if (app.isInstalled(this.context))
-            menu.findItem(R.id.action_appsettings).setVisible(true);
-        else
-            menu.findItem(R.id.action_appsettings).setVisible(false);
+        menu.findItem(R.id.action_appsettings).setVisible(app.isInstalled(this.context));
 
         //IgnoreAllUpdates button
         menu.findItem(R.id.action_ignore_all_updates)
@@ -774,10 +765,7 @@ public class AppDetails extends AppCompatActivity {
         //IgnoreThisUpdate button
         MenuItem item = menu.findItem(R.id.action_ignore_this_updates);
         item.setChecked(app.getPrefs(context).ignoreThisUpdate >= app.suggestedVersionCode);
-        if (app.hasUpdates())
-            item.setVisible(true);
-        else
-            item.setVisible(false);
+        item.setVisible(app.hasUpdates());
 
         return super.onCreateOptionsMenu(menu);
     }
