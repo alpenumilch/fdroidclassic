@@ -1,9 +1,9 @@
-### 1.2-beta2 (?)
+### 1.2-beta2 (18.07.2021)
 
-* make it possible to scan repo QR codes from the repositories screen
-* open media files from F-Droid repos in the browser instead of trying to "install" them somewhere
+* make it possible to scan repo QR codes from repositories screen
+* open media files from F-Droid repos in a browser instead of trying to "install" them somewhere
 * only show repo force-update options in expert mode
-* add swipe to refresh handling in the repos screen
+* add swipe to refresh handling in the repo screen
 * fix bug where repo list didn't refresh after initial repo updating
 * allow uninstalling updates of system apps
 * make tab titles somewhat work again (See Bubu/fdroidclassic#23)
