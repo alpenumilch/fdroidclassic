@@ -26,4 +26,10 @@
     <domain-config cleartextTrafficPermitted="false">
         <domain includeSubdomains="true">gitlab.io</domain>
     </domain-config>
+    <domain-config cleartextTrafficPermitted="false">
+        <domain includeSubdomains="true">codeberg.org</domain>
+    </domain-config>
+    <domain-config cleartextTrafficPermitted="false">
+        <domain includeSubdomains="true">codeberg.page</domain>
+    </domain-config>
 </network-security-config>
