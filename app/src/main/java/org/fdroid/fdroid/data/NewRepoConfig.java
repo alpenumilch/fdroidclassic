@@ -10,8 +10,9 @@ import java.util.Arrays;
 import java.util.Locale;
 
 public class NewRepoConfig {
-
     private static final String TAG = "NewRepoConfig";
+
+    public static final String DEFAULT_NEW_REPO_TEXT = "https://";
 
     private int errorMessage = 0;
     private boolean isValidRepo;
@@ -22,6 +23,10 @@ public class NewRepoConfig {
     private String username;
     private String password;
     private String fingerprint;
+
+    public NewRepoConfig() {
+        uriString = DEFAULT_NEW_REPO_TEXT;
+    }
 
     public NewRepoConfig(Uri incomingUri) {
         init(incomingUri);

@@ -71,7 +71,6 @@ import org.fdroid.fdroid.data.Schema.RepoTable;
 import java.io.File;
 import java.io.IOException;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -82,8 +81,6 @@ import java.util.Locale;
 public class ManageReposActivity extends AppCompatActivity
         implements LoaderManager.LoaderCallbacks<Cursor>, RepoAdapter.EnabledListener {
     private static final String TAG = "ManageReposActivity";
-
-    private static final String DEFAULT_NEW_REPO_TEXT = "https://";
 
     private enum AddRepoState {
         DOESNT_EXIST, EXISTS_FINGERPRINT_MISMATCH, EXISTS_ADD_MIRROR,
@@ -157,12 +154,11 @@ public class ManageReposActivity extends AppCompatActivity
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         if (result != null) {
             if (result.getContents() != null) {
-                RepoInfo repoInfo = extractRepoInfo(result.getContents());
-                if (TextUtils.isEmpty(repoInfo.url)) {
-                    // We couldn't even extract an URL. Abort!
-                    Toast.makeText(this, R.string.repo_url_invalid, Toast.LENGTH_SHORT).show();
+                NewRepoConfig newRepoConfig = new NewRepoConfig(Uri.parse(result.getContents()));
+                if (!newRepoConfig.isValidRepo()) {
+                    Toast.makeText(this, newRepoConfig.getErrorMessage(), Toast.LENGTH_SHORT).show();
                 } else {
-                    new AddRepo(repoInfo);
+                    new AddRepo(newRepoConfig);
                 }
             }
         } else {
@@ -216,6 +212,7 @@ public class ManageReposActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+    @NonNull
     public String getPrimaryClipAsText() {
         CharSequence text = null;
         ClipboardManager clipboardManager = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
@@ -233,7 +230,7 @@ public class ManageReposActivity extends AppCompatActivity
                 }
             }
         }
-        return text != null ? text.toString() : null;
+        return text != null ? text.toString() : "";
     }
 
     private void showAddRepo() {
@@ -242,11 +239,12 @@ public class ManageReposActivity extends AppCompatActivity
          * Otherwise use "https://" as default repo string.
          */
         String text = getPrimaryClipAsText();
-        RepoInfo repoInfo = extractRepoInfo(text);
-        if (TextUtils.isEmpty(repoInfo.url)) {
-            repoInfo.url = DEFAULT_NEW_REPO_TEXT;
+        NewRepoConfig newRepoConfig = new NewRepoConfig(Uri.parse(text));
+        if (!newRepoConfig.isValidRepo()) {
+            // create an empty one with default text
+            newRepoConfig = new NewRepoConfig();
         }
-        new AddRepo(repoInfo);
+        new AddRepo(newRepoConfig);
     }
 
     /**
@@ -269,8 +267,11 @@ public class ManageReposActivity extends AppCompatActivity
 
         private AddRepoState addRepoState;
 
-        AddRepo(RepoInfo repoInfo) {
-            this(repoInfo.url, repoInfo.fingerprint, repoInfo.username, repoInfo.password);
+        AddRepo(NewRepoConfig newRepoConfig) {
+            this(newRepoConfig.getRepoUriString(),
+                    newRepoConfig.getFingerprint(),
+                    newRepoConfig.getUsername(),
+                    newRepoConfig.getPassword());
         }
 
         /**
@@ -383,7 +384,7 @@ public class ManageReposActivity extends AppCompatActivity
                 uriEditText.setText("");
                 uriEditText.append(newAddress);
             }
-            if (uriEditText.getText().toString().equals(DEFAULT_NEW_REPO_TEXT)) {
+            if (uriEditText.getText().toString().equals(NewRepoConfig.DEFAULT_NEW_REPO_TEXT)) {
                 uriEditText.requestFocus();
                 Utils.showKeyboard(context);
             }
@@ -901,10 +902,7 @@ public class ManageReposActivity extends AppCompatActivity
      * press the home button, or edit a repos details? It will start to
      * become somewhat-random as to when the actual enabling, disabling is
      * performed. So now, it just does the disable as soon as the user
-     * clicks "Off" and then removes the apps. To compensate for the removal
-     * of apps from index, it notifies the user via a toast that the apps
-     * have been removed. Also, as before, it will still prompt the user to
-     * update the repos if you toggled on on.
+     * clicks "Off" and then removes the apps.
      */
     @Override
     public void onSetEnabled(Repo repo, boolean isEnabled) {
@@ -936,61 +934,6 @@ public class ManageReposActivity extends AppCompatActivity
      * repo, and wanting the switch to be changed to on).
      */
     private void notifyDataSetChanged() {
-        getSupportLoaderManager().restartLoader(0, null, this);
-    }
-
-    private RepoInfo extractRepoInfo(String repoString) {
-        String repoUrl = null;
-        String fingerprint = null;
-        String username = null;
-        StringBuilder password = null;
-        if (!TextUtils.isEmpty(repoString)) {
-            try {
-                new URL(repoString);
-                Uri uri = Uri.parse(repoString);
-                fingerprint = uri.getQueryParameter("fingerprint");
-                // uri might contain a QR-style, all uppercase URL:
-                if (TextUtils.isEmpty(fingerprint)) {
-                    fingerprint = uri.getQueryParameter("FINGERPRINT");
-                }
-
-                String userInfo = uri.getUserInfo();
-                if (userInfo != null) {
-                    String[] userInfoTokens = userInfo.split(":");
-                    if (userInfoTokens.length >= 2) {
-                        username = userInfoTokens[0];
-                        password = new StringBuilder(userInfoTokens[1]);
-                        for (int i = 2; i < userInfoTokens.length; i++) {
-                            password.append(":").append(userInfoTokens[i]);
-                        }
-                    }
-                }
-
-                repoUrl = NewRepoConfig.sanitizeRepoUri(uri);
-            } catch (MalformedURLException ignored) {
-            }
-        }
-        return new RepoInfo(repoUrl, fingerprint, username, password != null ? password.toString() : null);
-    }
-}
-
-class RepoInfo {
-    @Nullable
-    String url;
-    @Nullable
-    String fingerprint;
-    @Nullable
-    String username;
-    @Nullable
-    String password;
-
-    public RepoInfo(@Nullable String url,
-                    @Nullable String fingerprint,
-                    @Nullable String username,
-                    @Nullable String password) {
-        this.url = url;
-        this.fingerprint = fingerprint;
-        this.username = username;
-        this.password = password;
+        LoaderManager.getInstance(this).restartLoader(0, null, this);
     }
 }
