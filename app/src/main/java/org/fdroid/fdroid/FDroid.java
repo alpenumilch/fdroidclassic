@@ -21,14 +21,14 @@ package org.fdroid.fdroid;
 
 import android.app.NotificationManager;
 import android.app.SearchManager;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.res.Configuration;
-import android.database.ContentObserver;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -38,6 +38,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.core.view.MenuItemCompat;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.viewpager.widget.ViewPager;
 
 import org.fdroid.fdroid.compat.TabManager;
@@ -47,6 +48,10 @@ import org.fdroid.fdroid.installer.PrivilegedInstaller;
 import org.fdroid.fdroid.views.AppListFragmentPagerAdapter;
 import org.fdroid.fdroid.views.ManageReposActivity;
 import org.ligi.tracedroid.sending.TraceDroidEmailSender;
+
+import static org.fdroid.fdroid.UpdateService.EXTRA_STATUS_CODE;
+import static org.fdroid.fdroid.UpdateService.LOCAL_ACTION_STATUS;
+import static org.fdroid.fdroid.UpdateService.STATUS_INFO;
 
 public class FDroid extends AppCompatActivity implements SearchView.OnQueryTextListener {
 
@@ -75,6 +80,7 @@ public class FDroid extends AppCompatActivity implements SearchView.OnQueryTextL
 
     @Nullable
     private String pendingSearchQuery;
+    private BroadcastReceiver receiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,9 +105,22 @@ public class FDroid extends AppCompatActivity implements SearchView.OnQueryTextL
                 getTabManager().selectTab(2);
             }
         }
-
         Uri uri = AppProvider.getContentUri();
-        //getContentResolver().registerContentObserver(uri, true, new AppObserver());
+        receiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                String action = intent.getAction();
+                if (TextUtils.isEmpty(action)) {
+                    return;
+                }
+                if (action.equals(LOCAL_ACTION_STATUS)) {
+                    int resultCode = intent.getIntExtra(EXTRA_STATUS_CODE, -1);
+                    if (resultCode < STATUS_INFO) {
+                        refreshUpdateTabLabel();
+                    }
+                }
+            }
+        };
     }
 
     private void performSearch(String query) {
@@ -121,6 +140,7 @@ public class FDroid extends AppCompatActivity implements SearchView.OnQueryTextL
         super.onResume();
         FDroidApp.checkStartTor(this);
         checkForAddRepoIntent(getIntent());
+        refreshUpdateTabLabel();
     }
 
     @Override
@@ -258,6 +278,20 @@ public class FDroid extends AppCompatActivity implements SearchView.OnQueryTextL
     }
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        LocalBroadcastManager.getInstance(this).registerReceiver(
+                receiver,
+                new IntentFilter(LOCAL_ACTION_STATUS));
+    }
+
+    @Override
+    protected void onStop() {
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(receiver);
+        super.onStop();
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
@@ -277,15 +311,14 @@ public class FDroid extends AppCompatActivity implements SearchView.OnQueryTextL
 
         updateAllMenuItem = menu.findItem(R.id.action_update_all);
         if (PrivilegedInstaller.isExtensionInstalledCorrectly(this) == PrivilegedInstaller.IS_EXTENSION_INSTALLED_YES
-                && Preferences.get().isPrivilegedInstallerEnabled()){
+                && Preferences.get().isPrivilegedInstallerEnabled()) {
             updateAllMenuItem.setTitle(R.string.install_all_updates);
         }
 
         Preferences.get().registerPrivextChangeListener(() -> {
-            if (Preferences.get().isPrivilegedInstallerEnabled()){
+            if (Preferences.get().isPrivilegedInstallerEnabled()) {
                 updateAllMenuItem.setTitle(R.string.install_all_updates);
-            }
-            else {
+            } else {
                 updateAllMenuItem.setTitle(R.string.download_all_updates);
             }
         });
@@ -378,25 +411,6 @@ public class FDroid extends AppCompatActivity implements SearchView.OnQueryTextL
     public boolean onQueryTextChange(String newText) {
         adapter.updateSearchQuery(newText);
         return true;
-    }
-
-    private class AppObserver extends ContentObserver {
-
-        AppObserver() {
-            super(null);
-        }
-
-        @Override
-        public void onChange(boolean selfChange, Uri uri) {
-            Log.d(TAG, "onChange: We got notified of a change!");
-            FDroid.this.runOnUiThread(FDroid.this::refreshUpdateTabLabel);
-        }
-
-        @Override
-        public void onChange(boolean selfChange) {
-            onChange(selfChange, null);
-        }
-
     }
 
 }

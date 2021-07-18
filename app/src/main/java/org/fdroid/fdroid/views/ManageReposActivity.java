@@ -101,7 +101,8 @@ public class ManageReposActivity extends AppCompatActivity
     @Override
     protected void onStart() {
         super.onStart();
-        LocalBroadcastManager.getInstance(this).registerReceiver((receiver),
+        LocalBroadcastManager.getInstance(this).registerReceiver(
+                receiver,
                 new IntentFilter(LOCAL_ACTION_STATUS)
         );
     }
@@ -184,7 +185,7 @@ public class ManageReposActivity extends AppCompatActivity
                 // all other status codes are success/error, so we are finished then.
                 if (resultCode < STATUS_INFO)
                     pullToRefresh.setRefreshing(false);
-                    notifyDataSetChanged();
+                notifyDataSetChanged();
             }
         };
     }
