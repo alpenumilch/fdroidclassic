@@ -33,16 +33,18 @@ This project is probably aimed more at the power user who values function over f
 ### What works
 
 * index-v1 support.
-* Privileged Extension support (in progress, need to release the extensions somewhere)
+* **Privileged Extension** support (Somewhat WiP, see FAQ below)
 * Inline changelogs
-* Screenshots
+* Showing screenshots
 * Translation and Donations options
 * Localized metadata
+* Lots of usability improvements and bug fixes over the official client (some of them are backported by now)
 
 ### Todo
 
 * proper mirror support. They are currently not completely broken, but I'm not actually sure if mirrors are really used right now.
-* There are some occasional performance problems where the UI gets stuttery, this is tracking in #43 (with more background in #23).
+* There are some occasional performance problems where the UI gets stuttery, this is tracked in #43 (with more background in #23).
+* The internals of the app are quite dated by now, which makes developing it further challenging. Major parts of it will need to be rewritten in the near-future.
 
 
 ### Features NOT included
@@ -51,11 +53,8 @@ This project is probably aimed more at the power user who values function over f
 * App auto install via repo push
 * The tile based UI
 * The old xml based index format isn't supported
-* Support for very old version of Android (< 4.0).
-  * Currently minimum Android version is 4.4, supporting 4.0 would be possible with some effort, but I'm not sure that's worth it.
-  * Even on Android 4.4 we can't currently support TLSv1.2, which is bad.
-  * TLSv1.2 support on Android 4.4 is theoretically possible, but without using googles magic it's a lot of effort for very little benefit.
-  * There's some recent discussion around this here: https://forum.f-droid.org/t/lack-of-tls-1-2-breaking-apps-in-older-androids/9823
+* Support for old version of Android (< 4.4).
+  * Minimum Android version will be increased to 5.0 with the upcoming version 1.2 (the TLS support is bad on these old devices and it's really hard to maintain)
 
 
 ## Building with Gradle
@@ -64,23 +63,12 @@ This project is probably aimed more at the power user who values function over f
 
 ## FAQ
 
-* Why does F-Droid Classic require "Unknown Sources" to install apps by default?
-
-Because a regular Android app cannot act as a package manager on its
-own. To do so, it would require system privileges (see below), similar
-to what Google Play does.
-
 * What about privileged extension support?
 
-Currently being worked on. There will be a separate privileged extension for Classic. There might be an extension which supports multiple clients in the future though.
+Currently being worked on. There is a separate privileged extension for Classic, it's available via the F-Droid Classic repository that can be enabled in Settings.
 
-See here for some discussion about this: https://gitlab.com/fdroid/privileged-extension/issues/50
-
-* Can I avoid enabling "Unknown Sources" by installing F-Droid Classic as a  privileged system app?
-
-This used to be the case, but no longer is. Now the [Privileged
-Extension](https://gitlab.com/fdroid/privileged-extension) is the one that should be placed in
-the system. It can be bundled with a ROM or installed via a zip.
+There's a guide for getting this enabled here: https://gbatemp.net/threads/android-f-droid-classic-and-the-new-privileged-extension.583129/
+It works very well once set up, but the install procedure is slightly involved. There's ongoing work to make this easier.
 
 ## Translation
 
@@ -95,14 +83,3 @@ will. Specifically you can redistribute and/or modify it under the terms of the
 [GNU General Public License](https://www.gnu.org/licenses/gpl.html) as
 published by the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
-
-Some icons are made by [Picol](http://www.flaticon.com/authors/picol),
-[Icomoon](http://www.flaticon.com/authors/icomoon) or
-[Dave Gandy](http://www.flaticon.com/authors/dave-gandy) from
-[Flaticon](http://www.flaticon.com) or by Google and are licensed by
-[Creative Commons BY 3.0](https://creativecommons.org/licenses/by/3.0/).
-
-Other icons are from the
-[Material Design Icon set](https://github.com/google/material-design-icons)
-released under an
-[Attribution 4.0 International license](https://creativecommons.org/licenses/by/4.0/).
