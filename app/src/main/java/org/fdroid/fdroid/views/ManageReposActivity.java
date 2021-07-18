@@ -184,6 +184,7 @@ public class ManageReposActivity extends AppCompatActivity
                 // all other status codes are success/error, so we are finished then.
                 if (resultCode < STATUS_INFO)
                     pullToRefresh.setRefreshing(false);
+                    notifyDataSetChanged();
             }
         };
     }
