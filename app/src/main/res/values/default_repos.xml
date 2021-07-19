@@ -27,10 +27,10 @@
         <!-- name -->
         <item>F-Droid</item>
         <!-- address -->
-        <item>https://f-droid.org/repo</item>
+        <item>https://ftp.fau.de/fdroid/repo/</item>
         <!-- description -->
-        <item>The official F-Droid repository. Applications in this repository are mostly built
-            directory from the source code.
+        <item>The official F-Droid repository. Applications in this repository are built
+            directly from the source code.
         </item>
         <!-- version -->
         <item>13</item>

@@ -70,6 +70,11 @@ Currently being worked on. There is a separate privileged extension for Classic,
 There's a guide for getting this enabled here: https://gbatemp.net/threads/android-f-droid-classic-and-the-new-privileged-extension.583129/
 It works very well once set up, but the install procedure is slightly involved. There's ongoing work to make this easier.
 
+* Which repositories can be included in the default list?
+
+All software distributed by these repositories must be fully FOSS, just like it is for the f-droid.org repository. (That means no proprietary FCM libraries included inside apps).
+Additionally it would be preferable if the apps were also distributed via the f-droid.org repository later on via reproducible builds (like both F-Droid Classic and NewPipe are), but that's not a strict requirement for now.
+
 ## Translation
 
 Translations are here: https://weblate.bubu1.eu/projects/f-droid-classic/

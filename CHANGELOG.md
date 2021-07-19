@@ -2,6 +2,9 @@
 
 **NOTE**: F-Droid Classic 1.2 will be that last version to support Android 4.4
 
+* Add (diesabled) NewPipe repo by default.
+* Switch new installs to using ftp.fau.de F-Droid mirrors instead of slow f-droid.org
+
 
 ### 1.2-beta2 (18.07.2021)
 
