@@ -32,6 +32,7 @@
         android:layout_gravity="center_vertical"
         android:contentDescription="@string/app_icon"
         android:scaleType="fitCenter"
+        android:padding="2dp"
         tools:src="@mipmap/ic_launcher"
         android:hapticFeedbackEnabled="true"/>
 
