@@ -19,6 +19,10 @@
 
 package org.fdroid.fdroid.views;
 
+import static org.fdroid.fdroid.UpdateService.EXTRA_STATUS_CODE;
+import static org.fdroid.fdroid.UpdateService.LOCAL_ACTION_STATUS;
+import static org.fdroid.fdroid.UpdateService.STATUS_INFO;
+
 import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
 import android.content.ClipData;
@@ -82,10 +86,6 @@ import java.net.URL;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Locale;
-
-import static org.fdroid.fdroid.UpdateService.EXTRA_STATUS_CODE;
-import static org.fdroid.fdroid.UpdateService.LOCAL_ACTION_STATUS;
-import static org.fdroid.fdroid.UpdateService.STATUS_INFO;
 
 public class ManageReposActivity extends AppCompatActivity
         implements LoaderManager.LoaderCallbacks<Cursor>, RepoAdapter.EnabledListener {
