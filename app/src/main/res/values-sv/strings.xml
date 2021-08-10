@@ -317,4 +317,9 @@ Den kräver inte någon särskild tillgång.</string>
     <string name="show_screenshots">Visa Skärmdumpar</string>
     <string name="screenshots_pref_summary">Kräver ett extra klick innan du börjar hämta skärmdumpar</string>
     <string name="screenshots_on_demand">Ladda skärmdumpar på begäran</string>
+    <string name="repo_url_invalid">Det är inte en giltig URL för repo!</string>
+    <string name="button_close_menu">Stänga menyn</string>
+    <string name="button_download">Hämta</string>
+    <string name="add_repo_enter_details">Ange detaljer</string>
+    <string name="scan_qr_code">Skanna QR-kod</string>
 </resources>

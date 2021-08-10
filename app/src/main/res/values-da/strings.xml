@@ -210,7 +210,7 @@
     <string name="uninstall_confirm">Vil du afinstallere dette program?</string>
     <string name="tap_to_install">Overførsel fuldført, rør for at installere</string>
     <string name="download_error">Overførsel forfejlet</string>
-    <string name="perms_new_perm_prefix">"Nye: "</string>
+    <string name="perms_new_perm_prefix">Nye:</string>
     <string name="perms_description_app">Udbudt af %1$s.</string>
     <string name="downloading">Henter…</string>
     <string name="interval_never">Aldrig</string>
@@ -279,4 +279,13 @@
     <string name="force_update">Gennemtving opdatering</string>
     <string name="reset_transient_message">Er du sikker på, at du vil nulstille din klient\? Alle arkivindekser skal downloades igen.</string>
     <string name="reset_transient_title">Nulstille database\?</string>
+    <string name="show_screenshots">Vis skærmbilleder</string>
+    <string name="screenshot">Skærmbillede</string>
+    <string name="add_repo_enter_details">Indtast detaljer</string>
+    <string name="scan_qr_code">Scan QR koden</string>
+    <string name="repo_url_invalid">Ikke en gyldig repo URL!</string>
+    <string name="button_close_menu">Luk menuen</string>
+    <string name="button_download">Hent</string>
+    <string name="screenshots_on_demand">Indlæs skærmbilleder ved behov</string>
+    <string name="screenshots_pref_summary">Kræver et ekstra klik, før du begynder at hente skærmbilleder</string>
 </resources>

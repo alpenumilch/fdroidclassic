@@ -116,14 +116,12 @@ com aplicativos baixados a partir de índices não assinados.</string>
 Você tem que ativá-lo para ver os aplicativos que ele disponibiliza.</string>
     <string name="unknown">Desconhecido</string>
     <string name="repo_confirm_delete_title">Apagar repositório?</string>
-    <string name="repo_confirm_delete_body">A exclusão de um repositório significa que
-os aplicativos do mesmo não estarão mais disponíveis pelo F-Droid.
-
-Nota: Todos
-os aplicativos previamente instalados permanecerão no seu dispositivo.</string>
+    <string name="repo_confirm_delete_body">A exclusão de um repositório significa que os aplicativos do mesmo não estarão mais disponíveis pelo F-Droid. 
+\n
+\nNota: Todos os aplicativos previamente instalados permanecerão no seu dispositivo.</string>
     <string name="repo_added">Repositório F-Droid %1$s salvo.</string>
-    <string name="repo_searching_address">Procurando por repositório F-Droid em
-%1$s</string>
+    <string name="repo_searching_address">Procurando por repositório F-Droid em 
+\n%1$s</string>
     <string name="minsdk_or_later">%s ou posterior</string>
     <string name="up_to_maxsdk">Até %s</string>
     <string name="minsdk_up_to_maxsdk">De %1$s até %2$s</string>
@@ -161,12 +159,12 @@ os aplicativos previamente instalados permanecerão no seu dispositivo.</string>
     <string name="uninstall_error_unknown">Falha ao desinstalar devido a um erro desconhecido</string>
     <string name="system_install_post_success">A extensão privilegiada do F-Droid foi instalada com sucesso</string>
     <string name="system_install_post_fail">Falha na instalação da extensão privilegiada do F-Droid</string>
-    <string name="system_install_post_success_message">A extensão privilegiada do F-Droid foi instalada com sucesso. Isso permite o F-Droid instalar, atualizar e desinstalar aplicativos por conta própria.</string>
+    <string name="system_install_post_success_message">A Extensão F-Droid Privileged foi instalada com sucesso. Isto permite que o F-Droid Classic instale, atualize e desinstale aplicativos por conta própria.</string>
     <string name="system_install_post_fail_message">A instalação da extensão privilegiada do F-Droid falhou. O método de instalação não é suportado por todas as distribuições do Android, por favor consulte o rastreador de bugs do F-Droid para mais informações.</string>
     <string name="system_install_installing">Instalando…</string>
     <string name="system_install_uninstalling">Desinstalando…</string>
     <string name="system_install_question">Você quer instalar a extensão privilegiada do F-Droid?</string>
-    <string name="system_install_warning_lollipop">Você quer instalar o F-Droid privilegiado?\nIsto leva até 10 segundos e o dispositivo será reinicializado depois.<b>reinicializado</b> depois.</string>
+    <string name="system_install_warning_lollipop">Isto leva até 10 segundos e o dispositivo será <b>rebooted</b> depois.</string>
     <string name="system_uninstall">Você quer desinstalar a extensão privilegiada do F-Droid?</string>
     <string name="system_uninstall_button">Desinstalar</string>
     <string name="about_source">Código fonte</string>
@@ -197,7 +195,7 @@ serão perdidos. Ele não exige nenhum acesso especial.</string>
     <string name="uninstall_update_confirm">Você quer substituir este aplicativo com a versão de fábrica?</string>
     <string name="uninstall_confirm">Você quer desinstalar este aplicativo?</string>
     <string name="tap_to_install">Download concluído, toque para instalar</string>
-    <string name="perms_new_perm_prefix">"Novo: "</string>
+    <string name="perms_new_perm_prefix">Novo:</string>
     <string name="perms_description_app">Fornecido por %1$s.</string>
     <string name="downloading">Baixando…</string>
     <string name="interval_never">Nunca</string>
@@ -222,7 +220,7 @@ serão perdidos. Ele não exige nenhum acesso especial.</string>
     <string name="system_install_button_open">Abrir extensão</string>
     <string name="system_install_installing_rebooting">Instalando e reinicializando…</string>
     <string name="system_install_warning">Isto leva até 10 segundos.</string>
-    <string name="more">Mais</string>
+    <string name="more">Leia mais</string>
     <string name="less">Menos</string>
     <string name="status_download_unknown_size">Baixando\n%2$s de\n%1$s</string>
     <string name="permissions">Permissões</string>
@@ -287,4 +285,17 @@ serão perdidos. Ele não exige nenhum acesso especial.</string>
     <string name="repo_user_mirrors">Espelhos do usuário</string>
     <string name="app_permission_storage">A F-Droid precisa da permissão de armazenamento para instalar isto no armazenamento. Por favor, permita-o na tela seguinte para prosseguir com a instalação.</string>
     <string name="qr_code">QR-Code</string>
+    <string name="force_update">Atualização da força</string>
+    <string name="copied_to_clipboard">Copiado em prancheta</string>
+    <string name="add_repo_enter_details">Entrar os detalhes</string>
+    <string name="scan_qr_code">Código QR Scan</string>
+    <string name="repo_url_invalid">Não é um URL válido!</string>
+    <string name="button_close_menu">Fechar menu</string>
+    <string name="install_all_updates">Instalar Atualizações</string>
+    <string name="screenshot">Captura de tela</string>
+    <string name="menu_update_this_repo">Atualize este comunicado</string>
+    <string name="links_and_donations">Links &amp; Doações</string>
+    <string name="link_translate">Traduções</string>
+    <string name="reset_transient_message">Você tem certeza de que quer reiniciar seu cliente\? Todos os índices de repositório precisarão ser baixados novamente.</string>
+    <string name="reset_transient_title">Restabelecer o banco de dados\?</string>
 </resources>

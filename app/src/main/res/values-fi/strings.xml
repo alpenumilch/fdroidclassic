@@ -99,7 +99,7 @@
     <string name="category_Development">Kehittäminen</string>
     <string name="category_Games">Pelit</string>
     <string name="category_Internet">Internet</string>
-    <string name="category_Multimedia">Multimedia</string>
+    <string name="category_Multimedia">Multimediat</string>
     <string name="category_Navigation">Navigointi</string>
     <string name="category_Phone_SMS">Puhelin &amp; SMS</string>
     <string name="category_Reading">Lukeminen</string>
@@ -316,4 +316,9 @@
     <string name="show_screenshots">Näytä Kuvakaappauksia</string>
     <string name="screenshots_pref_summary">Vaatii ylimääräisen napsautuksen ennen kuin aloitat kuvakaappausten hakemisen</string>
     <string name="opencollective">Open Collective</string>
+    <string name="add_repo_enter_details">Kirjoita tiedot</string>
+    <string name="scan_qr_code">Skannaa QR koodi</string>
+    <string name="button_close_menu">Sulje menu</string>
+    <string name="button_download">Lataa</string>
+    <string name="repo_url_invalid">Ei kelvollinen repo-URL!</string>
 </resources>

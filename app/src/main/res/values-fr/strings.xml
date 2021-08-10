@@ -145,7 +145,7 @@ Vous devez l\'activer pour voir la liste des applis qu\'il offre.</string>
     <string name="unstable_updates">Mises à jour instables</string>
     <string name="unstable_updates_summary">Proposer les mises à jour de versions instables</string>
     <string name="about_source">Code source</string>
-    <string name="app_incompatible">Incompatible</string>
+    <string name="app_incompatible">Incompatibilité</string>
     <string name="links">Liens</string>
     <string name="back">Retour</string>
     <string name="tab_installed_apps">Installées</string>
@@ -320,4 +320,9 @@ perdues. Elle ne requiert aucune autorisation particulière.</string>
     <string name="screenshots_pref_summary">Nécessite un clic supplémentaire avant de commencer à récupérer des captures d\'écran</string>
     <string name="screenshots_on_demand">Charger des captures d\'écran à la demande</string>
     <string name="opencollective">Open Collective</string>
+    <string name="add_repo_enter_details">Entrez les détails</string>
+    <string name="scan_qr_code">Scanner code QR</string>
+    <string name="button_close_menu">Fermer menu</string>
+    <string name="button_download">Télécharger</string>
+    <string name="repo_url_invalid">L\'URL du dépôt n\'est pas valide !</string>
 </resources>

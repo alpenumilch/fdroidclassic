@@ -323,4 +323,9 @@ non saranno rimossi. Non richiede alcun permesso speciale.</string>
     <string name="opencollective">Open Collective</string>
     <string name="screenshots_on_demand">Carica schermate su richiesta</string>
     <string name="screenshots_pref_summary">Richiede un click extra prima di iniziare a recuperare gli screenshot</string>
+    <string name="add_repo_enter_details">Inserisci dettagli</string>
+    <string name="scan_qr_code">Scannerizza il codice QR</string>
+    <string name="repo_url_invalid">Non è un URL repo valido!</string>
+    <string name="button_close_menu">Chiudi menu</string>
+    <string name="button_download">Scaricare</string>
 </resources>

@@ -134,7 +134,7 @@
     <string name="status_download">Stahování\n%2$s / %3$s (%4$d%%) z\n%1$s</string>
     <string name="unstable_updates">Nestabilní aktualizace</string>
     <string name="unstable_updates_summary">Doporučovat aktualizace na nestabilní verze</string>
-    <string name="more">Více</string>
+    <string name="more">Čtěte více</string>
     <string name="less">Méně</string>
     <string name="tab_installed_apps">Nainstalováno</string>
     <string name="bad_fingerprint">Špatný fingerprint</string>
@@ -200,7 +200,7 @@
     <string name="uninstall_confirm">Odinstalovat tuto aplikaci?</string>
     <string name="tap_to_install">Stažení kompletní, dotykem instalovat</string>
     <string name="download_error">Stažení neúspěšné</string>
-    <string name="perms_new_perm_prefix">"Nová: "</string>
+    <string name="perms_new_perm_prefix">Nová:</string>
     <string name="perms_description_app">Poskytováno %1$s.</string>
     <string name="downloading">Stahování…</string>
     <string name="interval_never">Nikdy</string>
@@ -279,4 +279,13 @@
     <string name="force_update">Vynutit aktualizaci</string>
     <string name="reset_transient_message">Opravdu chcete resetovat klienta\? Bude nutné znovu stáhnout všechny indexy úložiště.</string>
     <string name="reset_transient_title">Obnovit databázi\?</string>
+    <string name="show_screenshots">Ukázat snímky obrazovky</string>
+    <string name="screenshots_on_demand">Načítání snímků obrazovky na vyžádání</string>
+    <string name="screenshot">Snímek obrazovky</string>
+    <string name="add_repo_enter_details">Zadejte detaily</string>
+    <string name="scan_qr_code">Naskenování QR kódu</string>
+    <string name="repo_url_invalid">Není platná adresa URL repo!</string>
+    <string name="button_close_menu">Zavřít menu</string>
+    <string name="button_download">Stáhnout</string>
+    <string name="screenshots_pref_summary">Vyžaduje další kliknutí před zahájením načítání snímků obrazovky</string>
 </resources>

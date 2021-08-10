@@ -179,11 +179,9 @@
  із додатками, які завантажуєте з не підписаних джерел.</string>
     <string name="repo_not_yet_updated">Цей репозиторій ще не використовувався.
  Ввімкніть його, аби побачити додатки, які він містить.</string>
-    <string name="repo_confirm_delete_body">"Видалення репозиторію означає,
-\n що додатки з нього не будуть доступні з  F-Droid Classic.
+    <string name="repo_confirm_delete_body">Видалення сховища означає, Що додатки з нього більше не будуть доступні в F-Droid Classic.
 \n
-\nПримітка: Всі раніше встановленні
-\n додатки залишаться на пристрої."</string>
+\nПримітка: всі раніше встановлені програми залишаться на вашому пристрої.</string>
     <string name="minsdk_or_later">%s чи старше</string>
     <string name="up_to_maxsdk">До %s</string>
     <string name="minsdk_up_to_maxsdk">%1$s до %2$s</string>
@@ -213,7 +211,7 @@
  Ваші наявні дані не буде втрачено.
  Оновлений додаток не потребує спеціальних дозволів.</string>
     <string name="uninstall_update_confirm">Бажаєте замінити цей додаток заводською версією?</string>
-    <string name="perms_new_perm_prefix">"Нові: "</string>
+    <string name="perms_new_perm_prefix">Нові:</string>
     <string name="empty_installed_app_list">Жодного додатку не встановлено.\n\nДодатки, які встановлені на вашому пристрої, не доступні через F-Droid. Можливо вам слід оновити репозиторії, або ж ваші репозиторії не містять такі додатки.</string>
     <string name="system_install_post_fail_message">Не вдалося встановити привілейоване розширення F-Droid. Метод встановлення не підтримується постачальником системи Android, будь ласка, проконсультуйтеся на форумі F-Droid з приводу отримання додаткової інформації.</string>
     <string name="repo_added">F-Droid ропозиторій %1$s збережено.</string>
@@ -324,4 +322,9 @@
     <string name="force_update">Примусове оновлення</string>
     <string name="liberapay">Liberapay</string>
     <string name="screenshots_pref_summary">Потрібен додатковий \"тап\" перед початком завантаження знімків екрана</string>
+    <string name="repo_url_invalid">Неприпустима URL-адреса репо!</string>
+    <string name="button_close_menu">Закрити меню</string>
+    <string name="button_download">Скачавши</string>
+    <string name="add_repo_enter_details">Введіть дані</string>
+    <string name="scan_qr_code">Сканувати QR код</string>
 </resources>

@@ -282,4 +282,12 @@
     <string name="install_all_updates">Instalacja aktualizacji</string>
     <string name="reset_transient_message">Na pewno chcesz zresetować swojego klienta\? Wszystkie indeksy repozytorium będą musiały być ponownie pobrane.</string>
     <string name="menu_update_this_repo">Aktualizuj to Repo</string>
+    <string name="screenshots_on_demand">Ładuj zrzuty ekranu na żądanie</string>
+    <string name="screenshots_pref_summary">Wymaga dodatkowego kliknięcia przed rozpoczęciem pobierania zrzutów ekranu</string>
+    <string name="repo_url_invalid">Nie prawidłowy URL repo!</string>
+    <string name="button_close_menu">Zamknąć menu</string>
+    <string name="button_download">Pobierz</string>
+    <string name="show_screenshots">Pokaż zrzuty ekranu</string>
+    <string name="add_repo_enter_details">Podaj dane</string>
+    <string name="scan_qr_code">Skanuj kod QR</string>
 </resources>

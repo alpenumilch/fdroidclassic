@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SignatureMismatch">Uus versioon on allkirjastatud vana versiooniga võrreldes erineva võtmega. Uue versiooni paigaldamiseks on vaja esmalt eemaldada vana. Palun tee seda ja proovi uuesti. (Tähelepanu: eemaldamisel kustutatakse programmiga seotud andmed.)</string>
     <string name="installIncompatible">Tundub, et see pakett ei ühildu su seadmega. Kas sa soovid ikkagi proovida selle paigaldamist?</string>
@@ -11,7 +11,6 @@
     <string name="unstable_updates">Ebastabiilsed värskendused</string>
     <string name="unstable_updates_summary">Soovita värskendamist ebastabiilsetele versioonidele</string>
     <string name="other">Muu</string>
-
     <string name="update_interval">Automaatne värskendusintervall</string>
     <string name="update_interval_zero">Ära värskenda rakenduste loendit automaatselt</string>
     <string name="automatic_scan_wifi">Ainult Wi-Fi ühendusega</string>
@@ -23,46 +22,37 @@
     <string name="update_history">Värskenduste ajalugu</string>
     <string name="update_history_summ">Päevade arv, mille jooksul kuvatakse rakendust uuena: %s</string>
     <string name="system_installer">Priviligeeritud laiendus</string>
-    <string name="system_installer_on">"Kasuta pakettide paigaldamiseks, värskendamiseks ja eemaldamiseks  F-Droidi priviligeeritud laiendust"</string>
-
+    <string name="system_installer_on">Pakettide installimiseks, uuendamiseks ja eemaldamiseks kasutage F-Droid Privileged Extension\'i</string>
     <string name="login_title">Autentimine on nõutav</string>
     <string name="login_name">Kasutajanimi</string>
     <string name="login_password">Salasõna</string>
     <string name="repo_edit_credentials">Muuda salasõna</string>
     <string name="repo_error_empty_username">Kasutajanimi on tühi, mandaati ei muudetud</string>
-
     <string name="app_details">Rakenduse andmed</string>
     <string name="no_such_app">Sellist rakendust ei leitud.</string>
-
     <string name="about_version">Versioon</string>
     <string name="about_source">Lähtekood</string>
     <string name="about_mail">Meil</string>
     <string name="about_license">Litsents</string>
-
     <string name="app_incompatible">Ühildumatu</string>
     <string name="app_installed">Paigaldatud</string>
     <string name="app_not_installed">Paigaldamata</string>
     <string name="app_inst_known_source">Paigaldatud (%s)</string>
     <string name="app_inst_unknown_source">Paigaldatud (tundmatust allikast)</string>
-
     <string name="added_on">Lisatud %s</string>
-
     <string name="ok">Ok</string>
-
     <string name="yes">Jah</string>
     <string name="no">Ei</string>
     <string name="repo_add_title">Lisa uus hoidla</string>
     <string name="repo_add_add">Lisa</string>
     <string name="links">Lingid</string>
-    <string name="more">Rohkem</string>
+    <string name="more">Loe edasi</string>
     <string name="less">Vähem</string>
-
     <string name="back">Tagasi</string>
     <string name="cancel">Loobu</string>
     <string name="enable">Luba</string>
     <string name="add_key">Lisa võti</string>
     <string name="overwrite">Kirjuta üle</string>
-
     <string name="tab_available_apps">Saadaval</string>
     <string name="tab_installed_apps">Paigaldatud</string>
     <string name="tab_updates">Värskendused</string>
@@ -72,7 +62,6 @@
     <string name="many_updates_available">%d värskendust on saadaval.</string>
     <string name="fdroid_updates_available">F-Droid: värskendused saadaval</string>
     <string name="update_notification_more">+%1$d veel…</string>
-
     <string name="repo_add_url">Hoidla aadress</string>
     <string name="repo_add_fingerprint">Sõrmejälg (valikuline)</string>
     <string name="repo_exists_add_fingerprint">See hoidla on juba seadistatud, see lisab uue võtme teabe.</string>
@@ -84,13 +73,10 @@
     <string name="install_confirm_update">Kas soovid paigaldada värskenduse sellele rakendusele? Olemasolevad andmed jäävad alles. Värskendatud rakendus saab ligipääsu:</string>
     <string name="menu_email">Saada autorile meil</string>
     <string name="empty_search_can_update_app_list">Puudub värskendusele vastav rakendus.</string>
-
     <string name="repo_provider">Hoidla: %s</string>
-
     <string name="menu_update_repo">Värskenda hoidlaid</string>
     <string name="menu_manage">Hoidlad</string>
     <string name="menu_add_repo">Uus hoidla</string>
-
     <string name="antitracklist">See rakendus jälgib ja raporteerib su aktiivsusest</string>
     <string name="update_notification_title">Hoidlaid värskendatakse</string>
     <string name="repos_unchanged">Kõik hoidlad on kaasajastaud</string>
@@ -98,7 +84,9 @@
     <string name="repo_details">Hoidla</string>
     <string name="repo_not_yet_updated">Seda hoidlat ei ole veel kasutatud. Hoidla pakutavate rakenduste vaatamiseks kasutamiseks pead sa hoidla lubama.</string>
     <string name="repo_confirm_delete_title">Kas kustutada hoidla?</string>
-    <string name="repo_confirm_delete_body">Hoidla kustutamine tähendab, et hoidla pakutavad rakendused ei ole enam F-Droidist saadaval.\n\nMärkus: paigaldatud rakendused jäävad seadmesse alles.</string>
+    <string name="repo_confirm_delete_body">Hoidla kustutamine tähendab, et hoidla pakutavad rakendused ei ole enam F-Droid Classic.
+\n
+\nMärkus: paigaldatud rakendused jäävad seadmesse alles.</string>
     <string name="repo_added">Salvestatu F-Droidi hoidla %1$s.</string>
     <string name="repo_searching_address">Otsitakse F-Droidi hoidlat aadressil\n%1$s</string>
     <string name="not_on_same_wifi">Sinu seade ei asu äsja lisatud kohaliku hoidlaga samas Wi-Fi võrgus! Proovi liituda selle võrguga: %s</string>
@@ -132,25 +120,18 @@
     <string name="menu_bitcoin">Bitcoin</string>
     <string name="menu_litecoin">Litecoin</string>
     <string name="menu_flattr">Flattr</string>
-
-
     <string name="details_installed">Versioon %s paigaldatud</string>
     <string name="details_notinstalled">Pole paigaldatud</string>
-
     <string name="antiadslist">Selles rakenduses on reklaame</string>
     <string name="antinonfreeadlist">See rakendus edendab mitte-vabu laiendusi</string>
     <string name="antinonfreenetlist">See rakendus edendab mitte-vabu võrguteenuseid</string>
     <string name="antinonfreedeplist">See rakendus sõltub teistest mitte-vabadest rakendustest</string>
     <string name="antiupstreamnonfreelist">Ülesvoolu lähtekood ei ole täiesti vaba</string>
     <string name="antinonfreeassetslist">Selles rakenduses on mitte-vabu varasid</string>
-
     <string name="display">Kuva</string>
-
     <string name="expert">Eksperdi režiim</string>
     <string name="expert_on">Näita täiendavat infot ja luba täiendavad seaded</string>
-
     <string name="search_hint">Otsi rakendusi</string>
-
     <string name="appcompatibility">Rakenduste ühilduvus</string>
     <string name="show_incompat_versions">Ühildumatud versioonid</string>
     <string name="show_incompat_versions_on">Kuva seadmega ühildumatute rakenduste versioonid</string>
@@ -158,10 +139,8 @@
     <string name="rooted_on">Ära märgi halliga rakendusi, mis vajavad juur-kasutaja õiguseid</string>
     <string name="ignoreTouch">Ignoreeri puuteekraani</string>
     <string name="ignoreTouch_on">Alati kaasa puuteekraani vajavad rakendused</string>
-
     <string name="next">Järgmine</string>
     <string name="skip">Jäta vahele</string>
-
     <string name="useTor">Kasuta Tori</string>
     <string name="useTorSummary">Privaatsuse suurendamiseks kohusta alla laadimisel Tori kasutamine</string>
     <string name="proxy">Puhverserver</string>
@@ -171,9 +150,7 @@
     <string name="proxy_host_summary">Konfigureeri oma puhverserveri nimi (nt. 127.0.0.1)</string>
     <string name="proxy_port">Puhverserver port</string>
     <string name="proxy_port_summary">Konfigureeri oma puhverserveri pordi number (nt. 8118)</string>
-
     <string name="status_download">Alla laadimine\n%2$s / %3$s (%4$d%%) masinast\n%1$s</string>
-
     <string name="status_download_unknown_size">%2$s\nalla laadimine\nmasinast %1$s</string>
     <string name="status_processing_xml_percent">%2$s / %3$s (%4$d%%) kokku %1$s töödeldud</string>
     <string name="status_connecting_to_repo">Ühenduse loomine\n%1$s</string>
@@ -197,9 +174,7 @@
     <string name="requires_features">Nõuab: %1$s</string>
     <string name="pref_language">Keel</string>
     <string name="pref_language_default">Süsteemi vaikesäte</string>
-
     <string name="app_icon">Rakenduse ikoon</string>
-
     <string name="category_All">Kõik</string>
     <string name="category_Whats_New">Mis on uut</string>
     <string name="category_Connectivity">Ühenduvus</string>
@@ -219,7 +194,6 @@
     <string name="category_Theming">Teemad</string>
     <string name="category_Time">Aeg</string>
     <string name="category_Writing">Kirjutamine</string>
-
     <string name="empty_search_installed_app_list">Puuduvad vastavad paigaldatud rakendused.</string>
     <string name="empty_search_available_app_list">Sobivaid rakendusi ei ole.</string>
     <string name="install_error_unknown">Paigaldamine nurjus tundmatu vea tõttu</string>
@@ -230,7 +204,7 @@
     <string name="system_install_button_open">Ava laiendus</string>
     <string name="system_install_post_success">F-Droidi privilegeeritud laiendus paigaldati edukalt</string>
     <string name="system_install_post_fail">F-Droid privilegeeritud laienduse paigaldamine nurjus</string>
-    <string name="system_install_post_success_message">F-Droid privilegeeritud laiendus paigaldati edukalt. See võimaldab F-Droidil paigaldada, uuendada ja eemaldada rakendusi iseseisvalt.</string>
+    <string name="system_install_post_success_message">F-Droid Privileged Extension on edukalt paigaldatud. See võimaldab F-Droid Classic abil ise rakendusi paigaldada, uuendada ja eemaldada.</string>
     <string name="system_install_post_fail_message">F-Droid privilegeeritud laienduse paigaldamine nurjus. Kõik Androidi väljalasked ei toeta paigaldamise meetodit. Lisateavet leiad F-Droidi veahaldusest.</string>
     <string name="system_install_installing">Paigaldamine…</string>
     <string name="system_install_installing_rebooting">Paigaldamine ja taaskäivitamine…</string>
@@ -240,10 +214,8 @@
     <string name="system_install_warning_lollipop">Selleks kulub kuni 10 sekundit ja seadmele tehakse hiljem <b>taaskäivitus</b>.</string>
     <string name="system_uninstall">Kas soovid eemaldada F-Droidi priviligeeritud laienduse?</string>
     <string name="system_uninstall_button">Eemalda</string>
-
     <string name="open_qr_code_scanner">Ava QR skanner</string>
     <string name="loading">Laadimine…</string>
-
     <string name="tap_to_install_format">Puuduta %s paigaldamiseks</string>
     <string name="install_confirm">vajab juurdepääsu</string>
     <string name="newPerms">Uus</string>
@@ -256,15 +228,12 @@
     <string name="download_pending">Oodatakse allalaadimise algamist…</string>
     <string name="install_error_notify_title">Viga %s paigaldamisel</string>
     <string name="uninstall_error_notify_title">Viga %s eemaldamisel</string>
-
-
-    <string name="perms_new_perm_prefix">"Uus: "</string>
+    <string name="perms_new_perm_prefix">Uus:</string>
     <string name="perms_description_app">Tagas %1$s.</string>
     <string name="downloading">Allalaadimine…</string>
     <string name="downloading_apk">%1$s allalaadimine</string>
     <string name="installing">Paigaldamine…</string>
     <string name="uninstalling">Eemaldamine…</string>
-
     <string name="interval_never">Mitte kunagi</string>
     <string name="interval_1h">Iga tunni järel</string>
     <string name="interval_4h">Iga 4 tunni järel</string>
@@ -272,16 +241,50 @@
     <string name="interval_1d">Iga päev</string>
     <string name="interval_1w">Iga nädal</string>
     <string name="interval_2w">Iga 2 nädala järel</string>
-
     <string name="keep_hour">1 tund</string>
     <string name="keep_day">1 päev</string>
     <string name="keep_week">1 nädal</string>
     <string name="keep_month">1 kuu</string>
     <string name="keep_year">1 aasta</string>
     <string name="keep_forever">Igavesti</string>
-
     <string name="theme_light">Hele</string>
     <string name="theme_dark">Tume</string>
     <string name="theme_night">Öö</string>
-
-    </resources>
+    <string name="show_screenshots">Ekraanipiltide Näitamine</string>
+    <string name="menu_appinfo">Rakenduse Info (Süsteemi Seaded)</string>
+    <string name="download_404">Soovitud faili ei leitud.</string>
+    <string name="details_new_in_version">Uus versioonis %s</string>
+    <string name="copied_to_clipboard">Kopeeritakse lõikepuhvrisse</string>
+    <string name="install_all_updates">Värskenduste Installimine</string>
+    <string name="share_repository">Hoidla Jagamine</string>
+    <string name="warning_no_internet">Ei saa uuendada, kas olete ühendatud internetti\?</string>
+    <string name="screenshot">Ekraanipilt</string>
+    <string name="update_auto_install_summary">Laadige alla ja installige värskendusrakendused taustal</string>
+    <string name="app_installed_media">Fail on paigaldatud %s</string>
+    <string name="hide_anti_feature_apps">Hall välja anti-funktsioon rakendused</string>
+    <string name="menu_update_this_repo">Uuenda seda Repo</string>
+    <string name="qr_code">QR kood</string>
+    <string name="links_and_donations">Lingid Ja Annetused</string>
+    <string name="link_translate">Tõlge</string>
+    <string name="download_all_updates">Värskenduste Allalaadimine</string>
+    <string name="antidisabledalgorithmlist">See rakendus on nõrk turvalisuse allkiri</string>
+    <string name="reset_transient_message">Kas olete kindel, et soovite oma kliendi lähtestada\? Kõik Hoidla indeksid tuleb uuesti alla laadida.</string>
+    <string name="antiknownvulnlist">See rakendus sisaldab teadaolevat turvalisuse haavatavus</string>
+    <string name="reset_transient_title">Andmebaasi Lähtestamine\?</string>
+    <string name="details_last_updated_today">Uuendatud täna</string>
+    <string name="update_auto_install">Värskenduste automaatne installimine</string>
+    <string name="repo_exists_add_mirror">See on koopia %1$s, kas lisada see peeglina\?</string>
+    <string name="app_permission_storage">F-Droid Classic vajab selle salvestamiseks installimiseks salvestusluba. Palun lubage see järgmisel ekraanil jätkata paigaldamist.</string>
+    <string name="signed">Allkirjastatud: %s</string>
+    <string name="antinosourcesince">Lähtekood pole enam saadaval, värskendusi pole võimalik.</string>
+    <string name="add_repo_enter_details">Sisesta üksikasjad</string>
+    <string name="repo_user_mirrors">Kasutaja Peeglid</string>
+    <string name="repo_official_mirrors">Ametlikud Peeglid</string>
+    <string name="repo_add_mirror">Lisa peegel</string>
+    <string name="button_close_menu">Sulge menüü</string>
+    <string name="repo_url_invalid">Ei ole kehtiv repo URL!</string>
+    <string name="scan_qr_code">QR koodi skannimine</string>
+    <string name="screenshots_pref_summary">Enne ekraanipiltide tõmbamise alustamist on vaja täiendavat klõpsamist</string>
+    <string name="screenshots_on_demand">Laadige ekraanikuvasid nõudmisel</string>
+    <string name="button_download">Laadima</string>
+</resources>

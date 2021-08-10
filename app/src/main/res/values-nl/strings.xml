@@ -192,7 +192,7 @@ Het heeft geen speciale toegang nodig.</string>
     <string name="uninstall_update_confirm">Wil je deze app vervangen door de fabrieksversie?</string>
     <string name="uninstall_confirm">Wil je deze app verwijderen?</string>
     <string name="tap_to_install">Download voltooid, raak aan om te installeren</string>
-    <string name="perms_new_perm_prefix">"Nieuw: "</string>
+    <string name="perms_new_perm_prefix">Nieuw:</string>
     <string name="perms_description_app">Aangeboden door %1$s.</string>
     <string name="downloading">Downloaden…</string>
     <string name="interval_never">Nooit</string>

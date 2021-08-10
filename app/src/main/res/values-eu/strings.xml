@@ -122,7 +122,7 @@
     <string name="tap_to_install">Deskarga burutu da, ukitu instalatzeko</string>
     <string name="newPerms">Berria</string>
     <string name="allPerms">Guztiak</string>
-    <string name="perms_new_perm_prefix">"Berria: "</string>
+    <string name="perms_new_perm_prefix">Berria:</string>
     <string name="loading">Kargatzen…</string>
     <string name="proxy_host">Proxy ostalaria</string>
     <string name="enable_proxy_summary">Konfiguratu HTTP Proxya sare eskari guztientzat</string>
@@ -304,4 +304,19 @@ Ez du baimen berezirik behar.</string>
     <string name="repo_official_mirrors">Ispilu ofizialak</string>
     <string name="repo_user_mirrors">Erabiltzailearen ispiluak</string>
     <string name="repo_exists_add_mirror">%1$s-ren kopia da hau, ispilu gisa gehitu\?</string>
+    <string name="show_screenshots">Erakutsi Pantaila</string>
+    <string name="screenshots_on_demand">Karga pantaila eskaria</string>
+    <string name="copied_to_clipboard">Kopiatu arbelean</string>
+    <string name="install_all_updates">Eguneraketak Instalatu</string>
+    <string name="menu_update_this_repo">Hau eguneratu Repo</string>
+    <string name="force_update">Indarrean Eguneratzea</string>
+    <string name="links_and_donations">Loturak &amp; Dohaintzak</string>
+    <string name="link_translate">Itzulpenak</string>
+    <string name="reset_transient_title">Berrezarri Datu-Basean\?</string>
+    <string name="add_repo_enter_details">Sartu xehetasunak</string>
+    <string name="scan_qr_code">Eskaneatu QR kodea</string>
+    <string name="reset_transient_message">Ziur zaude berrezarri nahi duzula zure bezeroak\? Guztiak biltegi indizeak behar izango deskargatu daiteke berriro.</string>
+    <string name="repo_url_invalid">Ez da baliozko repo URL!</string>
+    <string name="button_close_menu">Itxi menua</string>
+    <string name="button_download">Deskargatu</string>
 </resources>
