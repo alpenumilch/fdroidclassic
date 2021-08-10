@@ -309,4 +309,9 @@
     <string name="signed">Đã ký: %s</string>
     <string name="antinosourcesince">Mã nguồn không còn nữa, không thể có cập nhật.</string>
     <string name="status_inserting_x_apps">Đang lưu chi tiết ứng dụng (%1$d/%2$d) từ %3$s</string>
+    <string name="repo_url_invalid">Không phải là URL kho hợp lệ!</string>
+    <string name="button_close_menu">Đóng menu</string>
+    <string name="button_download">Tải xuống</string>
+    <string name="add_repo_enter_details">Nhập chi tiết</string>
+    <string name="scan_qr_code">Quét mã QR</string>
 </resources>
