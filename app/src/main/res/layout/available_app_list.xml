@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <RelativeLayout
+        android:id="@+id/category_wrapper"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/category_wrapper"
         android:layout_alignParentTop="true">
 
         <Spinner
@@ -27,15 +26,21 @@
 
     </RelativeLayout>
 
-    <ListView
-        style="@style/AppList"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/pullToRefresh"
         android:layout_below="@id/category_wrapper"
-        tools:listitem="@layout/applistitem"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ListView
+            style="@style/AppList"
+            tools:listitem="@layout/applistitem" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <TextView
         style="@style/AppListEmptyText"
         android:layout_below="@id/category_wrapper"
         android:text="@string/empty_available_app_list"
-        tools:visibility="gone"/>
+        tools:visibility="gone" />
 
 </RelativeLayout>
