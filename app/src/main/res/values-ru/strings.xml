@@ -315,4 +315,9 @@
     <string name="qr_code">QR-код</string>
     <string name="reset_transient_message">Вы уверены, что хотите сбросить настройки клиента\? Все индексы репозитория необходимо будет загрузить заново.</string>
     <string name="links_and_donations">Ссылки и пожертвования</string>
+    <string name="repo_url_invalid">Не действительный URL репозитория!</string>
+    <string name="button_close_menu">Закрыть меню</string>
+    <string name="button_download">Скачать</string>
+    <string name="add_repo_enter_details">Введите данные</string>
+    <string name="scan_qr_code">Сканировать QR-код</string>
 </resources>
