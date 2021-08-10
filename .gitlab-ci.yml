@@ -1,7 +1,6 @@
-image: registry.gitlab.com/fdroid/ci-images-client:latest
+image: jangrewe/gitlab-ci-android
 
 lint+test+build:
-  image: jangrewe/gitlab-ci-android
   script:
     - export GRADLE_USER_HOME=$(pwd)/.gradle
     # always report on lint errors to the build log
@@ -15,16 +14,16 @@ lint+test+build:
 
 fdroid:build:
   before_script:
-    - rm -rf fdroidserver
+    - apt-get update && apt-get install gnupg && apt-get insall build-dep fdroidserver
     - mkdir fdroidserver
     - commit=$(git ls-remote https://git.bubu1.eu/Bubu/fdroidserver.git main | cut -f1)
     - echo "Using fdroidserver ${commit}"
     - curl --silent https://git.bubu1.eu/Bubu/fdroidserver/-/archive/${commit}/fdroidserver-${commit}.tar.gz
         | tar -xz --directory=fdroidserver --strip-components=1
+    - cd fdroidserver && pip install -e .
     - export PATH="$PWD/fdroidserver:$PATH"
     - ln -s fdroidserver/gradlew-fdroid fdroidserver/gradle
     - export ANDROID_SDK_ROOT=$ANDROID_HOME
-    - apt-get update && apt-get install python3-gnupg
 
   script:
     - cd fdroidrepo
