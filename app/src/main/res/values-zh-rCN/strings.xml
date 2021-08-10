@@ -299,4 +299,9 @@
     <string name="signed">已签名：%s</string>
     <string name="show_screenshots">显示截屏</string>
     <string name="screenshots_on_demand">按需加载软件截图</string>
+    <string name="repo_url_invalid">不是有效的代码库 URL！</string>
+    <string name="button_close_menu">关闭菜单</string>
+    <string name="button_download">下载</string>
+    <string name="add_repo_enter_details">输入详情</string>
+    <string name="scan_qr_code">扫描二维码</string>
 </resources>
