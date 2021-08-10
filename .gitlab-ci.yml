@@ -14,7 +14,7 @@ lint+test+build:
 
 fdroid:build:
   before_script:
-    - apt-get update && apt-get install gnupg && apt-get insall build-dep fdroidserver
+    - apt-get update && apt-get install -y gnupg python3-pip && apt-get insall -y build-dep fdroidserver
     - mkdir fdroidserver
     - commit=$(git ls-remote https://git.bubu1.eu/Bubu/fdroidserver.git main | cut -f1)
     - echo "Using fdroidserver ${commit}"
