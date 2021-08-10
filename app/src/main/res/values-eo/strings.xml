@@ -304,7 +304,7 @@
     <string name="reset_transient_message">Ĉu vi certe volas reagordi vian klienton\? Necesos reelŝuti indeksojn de ĉiuj deponejoj.</string>
     <string name="reset_transient_title">Ĉu forviŝi la datumbazon\?</string>
     <string name="screenshot">Ekrankopio</string>
-    <string name="link_translate">Tradukoj</string>
+    <string name="link_translate">Traduko</string>
     <string name="liberapay">Liberapay</string>
     <string name="menu_update_this_repo">Ĝisdatigi tiun ĉi deponejon</string>
     <string name="opencollective">Open Collective</string>
@@ -313,4 +313,9 @@
     <string name="show_screenshots">Montri ekrankopiojn</string>
     <string name="screenshots_pref_summary">Postuli plian frapeton por komenci elŝuti ekrankopiojn</string>
     <string name="screenshots_on_demand">Vidigi ekrankopiojn laŭpete</string>
+    <string name="add_repo_enter_details">Enigi detalojn</string>
+    <string name="scan_qr_code">Skani QR-kodon</string>
+    <string name="repo_url_invalid">Malĝusta ligilo de deponejo!</string>
+    <string name="button_close_menu">Fermi menuon</string>
+    <string name="button_download">Elŝuti</string>
 </resources>
