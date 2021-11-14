@@ -6,7 +6,7 @@ Join the matrix room: [#fdroidclassic:bubu1.eu](https://matrix.to/#/#fdroidclass
 
 [<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png" alt="Get it on F-Droid" height="80">](https://f-droid.org/packages/eu.bubu1.fdroidclassic)
 
-Direct APK download [here](https://bubu1.eu/fdroidclassic/fdroid/repo/eu.bubu1.fdroidclassic_1014.apk).
+Direct APK download [here](https://bubu1.eu/fdroidclassic/fdroid/repo/eu.bubu1.fdroidclassic_1106.apk).
 
 ### Beta versions/faster updates
 In F-Droid Classic you can just enable the F-Droid Classic Repo, beta versions will be distributed there.
