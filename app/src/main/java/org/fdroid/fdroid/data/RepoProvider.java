@@ -504,7 +504,7 @@ public class RepoProvider extends FDroidProvider {
                     where, whereArgs, null, null, null);
             if (priorityCursor.getCount() > 0) {
                 priorityCursor.moveToFirst();
-                int oldPriority = priorityCursor.getInt(priorityCursor.getColumnIndex(Cols.PRIORITY));
+                int oldPriority = priorityCursor.getInt(priorityCursor.getColumnIndexOrThrow(Cols.PRIORITY));
                 priorityChanged = oldPriority != values.getAsInteger(Cols.PRIORITY);
             }
             priorityCursor.close();

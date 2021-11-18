@@ -413,7 +413,7 @@ public class DBHelper extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery("PRAGMA table_info(" + table + ")", null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
-            String name = cursor.getString(cursor.getColumnIndex("name"));
+            String name = cursor.getString(cursor.getColumnIndexOrThrow("name"));
             if (name.equalsIgnoreCase(field)) {
                 found = true;
                 break;
