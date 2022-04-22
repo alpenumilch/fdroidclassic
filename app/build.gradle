@@ -31,7 +31,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
     // general support library
-    implementation 'com.google.guava:guava:30.1.1-android'
+    implementation 'com.google.guava:guava:31.1-android'
     // image loading
     implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
     // FAB-menu/speed-dial
