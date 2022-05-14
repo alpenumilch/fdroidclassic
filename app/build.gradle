@@ -132,4 +132,5 @@ android {
         textReport false
         xmlReport false
     }
+    namespace 'org.fdroid.fdroid'
 }
