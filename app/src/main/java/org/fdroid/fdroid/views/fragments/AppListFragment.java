@@ -1,33 +1,40 @@
 package org.fdroid.fdroid.views.fragments;
 
+import static org.fdroid.fdroid.UpdateService.LOCAL_ACTION_STATUS;
+
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.app.ActivityOptionsCompat;
 import androidx.fragment.app.ListFragment;
 import androidx.loader.app.LoaderManager;
 import androidx.loader.content.CursorLoader;
 import androidx.loader.content.Loader;
-import androidx.core.util.Pair;
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.TextView;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import org.fdroid.fdroid.AppDetails;
+import org.fdroid.fdroid.FDroidApp;
 import org.fdroid.fdroid.Preferences;
 import org.fdroid.fdroid.R;
 import org.fdroid.fdroid.UpdateService;
 import org.fdroid.fdroid.Utils;
 import org.fdroid.fdroid.data.App;
 import org.fdroid.fdroid.data.Schema.AppMetadataTable;
+import org.fdroid.fdroid.receiver.UpdatingReceiver;
 import org.fdroid.fdroid.views.AppListAdapter;
 
 public abstract class AppListFragment extends ListFragment implements
@@ -60,9 +67,14 @@ public abstract class AppListFragment extends ListFragment implements
 
     private static final String APP_SORT = AppMetadataTable.Cols.NAME;
 
+    protected abstract int getLayout();
+
     private AppListAdapter appAdapter;
 
     @Nullable private String searchQuery;
+
+    private BroadcastReceiver receiver;
+    private SwipeRefreshLayout pullToRefresh;
 
     protected abstract AppListAdapter getAppListAdapter();
 
@@ -105,6 +117,23 @@ public abstract class AppListFragment extends ListFragment implements
         ((TextView) getListView().getEmptyView()).setText(resId);
     }
 
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(getLayout(), container, false);
+        setUpPullToRefresh(view);
+        return view;
+    }
+
+    protected void setUpPullToRefresh(View view) {
+        pullToRefresh = view.findViewById(R.id.pullToRefresh);
+        pullToRefresh.setColorSchemeResources(R.color.fdroid_green);
+        pullToRefresh.setOnRefreshListener(() -> {
+            UpdateService.updateNow(FDroidApp.getInstance());
+        });
+        receiver = new UpdatingReceiver(pullToRefresh);
+    }
+
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -116,8 +145,27 @@ public abstract class AppListFragment extends ListFragment implements
     }
 
     @Override
+    public void onStop() {
+        super.onStop();
+        LocalBroadcastManager.getInstance(FDroidApp.getInstance()).unregisterReceiver(receiver);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        LocalBroadcastManager.getInstance(FDroidApp.getInstance()).registerReceiver(
+                receiver,
+                new IntentFilter(LOCAL_ACTION_STATUS)
+        );
+    }
+
+    @Override
     public void onResume() {
         super.onResume();
+
+        // We don't know if we are still updating, but we will only receive updates if we are,
+        // so we need to disable this and potentially will restart the spinner a second later *shrug*
+        pullToRefresh.setRefreshing(false);
 
         //Starts a new or restarts an existing Loader in this manager
         LoaderManager.getInstance(this).initLoader(0, null, this);

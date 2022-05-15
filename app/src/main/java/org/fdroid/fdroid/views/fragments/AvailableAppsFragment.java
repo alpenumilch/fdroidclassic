@@ -2,6 +2,7 @@ package org.fdroid.fdroid.views.fragments;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.ContentObserver;
@@ -18,6 +19,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.loader.app.LoaderManager;
 
@@ -57,6 +59,11 @@ public class AvailableAppsFragment extends AppListFragment implements
     @Override
     protected String getFromTitle() {
         return getString(R.string.tab_available_apps);
+    }
+
+    @Override
+    protected int getLayout() {
+        return R.layout.available_app_list;
     }
 
     @Override
@@ -141,13 +148,14 @@ public class AvailableAppsFragment extends AppListFragment implements
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.available_app_list, container, false);
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(getLayout(), container, false);
 
         categoryWrapper = view.findViewById(R.id.category_wrapper);
         setupCategorySpinner(view.findViewById(R.id.category_spinner));
         defaultCategoryID = CategoryProvider.Helper.getCategoryWhatsNew(getActivity()).getId();
 
+        super.setUpPullToRefresh(view);
         return view;
     }
 

@@ -169,6 +169,10 @@ public class ManageReposActivity extends AppCompatActivity
         pullToRefresh.setOnRefreshListener(() -> {
             UpdateService.updateNow(this);
         });
+
+        // This is UpdatingReceiver but it additionally calls notifyDatasetChanged
+        // when the update has finished. This ensures the repo list is updated
+        // in case a repo changes from unverified to verifie, etc.
         receiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
