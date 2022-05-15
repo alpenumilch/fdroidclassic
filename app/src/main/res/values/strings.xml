@@ -370,5 +370,6 @@
     <string name="repo_url_invalid">Not a valid repo URL!</string>
     <string name="button_close_menu">Close menu</string>
     <string name="button_download">Download</string>
+    <string name="disable_pull_to_refresh">Disable Pull To Refresh Gesture</string>
 
 </resources>

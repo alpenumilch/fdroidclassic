@@ -45,6 +45,11 @@
             android:key="screenshotsOnDemand"
             android:title="@string/screenshots_on_demand"
             android:summary="@string/screenshots_pref_summary"/>
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="disablePullToRefresh"
+            android:title="@string/disable_pull_to_refresh" />
+
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/appcompatibility">
         <CheckBoxPreference

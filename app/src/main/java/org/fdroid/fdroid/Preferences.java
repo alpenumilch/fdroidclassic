@@ -32,6 +32,7 @@ public final class Preferences implements SharedPreferences.OnSharedPreferenceCh
     private static final String TAG = "Preferences";
 
     private final SharedPreferences preferences;
+
     private Preferences(Context context) {
         preferences = PreferenceManager.getDefaultSharedPreferences(context);
         preferences.registerOnSharedPreferenceChangeListener(this);
@@ -58,6 +59,7 @@ public final class Preferences implements SharedPreferences.OnSharedPreferenceCh
     public static final String PREF_PROXY_HOST = "proxyHost";
     public static final String PREF_PROXY_PORT = "proxyPort";
     public static final String PREF_ON_DEMAND_SCREENSHOTS = "screenshotsOnDemand";
+    public static final String PREF_DISABLE_PULL_TO_REFRESH = "disablePullToRefresh";
 
     private static final boolean DEFAULT_ROOTED = true;
     private static final boolean DEFAULT_HIDE_ANTI_FEATURE_APPS = false;
@@ -211,6 +213,10 @@ public final class Preferences implements SharedPreferences.OnSharedPreferenceCh
 
     public boolean onlyShowScreenshotsOnDemand() {
         return preferences.getBoolean(PREF_ON_DEMAND_SCREENSHOTS, false);
+    }
+
+    public boolean pullToRefreshEnabled() {
+        return !preferences.getBoolean(PREF_DISABLE_PULL_TO_REFRESH, false);
     }
 
     /**

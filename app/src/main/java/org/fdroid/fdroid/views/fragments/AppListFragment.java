@@ -166,6 +166,7 @@ public abstract class AppListFragment extends ListFragment implements
         // We don't know if we are still updating, but we will only receive updates if we are,
         // so we need to disable this and potentially will restart the spinner a second later *shrug*
         pullToRefresh.setRefreshing(false);
+        pullToRefresh.setEnabled(Preferences.get().pullToRefreshEnabled());
 
         //Starts a new or restarts an existing Loader in this manager
         LoaderManager.getInstance(this).initLoader(0, null, this);

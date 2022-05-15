@@ -165,6 +165,7 @@ public class ManageReposActivity extends AppCompatActivity
             return false;
         });
         pullToRefresh = findViewById(R.id.pullToRefresh);
+        pullToRefresh.setEnabled(Preferences.get().pullToRefreshEnabled());
         pullToRefresh.setColorSchemeResources(R.color.fdroid_green);
         pullToRefresh.setOnRefreshListener(() -> {
             UpdateService.updateNow(this);
