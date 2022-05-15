@@ -1,5 +1,7 @@
 package org.fdroid.fdroid.views;
 
+import static org.fdroid.fdroid.UpdateService.LOCAL_ACTION_STATUS;
+
 import android.content.BroadcastReceiver;
 import android.content.ContentValues;
 import android.content.Context;
@@ -22,6 +24,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NavUtils;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import org.fdroid.fdroid.FDroidApp;
 import org.fdroid.fdroid.Preferences;
@@ -32,6 +35,7 @@ import org.fdroid.fdroid.Utils;
 import org.fdroid.fdroid.data.Repo;
 import org.fdroid.fdroid.data.RepoProvider;
 import org.fdroid.fdroid.data.Schema.RepoTable;
+import org.fdroid.fdroid.receiver.UpdatingReceiver;
 
 public class RepoDetailsActivity extends AppCompatActivity {
 
@@ -67,6 +71,9 @@ public class RepoDetailsActivity extends AppCompatActivity {
     private long repoId;
     private View repoView;
     private String shareUrl;
+
+    private BroadcastReceiver updateReceiver;
+    private SwipeRefreshLayout pullToRefresh;
 
     /**
      * Help function to make switching between two view states easier.
@@ -107,12 +114,26 @@ public class RepoDetailsActivity extends AppCompatActivity {
         uri = uri.buildUpon().appendQueryParameter("fingerprint", repo.fingerprint).build();
         String qrUriString = uri.toString();
         new QrGenAsyncTask(this, R.id.qr_code).execute(qrUriString);
+
+        pullToRefresh = findViewById(R.id.pullToRefresh);
+        // somehow repo.inuse isn't set here yet, se we can't use that for enabling pullToRefresh.
+        pullToRefresh.setEnabled(Preferences.get().pullToRefreshEnabled());
+        pullToRefresh.setColorSchemeResources(R.color.fdroid_green);
+        pullToRefresh.setOnRefreshListener(() -> {
+            UpdateService.updateRepoNow(repo.address, this);
+        });
+        updateReceiver = new UpdatingReceiver(pullToRefresh);
     }
 
 
     @Override
     public void onResume() {
         super.onResume();
+
+
+        // We don't know if we are still updating, but we will only receive updates if we are,
+        // so we need to disable this and potentially will restart the spinner a second later *shrug*
+        pullToRefresh.setRefreshing(false);
 
         /*
          * After, for example, a repo update, the details will have changed in the
@@ -125,6 +146,21 @@ public class RepoDetailsActivity extends AppCompatActivity {
 
         LocalBroadcastManager.getInstance(this).registerReceiver(broadcastReceiver,
                 new IntentFilter(UpdateService.LOCAL_ACTION_STATUS));
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        LocalBroadcastManager.getInstance(this).registerReceiver(
+                updateReceiver,
+                new IntentFilter(LOCAL_ACTION_STATUS)
+        );
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(updateReceiver);
     }
 
     @Override
@@ -167,6 +203,9 @@ public class RepoDetailsActivity extends AppCompatActivity {
         if (!repo.inuse) {
             update_this.setVisible(false);
             force_update.setVisible(false);
+            // this doesn't really belong into onCreateOptionsMenu but it works and
+            // conceptually makes sense to group enabling/disabling with the other refresh option.
+            pullToRefresh.setEnabled(false);
         }
         return true;
     }
