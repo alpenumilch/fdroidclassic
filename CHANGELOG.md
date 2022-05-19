@@ -1,10 +1,13 @@
-### 1.2-rc1 (?)
+### 1.2-rc1 (20.05.2022)
 
 **NOTE**: F-Droid Classic 1.2 will be that last version to support Android 4.4
 
 * Add (disabled) NewPipe and Briar repos for new installs
 * Switch new installs to using ftp.fau.de F-Droid mirrors instead of slow f-droid.org
-
+* Enable Pull-to-refresh on app list and repo details screen
+* Add a setting to disable all pull to refresh handling
+* Suppress speaking "App Icon" in app list via talkback
+* Update dependencies and translations
 
 ### 1.2-beta2 (18.07.2021)
 
