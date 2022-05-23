@@ -54,7 +54,6 @@ This project is probably aimed more at the power user who values function over f
 * The tile based UI
 * The old xml based index format isn't supported
 * Support for old version of Android (< 4.4).
-  * Minimum Android version will be increased to 5.0 with the upcoming version 1.2 (the TLS support is bad on these old devices and it's really hard to maintain)
 
 
 ## Building with Gradle
@@ -74,6 +73,17 @@ It works very well once set up, but the install procedure is slightly involved. 
 
 All software distributed by these repositories must be fully FOSS, just like it is for the f-droid.org repository. (That means no proprietary FCM libraries included inside apps).
 Additionally it would be preferable if the apps were also distributed via the f-droid.org repository later on via reproducible builds (like both F-Droid Classic and NewPipe are), but that's not a strict requirement for now.
+
+* F-Droid Classic shows apps I never installed as on my device and others are missing?! Help!
+
+There are some unknown circumstances which can corrupt the internal app database so apps randomly assume the identity of another. The most straightforward way of clearing that up is to clear the app data of F-Droid Classic, but that loses your configured settings and repositories. There's also a "Clear Cache and Reload" button under expert settings but it sometimes seems to make the problem worse. The following steps *should* work but you have been warned. (And it was already broken anyway, right?):
+  * Use the "Clear Cache and Reload" function from expert settings
+  * Wait for the repo data to be downloaded again
+  * Close the app fully (swipe away from recents)
+  * Reopen the app
+  * Wait for about a minute while F-Droid classic re-scans your installed apps.
+  * Do another full restart of F-Droid Classic
+  * Everything should be in order again 
 
 ## Translation
 
