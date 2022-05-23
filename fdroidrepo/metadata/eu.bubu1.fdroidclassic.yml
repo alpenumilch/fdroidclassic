@@ -190,6 +190,13 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 1.2-rc1
+    versionCode: 1109
+    commit: v1.2-rc1
+    subdir: app
+    gradle:
+      - yes
+
 AutoUpdateMode: None
 UpdateCheckMode: None
 CurrentVersion: 1.1
