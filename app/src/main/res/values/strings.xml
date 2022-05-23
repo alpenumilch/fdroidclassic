@@ -371,5 +371,7 @@
     <string name="button_close_menu">Close menu</string>
     <string name="button_download">Download</string>
     <string name="disable_pull_to_refresh">Disable Pull To Refresh Gesture</string>
+    <string name="clear_cache_summary">Removes and re-downloads all app information.</string>
+    <string name="clear_cache">Clear Cache and Reload</string>
 
 </resources>

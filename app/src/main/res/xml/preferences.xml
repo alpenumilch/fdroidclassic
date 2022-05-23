@@ -118,7 +118,7 @@
         <Preference
             android:dependency="expert"
             android:key="resetTransient"
-            android:summary="Removes and redownloads all app information."
-            android:title="Clear Cache and Reload" />
+            android:summary="@string/clear_cache_summary"
+            android:title="@string/clear_cache" />
     </PreferenceCategory>
 </PreferenceScreen>
