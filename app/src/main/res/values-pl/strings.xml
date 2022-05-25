@@ -86,7 +86,7 @@
     <string name="repo_name">Nazwa</string>
     <string name="unknown">Nieznany</string>
     <string name="repo_confirm_delete_title">Usunąć repozytorium?</string>
-    <string name="repo_confirm_delete_body">Usunięcie repozytorium oznacza, że aplikacje z niego nie będą dłużej dostępne w F-Droid. 
+    <string name="repo_confirm_delete_body">Usunięcie repozytorium oznacza, że aplikacje z niego nie będą dłużej dostępne w F-Droid Classic.
 \n
 \nUwaga: Wszystkie poprzednio zainstalowane aplikacje zostaną na urządzeniu.</string>
     <string name="minsdk_or_later">%s lub nowszy</string>
@@ -153,7 +153,7 @@
     <string name="uninstall_error_unknown">Odinstalowywanie nie powiodło się przez nieznany nam problem</string>
     <string name="system_install_post_success">Instalacja Uprzywilejowanego dodatku powiodła się</string>
     <string name="system_install_post_fail">Instalacja Uprzywilejowanego dodatku nie powiodła się</string>
-    <string name="system_install_post_success_message">Instalacja Uprzywilejowanego dodatku powiodła się. Pozwala to F-Droidowi automatycznie instalować, aktualizować i odinstalowywać aplikacje.</string>
+    <string name="system_install_post_success_message">Instalacja Uprzywilejowanego dodatku powiodła się. Pozwala to F-Droidowi Classic automatycznie instalować, aktualizować i odinstalowywać aplikacje.</string>
     <string name="system_install_post_fail_message">Instalacja Uprzywilejowanego dodatku nie powiodła się. Metoda instalacji może nie być wspierana przez Twój system. Proszę sprawdzić listę problemów F-Droida by dowiedzieć się więcej.</string>
     <string name="system_install_installing">Instalowanie…</string>
     <string name="system_install_uninstalling">Deinstalacja…</string>
@@ -210,7 +210,7 @@
     <string name="system_install_warning_lollipop">Zajmuje to ok. 10 sekund, następnie urządzenie zostanie <b>zrestartowane</b>.</string>
     <string name="repo_details">Repozytorium</string>
     <string name="repo_url">Adres</string>
-    <string name="more">Więcej</string>
+    <string name="more">Czytaj Więcej</string>
     <string name="less">Mniej</string>
     <string name="status_download_unknown_size">Pobieranie\n%2$s z\n%1$s</string>
     <string name="permissions">Uprawnienia</string>
@@ -260,7 +260,7 @@
     <string name="menu_appinfo">App Info (Ustawienia systemu)</string>
     <string name="antidisabledalgorithmlist">Ta aplikacja ma słaby podpis bezpieczeństwa</string>
     <string name="antinosourcesince">Kod źródłowy nie jest już dostępny, nie ma możliwości jego aktualizacji.</string>
-    <string name="app_permission_storage">F-Droid potrzebuje pozwolenia na magazynowanie, aby zainstalować go do przechowywania. Proszę pozwolić mu na następny ekran, aby przystąpił do instalacji.</string>
+    <string name="app_permission_storage">F-Droid Classic potrzebuje pozwolenia na magazynowanie, aby zainstalować go do przechowywania. Proszę pozwolić mu na następny ekran, aby przystąpił do instalacji.</string>
     <string name="repo_official_mirrors">Oficjalne mirrors</string>
     <string name="repo_user_mirrors">Klient mirrors</string>
     <string name="details_new_in_version">Nowość w wersji %s</string>
@@ -271,7 +271,7 @@
     <string name="repo_exists_add_mirror">To jest kopia %1$s, dodać to jako lustro\?</string>
     <string name="repo_add_mirror">Dodaj lustro</string>
     <string name="share_repository">Repozytorium akcji</string>
-    <string name="download_all_updates">Aktualizacja wszystkich</string>
+    <string name="download_all_updates">Pobierz Aktualizacje</string>
     <string name="qr_code">QR-Code</string>
     <string name="link_translate">Tłumaczenia</string>
     <string name="force_update">Aktualizacja siły</string>
@@ -314,4 +314,6 @@
         <item quantity="many">Aktualizacja %1$d temu</item>
         <item quantity="other">Aktualizacja %1$d temu</item>
     </plurals>
+    <string name="liberapay">Liberapay</string>
+    <string name="opencollective">Open Collective</string>
 </resources>
