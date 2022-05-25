@@ -304,4 +304,5 @@
     <string name="button_download">下载</string>
     <string name="add_repo_enter_details">输入详情</string>
     <string name="scan_qr_code">扫描二维码</string>
+    <string name="disable_pull_to_refresh">禁用下拉刷新手势</string>
 </resources>
