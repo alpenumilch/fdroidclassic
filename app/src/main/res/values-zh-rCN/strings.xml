@@ -305,4 +305,6 @@
     <string name="add_repo_enter_details">输入详情</string>
     <string name="scan_qr_code">扫描二维码</string>
     <string name="disable_pull_to_refresh">禁用下拉刷新手势</string>
+    <string name="clear_cache_summary">删除并重新下载所有应用信息。</string>
+    <string name="clear_cache">清除缓存并重新加载</string>
 </resources>
