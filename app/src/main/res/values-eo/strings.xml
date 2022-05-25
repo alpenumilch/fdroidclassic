@@ -58,9 +58,9 @@
     <string name="expert">Altnivelo</string>
     <string name="expert_on">Montri aldonajn informojn kaj aktivigi aldonajn agordojn</string>
     <string name="search_hint">Serĉi aplikaĵojn</string>
-    <string name="appcompatibility">Aplikaĵa kongrueco</string>
+    <string name="appcompatibility">Kongrueco de aplikaĵoj</string>
     <string name="show_incompat_versions">Nekongruaj versioj</string>
-    <string name="show_incompat_versions_on">Montri versiojn de aplikaĵoj, kiuj estas nekongruaj kun la aparato</string>
+    <string name="show_incompat_versions_on">Montri versiojn de aplikaĵoj, kiuj estas nekongruaj kun via aparato</string>
     <string name="rooted">Ĉefuzanto</string>
     <string name="rooted_on">Ne grizigi aplikaĵojn, kiuj postulas ĉefuzantan «root» permeson</string>
     <string name="ignoreTouch">Ignori tuŝekranon</string>
@@ -148,7 +148,7 @@
     <string name="proxy_host">Adreso de retperanto</string>
     <string name="proxy_port">Pordo de retperanto</string>
     <string name="proxy_host_summary">Agordi adreson de retperanto (ekz. 127.0.0.1)</string>
-    <string name="proxy_port_summary">Agordi pordan numeron de retperanto (ekz. 8118)</string>
+    <string name="proxy_port_summary">Agordi numeron de pordo de retperanto (ekz. 8118)</string>
     <string name="status_download">Elŝutado
 \n%2$s / %3$s (%4$d%%) el
 \n%1$s</string>
@@ -177,7 +177,7 @@
 \nRimarko: ĉiuj antaŭe instalitaj aplikaĵoj restos en via aparato.</string>
     <string name="not_on_same_wifi">Via aparato ne estas en la sama vifi-reto kiel la loka deponejo, kiun vi ĵus aldonis! Provu konekti al la reto: %s</string>
     <string name="pref_language">Lingvo</string>
-    <string name="pref_language_default">Sistema implicita</string>
+    <string name="pref_language_default">Laŭ operaciumo</string>
     <string name="category_Connectivity">Konekteco</string>
     <string name="category_Graphics">Grafiko</string>
     <string name="category_Money">Mono</string>
@@ -311,11 +311,14 @@
     <string name="links_and_donations">Ligiloj kaj donacoj</string>
     <string name="copied_to_clipboard">Kopiita al tondujo</string>
     <string name="show_screenshots">Montri ekrankopiojn</string>
-    <string name="screenshots_pref_summary">Postuli plian frapeton por komenci elŝuti ekrankopiojn</string>
+    <string name="screenshots_pref_summary">Postuli plian frapeton por elŝuti ekrankopiojn</string>
     <string name="screenshots_on_demand">Vidigi ekrankopiojn laŭpete</string>
     <string name="add_repo_enter_details">Enigi detalojn</string>
     <string name="scan_qr_code">Skani QR-kodon</string>
     <string name="repo_url_invalid">Malĝusta ligilo de deponejo!</string>
     <string name="button_close_menu">Fermi menuon</string>
     <string name="button_download">Elŝuti</string>
+    <string name="disable_pull_to_refresh">Malaktivigi la geston “ŝovi malsupren” por aktualigi</string>
+    <string name="clear_cache_summary">Forigi kaj reelŝuti ĉiujn informojn pri aplikaĵoj.</string>
+    <string name="clear_cache">Forviŝi kaŝmemoron kaj reelŝuti</string>
 </resources>
