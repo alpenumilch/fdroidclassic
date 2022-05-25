@@ -223,7 +223,7 @@ do sistema? Os seus dados não serão perdidos.
 A aplicação atualizada não requer qualquer acesso especial.</string>
     <string name="uninstall_update_confirm">Deseja restaurar esta aplicação para a sua versão de fábrica?</string>
     <string name="uninstall_confirm">Deseja desinstalar esta aplicação?</string>
-    <string name="tap_to_install">Descarga terminada. Toque para instalar.</string>
+    <string name="tap_to_install">Download concluído, toque para instalar</string>
     <string name="download_error">Descarga não efetuada</string>
     <string name="theme_night">Noite</string>
     <string name="menu_settings">Definições</string>
@@ -314,4 +314,9 @@ A aplicação atualizada não requer qualquer acesso especial.</string>
     <string name="reset_transient_message">Tem a certeza de que deseja repor o cliente\? Os índices dos repositórios terão que ser descarregados novamente.</string>
     <string name="reset_transient_title">Repor base de dados\?</string>
     <string name="opencollective">Open Collective</string>
+    <string name="repo_url_invalid">Não é um URL válido!</string>
+    <string name="add_repo_enter_details">Entrar detalhes</string>
+    <string name="scan_qr_code">Código QR Scan</string>
+    <string name="button_close_menu">Fechar menu</string>
+    <string name="button_download">Baixar</string>
 </resources>

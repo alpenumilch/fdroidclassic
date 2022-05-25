@@ -150,11 +150,9 @@ ezin izan dela egiaztatu. Sinatu gabeko jatorrietatik
 deskargatutako aplikazioekin kontuz ibili behar zara.</string>
     <string name="repo_not_yet_updated">Biltegi hau ez da erabili oraindik. 
 Gaitu behar duzu dauzkan aplikazioak ikusteko.</string>
-    <string name="repo_confirm_delete_body">Biltegi bat ezabatzeak esan nahi du bertako 
-aplikazioak ez direla F-Droiden eskuragarri izango.
-
-Oharra: Aurretik instalatutako aplikazio guztiak 
-gailuan jarraituko dute.</string>
+    <string name="repo_confirm_delete_body">Biltegi bat ezabatzen esan nahi du bertatik aplikazioak ez da Gehiago Izango F-Droid Klasiko eskuragarri.
+\n
+\nOharra: aurretik instalatutako aplikazio guztiak zure gailuan jarraituko dute.</string>
     <string name="repo_added">%1$s F-Droid biltegia gorde da.</string>
     <string name="repo_searching_address">F-Droid biltegia bilatzen hemen:\n%1$s</string>
     <string name="minsdk_or_later">%s edo berriagoa</string>
@@ -319,4 +317,6 @@ Ez du baimen berezirik behar.</string>
     <string name="repo_url_invalid">Ez da baliozko repo URL!</string>
     <string name="button_close_menu">Itxi menua</string>
     <string name="button_download">Deskargatu</string>
+    <string name="screenshot">Pantaila-argazkia</string>
+    <string name="screenshots_pref_summary">Egin klik gehigarria behar du pantaila-argazkiak eskuratzen hasi aurretik</string>
 </resources>

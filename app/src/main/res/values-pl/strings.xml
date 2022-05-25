@@ -290,4 +290,28 @@
     <string name="show_screenshots">Pokaż zrzuty ekranu</string>
     <string name="add_repo_enter_details">Podaj dane</string>
     <string name="scan_qr_code">Skanuj kod QR</string>
+    <plurals name="details_last_update_years">
+        <item quantity="one">Aktualizacja %1$d rok temu</item>
+        <item quantity="few">Aktualizacja %1$d lat temu</item>
+        <item quantity="many">Aktualizacja %1$d lat temu</item>
+        <item quantity="other">Aktualizacja %1$d lat temu</item>
+    </plurals>
+    <plurals name="details_last_update_days">
+        <item quantity="one">Aktualizacja %1$d dzień temu</item>
+        <item quantity="few">Aktualizacja %1$d dni temu</item>
+        <item quantity="many">Aktualizacja %1$d dni temu</item>
+        <item quantity="other">Aktualizacja %1$d dni temu</item>
+    </plurals>
+    <plurals name="details_last_update_weeks">
+        <item quantity="one">Aktualizacja %1$d tydzień temu</item>
+        <item quantity="few">Aktualizacja %1$d tygodni temu</item>
+        <item quantity="many">Aktualizacja %1$d tygodni temu</item>
+        <item quantity="other">Aktualizacja %1$d tygodni temu</item>
+    </plurals>
+    <plurals name="details_last_update_months">
+        <item quantity="one">Aktualizacja %1$d miesiąc temu</item>
+        <item quantity="few">Aktualizacja %1$d temu</item>
+        <item quantity="many">Aktualizacja %1$d temu</item>
+        <item quantity="other">Aktualizacja %1$d temu</item>
+    </plurals>
 </resources>
