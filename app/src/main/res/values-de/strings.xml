@@ -307,4 +307,9 @@ Um darin bereitgestellte Anwendungen anzuzeigen, muss sie aktiviert werden.</str
     <string name="screenshots_on_demand">Bildschirmfotos direkt herunterladen</string>
     <string name="opencollective">Open Collective</string>
     <string name="screenshots_pref_summary">Benötigt einen Extra-Klick bevor dem herunterladen von Bildschirmfotos</string>
+    <string name="add_repo_enter_details">Details eingeben</string>
+    <string name="scan_qr_code">QR-Code scannen</string>
+    <string name="repo_url_invalid">Keine gültige Repo-URL!</string>
+    <string name="button_close_menu">Menü schließen</string>
+    <string name="button_download">Herunterladen</string>
 </resources>
