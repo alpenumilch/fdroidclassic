@@ -47,6 +47,7 @@ import org.fdroid.fdroid.data.NewRepoConfig;
 import org.fdroid.fdroid.installer.PrivilegedInstaller;
 import org.fdroid.fdroid.views.AppListFragmentPagerAdapter;
 import org.fdroid.fdroid.views.ManageReposActivity;
+import org.fdroid.fdroid.views.appdetails.AppDetails;
 import org.ligi.tracedroid.sending.TraceDroidEmailSender;
 
 import static org.fdroid.fdroid.UpdateService.EXTRA_STATUS_CODE;

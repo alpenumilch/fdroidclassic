@@ -413,7 +413,7 @@
         </activity>
 
         <activity
-            android:name=".AppDetails"
+            android:name=".views.appdetails.AppDetails"
             android:configChanges="layoutDirection|locale"
             android:exported="true"
             android:label="@string/app_details"

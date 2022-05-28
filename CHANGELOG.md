@@ -1,3 +1,12 @@
+### 1.2 (28.05.2022)
+
+**NOTE**: F-Droid Classic 1.2 will be the last version to support Android 4.4
+
+* Improve accessibility of add repo speed dial
+* remove leftover "write external storage" permission
+* Never show cryptocurrency donation options
+* Translation update
+
 ### 1.2-rc1 (23.05.2022)
 
 **NOTE**: F-Droid Classic 1.2 will be the last version to support Android 4.4

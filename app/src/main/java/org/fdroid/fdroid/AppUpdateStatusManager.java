@@ -19,6 +19,7 @@ import org.fdroid.fdroid.data.AppProvider;
 import org.fdroid.fdroid.data.Repo;
 import org.fdroid.fdroid.installer.ErrorDialogActivity;
 import org.fdroid.fdroid.installer.InstallManagerService;
+import org.fdroid.fdroid.views.appdetails.AppDetails;
 
 import java.util.ArrayList;
 import java.util.Collection;

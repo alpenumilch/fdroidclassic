@@ -26,7 +26,7 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.google.common.io.Files;
 
-import org.fdroid.fdroid.AppDetails;
+import org.fdroid.fdroid.views.appdetails.AppDetails;
 import org.fdroid.fdroid.AppUpdateStatusManager;
 import org.fdroid.fdroid.FDroidApp;
 import org.fdroid.fdroid.HashingUtils;

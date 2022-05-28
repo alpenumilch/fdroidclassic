@@ -373,5 +373,7 @@
     <string name="disable_pull_to_refresh">Disable Pull To Refresh Gesture</string>
     <string name="clear_cache_summary">Removes and re-downloads all app information.</string>
     <string name="clear_cache">Clear Cache and Reload</string>
+    <string name="build_type_source">source</string>
+    <string name="build_type_bin">bin</string>
 
 </resources>

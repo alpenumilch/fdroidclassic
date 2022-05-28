@@ -26,7 +26,7 @@ import androidx.loader.content.Loader;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import org.fdroid.fdroid.AppDetails;
+import org.fdroid.fdroid.views.appdetails.AppDetails;
 import org.fdroid.fdroid.FDroidApp;
 import org.fdroid.fdroid.Preferences;
 import org.fdroid.fdroid.R;
