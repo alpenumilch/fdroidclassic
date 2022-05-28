@@ -9,10 +9,12 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Parcel;
 import android.os.Parcelable;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.TaskStackBuilder;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+
 import org.fdroid.fdroid.data.Apk;
 import org.fdroid.fdroid.data.App;
 import org.fdroid.fdroid.data.AppProvider;
@@ -424,6 +426,7 @@ public final class AppUpdateStatusManager {
             InstallManagerService.removePendingInstall(context, entry.getCanonicalUrl());
         }
     }
+
     /**
      * If the {@link PendingIntent} aimed at {@link Notification.Builder#setContentIntent(PendingIntent)}
      * is not set, then create a default one.  The goal is to link the notification
@@ -479,18 +482,23 @@ public final class AppUpdateStatusManager {
 
     private PendingIntent getAppErrorIntent(AppUpdateStatus entry) {
         String name = "";
-        if(entry.app != null)
+        if (entry.app != null) {
             name = entry.app.name;
+        }
         String title = String.format(context.getString(R.string.install_error_notify_title), name);
 
         Intent errorDialogIntent = new Intent(context, ErrorDialogActivity.class)
                 .putExtra(ErrorDialogActivity.EXTRA_TITLE, title)
                 .putExtra(ErrorDialogActivity.EXTRA_MESSAGE, entry.errorText);
 
+
+        int flags = android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M
+                ? PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT
+                : PendingIntent.FLAG_UPDATE_CURRENT;
         return PendingIntent.getActivity(
                 context,
                 0,
                 errorDialogIntent,
-                PendingIntent.FLAG_UPDATE_CURRENT);
+                flags);
     }
 }
