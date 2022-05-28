@@ -23,7 +23,6 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.database.Cursor;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.StatFs;
 import android.text.Editable;
@@ -36,12 +35,10 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 
 import com.google.common.hash.Hashing;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 import com.nostra13.universalimageloader.utils.StorageUtils;
 
@@ -636,7 +633,6 @@ public final class Utils {
      * results inspected in the debugger.
      */
     @SuppressWarnings("unused")
-    @RequiresApi(api = 11)
     public static List<Map<String, String>> dumpCursor(Cursor cursor) {
         List<Map<String, String>> data = new ArrayList<>();
 
@@ -677,17 +673,6 @@ public final class Utils {
 
         cursor.close();
         return data;
-    }
-
-    public static DisplayImageOptions.Builder getImageLoadingOptions() {
-        return new DisplayImageOptions.Builder()
-                .cacheInMemory(true)
-                .cacheOnDisk(true)
-                .imageScaleType(ImageScaleType.NONE)
-                .showImageOnLoading(R.drawable.ic_repo_app_default)
-                .showImageForEmptyUri(R.drawable.ic_repo_app_default)
-                .displayer(new FadeInBitmapDisplayer(200, true, true, false))
-                .bitmapConfig(Bitmap.Config.RGB_565);
     }
 
     /**
