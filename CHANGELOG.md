@@ -2,7 +2,7 @@
 
 **NOTE**: F-Droid Classic 1.2 will be the last version to support Android 4.4
 
-* Improve accessibility of add repo speed dial
+* Improve accessibility of the 'add repo' speed dial
 * remove leftover "write external storage" permission
 * Never show cryptocurrency donation options
 * Fix a crash when trying to uninstall system apps from the version list of an app
