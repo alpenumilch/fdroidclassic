@@ -27,6 +27,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.text.TextUtils;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -212,6 +213,7 @@ public class Repo extends ValueObject{
         return name;
     }
 
+    @NonNull
     @Override
     public String toString() {
         return address;

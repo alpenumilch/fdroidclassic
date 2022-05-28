@@ -29,19 +29,17 @@ import android.os.Looper;
 import android.os.Message;
 import android.os.PatternMatcher;
 import android.os.Process;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import android.text.TextUtils;
 import android.util.Log;
+
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+
 import org.fdroid.fdroid.ProgressListener;
 import org.fdroid.fdroid.R;
 import org.fdroid.fdroid.Utils;
 import org.fdroid.fdroid.data.SanitizedFile;
 import org.fdroid.fdroid.installer.ApkCache;
 
-import javax.net.ssl.SSLHandshakeException;
-import javax.net.ssl.SSLKeyException;
-import javax.net.ssl.SSLPeerUnverifiedException;
-import javax.net.ssl.SSLProtocolException;
 import java.io.File;
 import java.io.IOException;
 import java.net.ConnectException;
@@ -50,6 +48,11 @@ import java.net.NoRouteToHostException;
 import java.net.ProtocolException;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
+
+import javax.net.ssl.SSLHandshakeException;
+import javax.net.ssl.SSLKeyException;
+import javax.net.ssl.SSLPeerUnverifiedException;
+import javax.net.ssl.SSLProtocolException;
 
 /**
  * DownloaderService is a service that handles asynchronous download requests
@@ -139,7 +142,7 @@ public class DownloaderService extends Service {
 
         if (ACTION_CANCEL.equals(intent.getAction())) {
             Utils.debugLog(TAG, "Cancelling download of " + uriString);
-            Integer whatToRemove = uriString.hashCode();
+            int whatToRemove = uriString.hashCode();
             if (serviceHandler.hasMessages(whatToRemove)) {
                 Utils.debugLog(TAG, "Removing download with ID of " + whatToRemove
                         + " from service handler, then sending interrupted event.");

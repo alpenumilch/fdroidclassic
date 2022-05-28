@@ -1,5 +1,7 @@
 package org.fdroid.fdroid.data;
 
+import androidx.annotation.NonNull;
+
 class OrderClause {
 
     private final String expression;
@@ -14,6 +16,7 @@ class OrderClause {
         this.args = args;
     }
 
+    @NonNull
     @Override
     public String toString() {
         return expression;
