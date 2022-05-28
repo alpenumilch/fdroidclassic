@@ -20,12 +20,14 @@ package org.fdroid.fdroid.privileged.views;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Rect;
-import androidx.viewpager.widget.PagerAdapter;
-import androidx.viewpager.widget.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TabHost;
 import android.widget.TabWidget;
+
+import androidx.annotation.NonNull;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -87,6 +89,7 @@ class TabsAdapter extends PagerAdapter
         return tabs.size();
     }
 
+    @NonNull
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
         View view = tabs.get(position);
@@ -95,12 +98,12 @@ class TabsAdapter extends PagerAdapter
     }
 
     @Override
-    public void destroyItem(ViewGroup container, int position, Object object) {
+    public void destroyItem(ViewGroup container, int position, @NonNull Object object) {
         container.removeView((View) object);
     }
 
     @Override
-    public boolean isViewFromObject(View view, Object object) {
+    public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
         return view == object;
     }
 
