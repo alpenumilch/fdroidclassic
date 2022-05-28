@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="SignatureMismatch">La nouvelle version est signée avec une clé différente de l\'ancienne. Pour installer la nouvelle version, l\'ancienne doit d\'abord être désinstallée. Essayez de nouveau après avoir désinstallé l\'ancienne application (attention : ceci effacera les données stockées par l\'application)</string>
     <string name="installIncompatible">Il semble que ce paquet ne soit pas compatible avec votre appareil. Voulez-vous quand même essayer de l\'installer ?</string>
     <string name="installDowngrade">Vous essayez de revenir à une ancienne version de cette application. Cela peut causer des problèmes de fonctionnement ou des pertes de données. Voulez-vous tout de même essayer de désinstaller les mises à jour ?</string>
@@ -277,22 +277,22 @@ perdues. Elle ne requiert aucune autorisation particulière.</string>
     <string name="antidisabledalgorithmlist">Cette application a une faible signature de sécurité</string>
     <string name="antinosourcesince">Le code source n\'est plus disponible, aucune mise à jour possible.</string>
     <string name="download_404">Le fichier demandé n\'a pas été trouvé.</string>
-    <plurals name="details_last_update_days">
+    <plurals name="details_last_update_days" tools:ignore="MissingQuantity">
         <item quantity="one">Mis à jour il y a %1$d jour</item>
         <item quantity="other">Mis à jour il y a %1$d jours</item>
     </plurals>
-    <plurals name="details_last_update_weeks">
+    <plurals name="details_last_update_weeks" tools:ignore="MissingQuantity">
         <item quantity="one">Mis à jour il y a %1$d semaine</item>
         <item quantity="other">Mis à jour il y a %1$d semaines</item>
     </plurals>
     <string name="signed">Signé : %s</string>
     <string name="app_installed_media">Fichier installé sur %s</string>
     <string name="qr_code">Code QR</string>
-    <plurals name="details_last_update_months">
+    <plurals name="details_last_update_months" tools:ignore="MissingQuantity">
         <item quantity="one">Actualisé il y a un mois en %1$d</item>
         <item quantity="other">Actualisé il y a %1$d mois</item>
     </plurals>
-    <plurals name="details_last_update_years">
+    <plurals name="details_last_update_years" tools:ignore="MissingQuantity">
         <item quantity="one">Actualisé il y a un an en %1$d</item>
         <item quantity="other">Actualisé en %1$d ans</item>
     </plurals>
