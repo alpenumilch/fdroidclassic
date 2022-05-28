@@ -1529,7 +1529,7 @@ public class AppDetails extends AppCompatActivity {
                 // media file - give it to the browser
                 Intent downloadIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(apk.getCanonicalUrl()));
                 startActivity(downloadIntent);
-            } else if (app.installedVersionCode == apk.versionCode) {
+            } else if (app.installedVersionCode == apk.versionCode && app.isUninstallable(this.appDetails)) {
                 appDetails.uninstallApk();
             } else if (app.installedVersionCode > apk.versionCode) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
