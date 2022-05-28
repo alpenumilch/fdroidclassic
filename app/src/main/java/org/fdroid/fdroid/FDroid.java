@@ -19,6 +19,10 @@
 
 package org.fdroid.fdroid;
 
+import static org.fdroid.fdroid.UpdateService.EXTRA_STATUS_CODE;
+import static org.fdroid.fdroid.UpdateService.LOCAL_ACTION_STATUS;
+import static org.fdroid.fdroid.UpdateService.STATUS_INFO;
+
 import android.app.NotificationManager;
 import android.app.SearchManager;
 import android.content.BroadcastReceiver;
@@ -49,10 +53,6 @@ import org.fdroid.fdroid.views.AppListFragmentPagerAdapter;
 import org.fdroid.fdroid.views.ManageReposActivity;
 import org.fdroid.fdroid.views.appdetails.AppDetails;
 import org.ligi.tracedroid.sending.TraceDroidEmailSender;
-
-import static org.fdroid.fdroid.UpdateService.EXTRA_STATUS_CODE;
-import static org.fdroid.fdroid.UpdateService.LOCAL_ACTION_STATUS;
-import static org.fdroid.fdroid.UpdateService.STATUS_INFO;
 
 public class FDroid extends AppCompatActivity implements SearchView.OnQueryTextListener {
 
@@ -196,8 +196,6 @@ public class FDroid extends AppCompatActivity implements SearchView.OnQueryTextL
 
                         // http://f-droid.org/repository/browse?fdid=packageName
                         packageName = data.getQueryParameter("fdid");
-                    } else if ("/app".equals(data.getPath()) || "/packages".equals(data.getPath())) {
-                        packageName = null;
                     }
                     break;
                 case "details":
