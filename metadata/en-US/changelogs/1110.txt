@@ -1,0 +1,9 @@
+**NOTE**: F-Droid Classic 1.2 will be the last version to support Android 4.4
+
+* Lot's of small UI improvements to a number of screens
+* Add pull-to-refresh gesture for updating repositories
+* Add a QR code scanner to the app for easier repo additions
+* Accessibility improvements to app list
+* Add a few disabled repositories to defaults (only for new installs)
+
+See CHANGELOG.md for details.

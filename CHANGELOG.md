@@ -5,7 +5,8 @@
 * Improve accessibility of add repo speed dial
 * remove leftover "write external storage" permission
 * Never show cryptocurrency donation options
-* Translation update
+* Fix a crash when trying to uninstall system apps from the version list of an app
+* Translation updates
 
 ### 1.2-rc1 (23.05.2022)
 
