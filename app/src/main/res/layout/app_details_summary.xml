@@ -102,7 +102,7 @@ Android is open in the sense that you are free to install apks from anywhere you
     * Find apps via categories and searchable descriptions\n
     * Access associated urls for donations, source code etc.\n
     * Stay safe by checking repo index signatures and apk hashes\n"
-            tools:visibility="gone"/>
+            tools:visibility="gone" />
 
         <TextView
             android:id="@+id/view_more_description"
@@ -123,8 +123,8 @@ Android is open in the sense that you are free to install apks from anywhere you
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="4dp"
         android:text="@string/show_screenshots"
-        tools:visibility="visible"
-        android:visibility="gone"/>
+        android:visibility="gone"
+        tools:visibility="visible" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/screnshot_list"
@@ -134,7 +134,7 @@ Android is open in the sense that you are free to install apks from anywhere you
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:itemCount="5"
         tools:listitem="@layout/screenshot_item"
-        tools:visibility="gone"/>
+        tools:visibility="gone" />
 
     <View
         android:layout_width="match_parent"
@@ -221,18 +221,6 @@ Android is open in the sense that you are free to install apks from anywhere you
                 style="@style/AppDetailsLink"
                 android:text="@string/menu_donate"
                 app:drawableStartCompat="@drawable/ic_donate" />
-
-            <TextView
-                android:id="@+id/bitcoin"
-                style="@style/AppDetailsLink"
-                android:text="@string/menu_bitcoin"
-                app:drawableStartCompat="@drawable/ic_bitcoin" />
-
-            <TextView
-                android:id="@+id/litecoin"
-                style="@style/AppDetailsLink"
-                android:text="@string/menu_litecoin"
-                app:drawableStartCompat="@drawable/ic_litecoin" />
 
             <TextView
                 android:id="@+id/flattr"

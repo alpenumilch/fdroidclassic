@@ -1048,16 +1048,6 @@ public class App extends ValueObject implements Comparable<App>, Parcelable {
     }
 
     @Nullable
-    public String getBitcoinUri() {
-        return TextUtils.isEmpty(bitcoin) ? null : "bitcoin:" + bitcoin;
-    }
-
-    @Nullable
-    public String getLitecoinUri() {
-        return TextUtils.isEmpty(bitcoin) ? null : "litecoin:" + bitcoin;
-    }
-
-    @Nullable
     public String getFlattrUri() {
         return TextUtils.isEmpty(flattrID) ? null : "https://flattr.com/thing/" + flattrID;
     }

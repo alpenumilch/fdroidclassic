@@ -901,12 +901,6 @@ public class AppDetails extends AppCompatActivity {
                     url = app.getOpenCollectiveUri();
                 } else if (id == R.id.donate) {
                     url = app.donate;
-                } else if (id == R.id.bitcoin) {
-                    url = app.getBitcoinUri();
-                    rawdata = app.bitcoin;
-                } else if (id == R.id.litecoin) {
-                    url = app.getLitecoinUri();
-                    rawdata = app.litecoin;
                 } else if (id == R.id.flattr) {
                     url = app.getFlattrUri();
                 }
@@ -1084,11 +1078,6 @@ public class AppDetails extends AppCompatActivity {
             } else {
                 tv.setVisibility(View.GONE);
             }
-
-            // Bitcoin
-            view.findViewById(R.id.bitcoin).setVisibility(View.GONE);
-            // Litecoin
-            view.findViewById(R.id.litecoin).setVisibility(View.GONE);
 
             // Flattr
             tv = view.findViewById(R.id.flattr);
