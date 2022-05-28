@@ -269,7 +269,7 @@ public class AppDetails extends AppCompatActivity {
     @Override
     protected void onResume() {
         App newApp = AppProvider.Helper.findHighestPriorityMetadata(getContentResolver(), app.packageName);
-        if (newApp.isInstalled(context) != app.isInstalled(this.context)) {
+        if (newApp.isInstalled() != app.isInstalled()) {
             setApp(newApp);
         }
         super.onResume();
@@ -592,10 +592,10 @@ public class AppDetails extends AppCompatActivity {
                 && app.canAndWantToUpdate(this));
 
         // Uninstall button
-        menu.findItem(R.id.action_uninstall).setVisible(app.isInstalled(this.context) && app.isUninstallable(this.context));
+        menu.findItem(R.id.action_uninstall).setVisible(app.isInstalled() && app.isUninstallable(this.context));
 
         // AppInfo button
-        menu.findItem(R.id.action_appsettings).setVisible(app.isInstalled(this.context));
+        menu.findItem(R.id.action_appsettings).setVisible(app.isInstalled());
 
         //IgnoreAllUpdates button
         menu.findItem(R.id.action_ignore_all_updates)
@@ -717,16 +717,12 @@ public class AppDetails extends AppCompatActivity {
     public void uninstallApk() {
         Apk apk = app.installedApk;
         if (apk == null) {
-            apk = app.getMediaApkifInstalled(getApplicationContext());
+            apk = app.getInstalledApk(this);
             if (apk == null) {
-                // When the app isn't a media file - the above workaround refers to this.
-                apk = app.getInstalledApk(this);
-                if (apk == null) {
-                    Log.d(TAG, "Couldn't find installed apk for " + app.packageName);
-                    Toast.makeText(this, R.string.uninstall_error_unknown, Toast.LENGTH_SHORT).show();
-                    uninstallReceiver.onReceive(this, new Intent(Installer.ACTION_UNINSTALL_INTERRUPTED));
-                    return;
-                }
+                Log.d(TAG, "Couldn't find installed apk for " + app.packageName);
+                Toast.makeText(this, R.string.uninstall_error_unknown, Toast.LENGTH_SHORT).show();
+                uninstallReceiver.onReceive(this, new Intent(Installer.ACTION_UNINSTALL_INTERRUPTED));
+                return;
             }
             app.installedApk = apk;
         }
@@ -1242,7 +1238,7 @@ public class AppDetails extends AppCompatActivity {
             ImageView iv = view.findViewById(R.id.icon);
             Utils.setIconFromRepoOrPM(app, iv, iv.getContext());
             iv.setOnLongClickListener(v -> {
-                if (app.isInstalled(getContext())) {
+                if (app.isInstalled()) {
                     appDetails.openAppInfo();
                     return true;
                 } else {
@@ -1401,7 +1397,7 @@ public class AppDetails extends AppCompatActivity {
                 });
                 btMain.setEnabled(true);
                 btMain.setVisibility(View.VISIBLE);
-            } else if (!app.isInstalled(this.getContext()) && app.suggestedVersionCode > 0 &&
+            } else if (!app.isInstalled() && app.suggestedVersionCode > 0 &&
                     appDetails.adapter.getCount() > 0) {
                 // Check count > 0 due to incompatible apps resulting in an empty list.
                 // If App isn't installed
@@ -1412,7 +1408,7 @@ public class AppDetails extends AppCompatActivity {
                 btMain.setOnClickListener(mOnClickListener);
                 btMain.setEnabled(true);
                 btMain.setVisibility(View.VISIBLE);
-            } else if (app.isInstalled(this.getContext())) {
+            } else if (app.isInstalled()) {
                 // If App is installed
                 installed = true;
                 statusView.setText(getString(R.string.details_installed, app.installedVersionName));

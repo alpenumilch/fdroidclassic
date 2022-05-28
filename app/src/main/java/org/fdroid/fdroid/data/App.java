@@ -27,7 +27,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.common.hash.Hashing;
 
-import org.fdroid.fdroid.Preferences;
 import org.fdroid.fdroid.Utils;
 import org.fdroid.fdroid.data.Schema.AppMetadataTable.Cols;
 import org.xmlpull.v1.XmlPullParser;
@@ -46,7 +45,6 @@ import java.util.Date;
 import java.util.Enumeration;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
@@ -1016,44 +1014,8 @@ public class App extends ValueObject implements Comparable<App>, Parcelable {
         return values;
     }
 
-    public boolean isInstalled(Context context) {
-        // First check isApk() before isMediaInstalled() because the latter is quite expensive,
-        // hitting the database for each apk version, then the disk to check for installed media.
-        return installedVersionCode > 0 || (!isApk() && isMediaInstalled(context));
-    }
-
-    private boolean isApk() {
-        return isApk;
-    }
-
-    public boolean isMediaInstalled(Context context) {
-        return getMediaApkifInstalled(context) != null;
-    }
-
-    /**
-     * Gets the installed media apk from all the apks of this {@link App}, if any.
-     *
-     * @return The installed media {@link Apk} if it exists, null otherwise.
-     */
-    public Apk getMediaApkifInstalled(Context context) {
-        // This is always null for media files. We could skip the code below completely if it wasn't
-        if (this.installedApk != null && !this.installedApk.isApk() && this.installedApk.isMediaInstalled(context)) {
-            return this.installedApk;
-        }
-        // This code comes from AppDetailsRecyclerViewAdapter
-        final List<Apk> apks = ApkProvider.Helper.findByPackageName(context, this.packageName);
-        for (final Apk apk : apks) {
-            boolean allowByCompatability = apk.compatible || Preferences.get().showIncompatibleVersions();
-            boolean allowBySig = this.installedSig == null || TextUtils.equals(this.installedSig, apk.sig);
-            if (allowByCompatability && allowBySig) {
-                if (!apk.isApk()) {
-                    if (apk.isMediaInstalled(context)) {
-                        return apk;
-                    }
-                }
-            }
-        }
-        return null;
+    public boolean isInstalled() {
+        return installedVersionCode > 0;
     }
 
     /**
@@ -1083,16 +1045,6 @@ public class App extends ValueObject implements Comparable<App>, Parcelable {
         AppPrefs prefs = getPrefs(context);
         boolean wantsUpdate = !prefs.ignoreAllUpdates && prefs.ignoreThisUpdate < suggestedVersionCode;
         return canUpdate && wantsUpdate;
-    }
-
-    /**
-     * @return if the given app should be filtered out based on the
-     * {@link Preferences#PREF_SHOW_ANTI_FEATURE_APPS Show Anti-Features Setting}
-     */
-    public boolean isDisabledByAntiFeatures() {
-        return this.antiFeatures != null
-                && this.antiFeatures.length > 0
-                && !Preferences.get().showAppsWithAntiFeatures();
     }
 
     @Nullable
@@ -1182,7 +1134,7 @@ public class App extends ValueObject implements Comparable<App>, Parcelable {
     }
 
     public boolean isUninstallable(Context context) {
-        if (this.isInstalled(context)) {
+        if (this.isInstalled()) {
             PackageManager pm = context.getPackageManager();
             ApplicationInfo appInfo;
             try {
@@ -1198,7 +1150,7 @@ public class App extends ValueObject implements Comparable<App>, Parcelable {
             if (isSystem && ! isUpdate) {
                 return false;
             }
-            else return this.isInstalled(context);
+            else return this.isInstalled();
         } else {
             return false;
         }

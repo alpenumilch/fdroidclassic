@@ -102,7 +102,7 @@ public abstract class AppListAdapter extends CursorAdapter {
             return null;
         }
 
-        if (!app.isInstalled(context)) {
+        if (!app.isInstalled()) {
             return app.getSuggestedVersionName();
         }
 
