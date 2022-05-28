@@ -1251,20 +1251,9 @@ public class AppDetails extends AppCompatActivity {
             }
 
             // Bitcoin
-            tv = view.findViewById(R.id.bitcoin);
-            if (!TextUtils.isEmpty(app.bitcoin)) {
-                tv.setOnClickListener(mOnClickListener);
-            } else {
-                tv.setVisibility(View.GONE);
-            }
-
+            view.findViewById(R.id.bitcoin).setVisibility(View.GONE);
             // Litecoin
-            tv = view.findViewById(R.id.litecoin);
-            if (!TextUtils.isEmpty(app.litecoin)) {
-                tv.setOnClickListener(mOnClickListener);
-            } else {
-                tv.setVisibility(View.GONE);
-            }
+            view.findViewById(R.id.litecoin).setVisibility(View.GONE);
 
             // Flattr
             tv = view.findViewById(R.id.flattr);
