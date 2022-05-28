@@ -5,9 +5,11 @@ import android.app.IntentService;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Process;
 import android.os.SystemClock;
+import android.system.ErrnoException;
+import android.system.Os;
+import android.system.StructStat;
 
 import org.fdroid.fdroid.installer.ApkCache;
 
@@ -98,6 +100,17 @@ public class CleanCacheService extends IntentService {
         }
     }
 
+    static void deleteIfOld(File file, long olderThan) {
+        try {
+            StructStat stat = Os.lstat(file.getAbsolutePath());
+            if ((stat.st_atime * 1000L) < olderThan) {
+                file.delete();
+            }
+        } catch (ErrnoException e) {
+            e.printStackTrace();
+        }
+    }
+
     /**
      * Delete index files which were downloaded, but not removed (e.g. due to F-Droid being
      * force closed during processing of the file, before getting a chance to delete). This
@@ -161,12 +174,8 @@ public class CleanCacheService extends IntentService {
                 clearOldFiles(file, millisAgo);
             }
             f.delete();
-        } else if (Build.VERSION.SDK_INT < 21) {
-            if (f.lastModified() < olderThan) {
-                f.delete();
-            }
         } else {
-            CleanCacheService21.deleteIfOld(f, olderThan);
+            deleteIfOld(f, olderThan);
         }
     }
 }
