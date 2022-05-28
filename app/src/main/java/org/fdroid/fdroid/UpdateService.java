@@ -273,7 +273,7 @@ public class UpdateService extends IntentService {
         }
         long lastUpdate = prefs.getLong(STATE_LAST_UPDATED, 0);
         long elapsed = System.currentTimeMillis() - lastUpdate;
-        if (elapsed < interval * 60 * 60 * 1000) {
+        if (elapsed < interval * 60L * 60L * 1000L) {
             Log.i(TAG, "Skipping update - done " + elapsed
                     + "ms ago, interval is " + interval + " hours");
             return false;
@@ -550,7 +550,6 @@ public class UpdateService extends IntentService {
         if (totalBytes == -1) {
             message = context.getString(R.string.status_download_unknown_size,
                     updater.indexUrl, downloadedSizeFriendly);
-            percent = -1;
         } else {
             String totalSizeFriendly = Utils.getFriendlySize(totalBytes);
             message = context.getString(R.string.status_download,
