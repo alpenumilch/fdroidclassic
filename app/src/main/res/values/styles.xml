@@ -17,6 +17,7 @@
         <item name="alertDialogTheme">@style/AlertDialogThemeDark</item>
         <item name="android:textViewStyle">@style/TextViewStyle</item>
         <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
+        <item name="colorOnSecondary">#ffffff</item>
     </style>
 
     <style name="AppBaseThemeLight" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -31,6 +32,7 @@
         <item name="android:textViewStyle">@style/TextViewStyle</item>
         <item name="toolbar_theme">@style/AppThemeLight.Toolbar</item>
         <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
+        <item name="colorOnSecondary">#ffffff</item>
     </style>
 
     <style name="AppThemeDark" parent="AppBaseThemeDark">
