@@ -1,0 +1,1 @@
+Thank you for your support request! If you submitted a bug report, you can reply to this email to add any more details that might help us track down the problem. You'll also be notified if this issue is solved, unless you unsubscribe with the link below.
