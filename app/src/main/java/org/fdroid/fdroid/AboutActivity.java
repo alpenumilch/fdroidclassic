@@ -1,7 +1,7 @@
 package org.fdroid.fdroid;
 
 import android.os.Bundle;
-import android.text.method.LinkMovementMethod;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -22,8 +22,7 @@ public class AboutActivity extends AppCompatActivity {
         if (versionName != null) {
             ((TextView) findViewById(R.id.version)).setText(versionName);
         }
-        ((TextView) findViewById(R.id.email_link))
-                .setMovementMethod(LinkMovementMethod.getInstance());
+
         findViewById(R.id.ok_button).setOnClickListener(v -> finish());
     }
 }

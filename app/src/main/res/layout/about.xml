@@ -32,8 +32,8 @@
             android:text="@string/about_mail"
             style="@style/CaptionText" />
         <TextView
-            android:id="@+id/email_link"
             android:text="@string/team_email"
+            android:autoLink="email"
             style="@style/BodyText" />
 
         <TextView
