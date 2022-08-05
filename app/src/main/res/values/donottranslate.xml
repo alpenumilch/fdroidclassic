@@ -4,7 +4,7 @@
     <string name="app_description">F-Droid is an installable catalogue of FOSS (Free and Open Source Software) applications for the Android platform. The client makes it easy to browse, install, and keep track of updates on your device.</string>
     <string name="app_name">F-Droid Classic</string>
     <string name="source_link">https://git.bubu1.eu/Bubu/fdroidclassic</string>
-    <string name="team_email">fdroidclassic@bubu1.eu</string>
+    <string name="team_email"><a href="mailto:contact-project+bubu-fdroidclassic-support@bubu1.eu">Write an email</a></string>
     <string name="license_gplv3_later">GNU General Public License version\u00A03 or later</string>
 
 
