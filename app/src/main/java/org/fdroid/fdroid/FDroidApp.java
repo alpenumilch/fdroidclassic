@@ -59,26 +59,30 @@ public class FDroidApp extends Application {
 
     private static Locale locale;
 
-    private static Theme curTheme = Theme.light;
+    private static Theme curTheme = Theme.follow_system;
 
     public void reloadTheme() {
         curTheme = Preferences.get().getTheme();
     }
 
     public void applyTheme(Activity activity) {
-        activity.setTheme(getCurThemeResId());
+        activity.setTheme(getCurThemeResId(isNightMode()));
     }
+
     public static Context getInstance() {
         return instance;
     }
+
     private static FDroidApp instance;
 
     public void applyDialogTheme(Activity activity) {
         activity.setTheme(getCurDialogThemeResId());
     }
 
-    public static int getCurThemeResId() {
+    public static int getCurThemeResId(Boolean isNightMode) {
         switch (curTheme) {
+            case follow_system:
+                return isNightMode ? R.style.AppThemeDark : R.style.AppThemeLight;
             case light:
                 return R.style.AppThemeLight;
             case dark:
@@ -88,6 +92,11 @@ public class FDroidApp extends Application {
             default:
                 return R.style.AppThemeLight;
         }
+    }
+
+    public Boolean isNightMode() {
+        return (getResources().getConfiguration().uiMode
+                & Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES;
     }
 
     private static int getCurDialogThemeResId() {
@@ -104,8 +113,8 @@ public class FDroidApp extends Application {
     }
 
     /**
-     * Force reload the {@link Activity to make theme changes take effect.}
-\     *
+     * Force reload the {@link Activity} to make theme changes take effect.
+     *
      * @param activity the {@code Activity} to force reload
      */
     public static void forceChangeTheme(Activity activity) {
@@ -140,9 +149,11 @@ public class FDroidApp extends Application {
         super.onConfigurationChanged(newConfig);
         applyLanguage();
     }
+
     public static int getTimeout() {
         return timeout;
     }
+
     public static String getMirror(String urlString, long repoId) throws IOException {
         return getMirror(urlString, RepoProvider.Helper.findById(getInstance(), repoId));
     }
@@ -169,8 +180,7 @@ public class FDroidApp extends Application {
                 numTries = repo.getMirrorCount();
             }
             String mirror = repo.getMirror(lastWorkingMirror);
-            if(mirror == null)
-            {
+            if (mirror == null) {
                 throw new IOException("No mirrors available");
             }
             String newUrl = urlString.replace(lastWorkingMirror, mirror);
@@ -183,6 +193,7 @@ public class FDroidApp extends Application {
             throw new IOException("No mirrors available");
         }
     }
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -233,10 +244,9 @@ public class FDroidApp extends Application {
         long available = Utils.getImageCacheDirAvailableMemory(this);
         long memFree = Utils.getImageCacheDirTotalMemory(this);
         int percentageFree;
-        if (memFree == 0){
+        if (memFree == 0) {
             percentageFree = 0;
-        }
-        else {
+        } else {
             percentageFree = Utils.getPercent(available, memFree);
         }
         if (percentageFree > 5) {
@@ -280,6 +290,7 @@ public class FDroidApp extends Application {
     private static final LongSparseArray<String> lastWorkingMirrorArray = new LongSparseArray<>(1);
     private static volatile int numTries = Integer.MAX_VALUE;
     private static volatile int timeout = 10000;
+
     public static void resetMirrorVars() {
         // Reset last working mirror, numtries, and timeout
         for (int i = 0; i < lastWorkingMirrorArray.size(); i++) {

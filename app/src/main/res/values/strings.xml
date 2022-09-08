@@ -326,6 +326,7 @@
     <string name="theme_light">Light</string>
     <string name="theme_dark">Dark</string>
     <string name="theme_night">Black</string>
+    <string name="theme_follow_system">Follow System Theme</string>
 
     <string name="details_last_updated_today">Updated today</string>
     <plurals name="details_last_update_days">

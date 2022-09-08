@@ -70,7 +70,7 @@ public final class Preferences implements SharedPreferences.OnSharedPreferenceCh
     private static final boolean DEFAULT_INCOMP_VER = false;
     private static final boolean DEFAULT_EXPERT = false;
     private static final boolean DEFAULT_ENABLE_PROXY = false;
-    public static final String DEFAULT_THEME = "light";
+    public static final String DEFAULT_THEME = "follow_system";
     @SuppressWarnings("PMD.AvoidUsingHardCodedIP")
     public static final String DEFAULT_PROXY_HOST = "127.0.0.1";
     public static final int DEFAULT_PROXY_PORT = 8118;
@@ -82,6 +82,7 @@ public final class Preferences implements SharedPreferences.OnSharedPreferenceCh
         light,
         dark,
         night,
+        follow_system,
         lightWithDarkActionBar, // Obsolete
     }
 

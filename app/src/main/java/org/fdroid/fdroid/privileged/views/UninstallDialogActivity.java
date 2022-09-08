@@ -25,10 +25,11 @@ import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.FragmentActivity;
-import androidx.appcompat.app.AlertDialog;
 import android.view.ContextThemeWrapper;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.FragmentActivity;
 
 import org.fdroid.fdroid.FDroidApp;
 import org.fdroid.fdroid.R;
@@ -78,7 +79,8 @@ public class UninstallDialogActivity extends FragmentActivity {
         }
 
         // hack to get theme applied (which is not automatically applied due to activity's Theme.NoDisplay
-        ContextThemeWrapper theme = new ContextThemeWrapper(this, FDroidApp.getCurThemeResId());
+        Boolean isNightMode = ((FDroidApp)getApplication()).isNightMode();
+        ContextThemeWrapper theme = new ContextThemeWrapper(this, FDroidApp.getCurThemeResId(isNightMode));
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(theme);
         builder.setTitle(appInfo.loadLabel(pm));
