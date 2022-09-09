@@ -2,6 +2,5 @@
 <resources>
     <style name="AppThemeLight" parent="AppBaseThemeLight">
         <item name="android:windowSplashScreenBackground">@color/fdroid_night</item>
-        <!-- customizations that are not API-level specific go here. -->
     </style>
 </resources>
