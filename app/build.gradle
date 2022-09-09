@@ -21,7 +21,7 @@ repositories {
 
 dependencies {
     // androidX stuff
-    implementation 'androidx.appcompat:appcompat:1.4.2'
+    implementation 'androidx.appcompat:appcompat:1.6.0-rc01'
     implementation 'androidx.annotation:annotation:1.4.0'
     implementation 'androidx.preference:preference:1.2.0'
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
@@ -66,7 +66,7 @@ def privilegedExtensionApplicationIdFallback2 = '"org.fdroid.fdroid.privileged.r
 
 
 android {
-    compileSdkVersion 31
+    compileSdkVersion 33
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_11
