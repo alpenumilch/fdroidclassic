@@ -114,6 +114,11 @@ android {
         applicationId myApplicationId
         resValue "string", "applicationId", myApplicationId
         versionName getVersionName()
+        resConfigs "en", "ar", "ast", "bg", "ca", "cs", "da", "de", "el", "eo", "es", "et",
+                "eu", "fa", "fi", "fr", "gl", "he", "hi", "hr", "hu", "id", "is", "it",
+                "ja", "ko", "lt", "lv", "mk", "my", "nb", "nl", "pl", "pt-rBR", "pt-rPT", "ro",
+                "ru", "sc", "si", "sk", "sl", "sn", "sq", "sr", "sv", "ta", "th", "tr", "ug",
+                "uk", "ur", "vi", "zh-rCN", "zh-rHK", "zh-rTW"
     }
     packagingOptions {
         resources {
