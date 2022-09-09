@@ -43,7 +43,7 @@ dependencies {
     implementation 'com.github.ligi.tracedroid:lib:d0048245ab'
     implementation 'com.github.ligi.tracedroid:supportemail:d0048245ab'
     // index-json parsing
-    def jackson_version = '2.13.3'
+    def jackson_version = '2.13.4'
     implementation "com.fasterxml.jackson.core:jackson-core:$jackson_version"
     implementation "com.fasterxml.jackson.core:jackson-annotations:$jackson_version"
     implementation "com.fasterxml.jackson.core:jackson-databind:$jackson_version"
