@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <PreferenceCategory android:title="@string/updates">
         <ListPreference
             android:defaultValue="24"
@@ -10,6 +11,7 @@
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="updateOnWifiOnly"
+            android:summary="@string/automatic_scan_wifi_on"
             android:title="@string/automatic_scan_wifi" />
         <CheckBoxPreference
             android:defaultValue="false"
@@ -19,6 +21,7 @@
         <CheckBoxPreference
             android:defaultValue="true"
             android:key="updateNotify"
+            android:summary="@string/notify_on"
             android:title="@string/notify" />
         <EditTextPreference
             android:defaultValue="14"
@@ -33,18 +36,24 @@
             android:entries="@array/languageNames"
             android:entryValues="@array/languageValues"
             android:key="language"
+            android:title="@string/pref_language"
+            app:useSimpleSummaryProvider="true" />
+        <Preference
+            android:key="languageSystem"
+            android:summary="@string/pref_language_in_system_settings"
             android:title="@string/pref_language" />
         <ListPreference
             android:defaultValue="follow_system"
             android:entries="@array/themeNames"
             android:entryValues="@array/themeValues"
             android:key="theme"
-            android:title="@string/theme" />
+            android:title="@string/theme"
+            app:useSimpleSummaryProvider="true" />
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="screenshotsOnDemand"
-            android:title="@string/screenshots_on_demand"
-            android:summary="@string/screenshots_pref_summary"/>
+            android:summary="@string/screenshots_pref_summary"
+            android:title="@string/screenshots_on_demand" />
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="disablePullToRefresh"
@@ -55,18 +64,12 @@
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="incompatibleVersions"
+            android:summary="@string/show_incompat_versions_on"
             android:title="@string/show_incompat_versions" />
-        <CheckBoxPreference
-            android:defaultValue="true"
-            android:key="rooted"
-            android:title="@string/rooted" />
-        <CheckBoxPreference
-            android:defaultValue="false"
-            android:key="hideAntiFeatureApps"
-            android:title="@string/hide_anti_feature_apps" />
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="ignoreTouchscreen"
+            android:summary="@string/ignoreTouch_on"
             android:title="@string/ignoreTouch" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/proxy">
@@ -98,10 +101,13 @@
             android:entries="@array/keepCacheNames"
             android:entryValues="@array/keepCacheValues"
             android:key="keepCacheFor"
-            android:title="@string/cache_downloaded" />
+            android:title="@string/cache_downloaded"
+            app:useSimpleSummaryProvider="true" />
+        android:title="@string/cache_downloaded" />
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="expert"
+            android:summary="@string/expert_on"
             android:title="@string/expert" />
         <CheckBoxPreference
             android:defaultValue="false"
@@ -114,6 +120,7 @@
             android:dependency="expert"
             android:key="privilegedInstaller"
             android:persistent="false"
+            android:summary="@string/system_installer_on"
             android:title="@string/system_installer" />
         <Preference
             android:dependency="expert"
