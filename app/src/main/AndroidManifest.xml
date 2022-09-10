@@ -55,6 +55,14 @@
         android:theme="@style/AppThemeLight"
         android:localeConfig="@xml/locales_config">
 
+        <service
+            android:name="androidx.appcompat.app.AppLocalesMetadataHolderService"
+            android:enabled="false"
+            android:exported="false">
+            <meta-data
+                android:name="autoStoreLocales"
+                android:value="true" />
+        </service>
 
     <provider
             android:name="org.fdroid.fdroid.data.AppProvider"
@@ -122,7 +130,7 @@
 
         <activity
             android:name=".FDroid"
-            android:configChanges="layoutDirection|locale|keyboardHidden|orientation|screenSize"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:launchMode="singleTop"
             android:windowSoftInputMode="adjustResize"
             android:exported="true">
@@ -372,7 +380,6 @@
         </activity>
         <activity
             android:name=".privileged.views.InstallConfirmActivity"
-            android:configChanges="layoutDirection|locale"
             android:excludeFromRecents="true"
             android:label="@string/menu_install"
             android:parentActivityName=".FDroid"
@@ -387,7 +394,6 @@
             android:theme="@style/AppThemeTransparent" />
         <activity
             android:name=".views.ManageReposActivity"
-            android:configChanges="layoutDirection|locale"
             android:label="@string/menu_manage"
             android:launchMode="singleTask"
             android:parentActivityName=".FDroid"
@@ -405,7 +411,6 @@
         </activity>
         <activity
             android:name=".views.RepoDetailsActivity"
-            android:configChanges="layoutDirection|locale"
             android:label="@string/repo_details"
             android:parentActivityName=".views.ManageReposActivity"
             android:windowSoftInputMode="stateHidden">
@@ -416,7 +421,6 @@
 
         <activity
             android:name=".views.appdetails.AppDetails"
-            android:configChanges="layoutDirection|locale"
             android:exported="true"
             android:label="@string/app_details"
             android:parentActivityName=".FDroid">
