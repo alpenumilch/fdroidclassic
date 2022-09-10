@@ -65,6 +65,18 @@ public class PreferencesFragment extends PreferenceFragmentCompat
         useTorCheckPref = findPreference(Preferences.PREF_USE_TOR);
         enableProxyCheckPref = findPreference(Preferences.PREF_ENABLE_PROXY);
         updateAutoDownloadPref = findPreference(Preferences.PREF_AUTO_DOWNLOAD_INSTALL_UPDATES);
+        Preference ignoreTouchScreenPref = findPreference(Preferences.PREF_IGN_TOUCH);
+        ignoreTouchScreenPref.setVisible(!hasTouchscreen());
+        Preference languagePref = findPreference(Preferences.PREF_LANGUAGE);
+        languagePref.setVisible(android.os.Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU);
+        Preference languageSystemPref = findPreference(Preferences.LANGUAGE_IN_SYSTEM_SETTINGS);
+        languageSystemPref.setVisible(android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU);
+        languageSystemPref.setOnPreferenceClickListener(preference -> {
+            Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+                    Uri.fromParts("package", getContext().getApplicationInfo().packageName, null));
+            startActivity(intent);
+            return true;
+        });
         Preference reset_transient = findPreference(Preferences.RESET_TRANSIENT);
         reset_transient.setOnPreferenceClickListener(preference -> {
             new AlertDialog.Builder(getActivity())

@@ -27,6 +27,8 @@ public final class Preferences implements SharedPreferences.OnSharedPreferenceCh
 
     //This is more like a button, not a preference
     public static final String RESET_TRANSIENT = "resetTransient";
+    public static final String LANGUAGE_IN_SYSTEM_SETTINGS = "languageSystem";
+
     private static final String TAG = "Preferences";
 
     private final SharedPreferences preferences;
