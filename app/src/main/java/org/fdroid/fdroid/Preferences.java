@@ -11,9 +11,7 @@ import java.net.SocketAddress;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import info.guardianproject.netcipher.NetCipher;
@@ -43,13 +41,10 @@ public final class Preferences implements SharedPreferences.OnSharedPreferenceCh
     public static final String PREF_AUTO_DOWNLOAD_INSTALL_UPDATES = "updateAutoDownload";
     public static final String PREF_UPD_NOTIFY = "updateNotify";
     public static final String PREF_UPD_HISTORY = "updateHistoryDays";
-    public static final String PREF_ROOTED = "rooted";
-    public static final String PREF_HIDE_ANTI_FEATURE_APPS = "hideAntiFeatureApps";
     public static final String PREF_INCOMP_VER = "incompatibleVersions";
     public static final String PREF_THEME = "theme";
     public static final String PREF_IGN_TOUCH = "ignoreTouchscreen";
     public static final String PREF_KEEP_CACHE_TIME = "keepCacheFor";
-    public static final String PREF_SHOW_ANTI_FEATURE_APPS = "showAntiFeatureApps";
     public static final String PREF_UNSTABLE_UPDATES = "unstableUpdates";
     public static final String PREF_EXPERT = "expert";
     public static final String PREF_PRIVILEGED_INSTALLER = "privilegedInstaller";
@@ -61,8 +56,6 @@ public final class Preferences implements SharedPreferences.OnSharedPreferenceCh
     public static final String PREF_ON_DEMAND_SCREENSHOTS = "screenshotsOnDemand";
     public static final String PREF_DISABLE_PULL_TO_REFRESH = "disablePullToRefresh";
 
-    private static final boolean DEFAULT_ROOTED = true;
-    private static final boolean DEFAULT_HIDE_ANTI_FEATURE_APPS = false;
     private static final int DEFAULT_UPD_HISTORY = 14;
     private static final boolean DEFAULT_PRIVILEGED_INSTALLER = true;
     private static final long DEFAULT_KEEP_CACHE_TIME = TimeUnit.DAYS.toMillis(1);
@@ -75,40 +68,18 @@ public final class Preferences implements SharedPreferences.OnSharedPreferenceCh
     public static final String DEFAULT_PROXY_HOST = "127.0.0.1";
     public static final int DEFAULT_PROXY_PORT = 8118;
 
-    private boolean showAppsWithAntiFeatures;
-    private static final boolean IGNORED_B = false;
-
     public enum Theme {
         light,
         dark,
         night,
         follow_system,
-        lightWithDarkActionBar, // Obsolete
     }
 
-    private boolean filterAppsRequiringRoot = DEFAULT_ROOTED;
-    private boolean filterAppsWithAntiFeatures = DEFAULT_HIDE_ANTI_FEATURE_APPS;
 
-    private final Map<String, Boolean> initialized = new HashMap<>();
 
-    private final List<ChangeListener> filterAppsRequiringRootListeners = new ArrayList<>();
-    private final List<ChangeListener> filterAppsRequiringAntiFeaturesListeners = new ArrayList<>();
     private final List<ChangeListener> updateHistoryListeners = new ArrayList<>();
     private final List<ChangeListener> unstableUpdatesListeners = new ArrayList<>();
     private final List<ChangeListener> privextListeners = new ArrayList<>();
-
-
-    private boolean isInitialized(String key) {
-        return initialized.containsKey(key) && initialized.get(key);
-    }
-
-    private void initialize(String key) {
-        initialized.put(key, true);
-    }
-
-    private void uninitialize(String key) {
-        initialized.put(key, false);
-    }
 
     /**
      * Whether to use the Privileged Installer, based on if it is installed.  Only the disabled
@@ -120,25 +91,6 @@ public final class Preferences implements SharedPreferences.OnSharedPreferenceCh
      */
     public boolean isPrivilegedInstallerEnabled() {
         return preferences.getBoolean(PREF_PRIVILEGED_INSTALLER, DEFAULT_PRIVILEGED_INSTALLER);
-    }
-
-    /**
-     * This is cached as it is called several times inside app list adapters.
-     * Providing it here means the shared preferences file only needs to be
-     * read once, and we will keep our copy up to date by listening to changes
-     * in PREF_SHOW_ANTI_FEATURE_APPS.
-     */
-    public boolean showAppsWithAntiFeatures() {
-        // migrate old preference to new key
-        if (isInitialized("hideAntiFeatureApps")) {
-            boolean oldPreference = preferences.getBoolean("hideAntiFeatureApps", false);
-            preferences.edit().putBoolean(PREF_SHOW_ANTI_FEATURE_APPS, !oldPreference).apply();
-        }
-        if (!isInitialized(PREF_SHOW_ANTI_FEATURE_APPS)) {
-            initialize(PREF_SHOW_ANTI_FEATURE_APPS);
-            showAppsWithAntiFeatures = preferences.getBoolean(PREF_SHOW_ANTI_FEATURE_APPS, IGNORED_B);
-        }
-        return showAppsWithAntiFeatures;
     }
 
     /**
@@ -281,80 +233,22 @@ public final class Preferences implements SharedPreferences.OnSharedPreferenceCh
         return recent.getTime();
     }
 
-    /**
-     * This is cached as it is called several times inside the AppListAdapter.
-     * Providing it here means the shared preferences file only needs to be
-     * read once, and we will keep our copy up to date by listening to changes
-     * in PREF_ROOTED.
-     */
-    public boolean filterAppsRequiringRoot() {
-        if (!isInitialized(PREF_ROOTED)) {
-            initialize(PREF_ROOTED);
-            filterAppsRequiringRoot = preferences.getBoolean(PREF_ROOTED, DEFAULT_ROOTED);
-        }
-        return filterAppsRequiringRoot;
-    }
-
-    /**
-     * This is cached as it is called several times inside the AppListAdapter.
-     * Providing it here means the shared preferences file only needs to be
-     * read once, and we will keep our copy up to date by listening to changes
-     * in PREF_HIDE_ANTI_FEATURE_APPS.
-     */
-    public boolean filterAppsWithAntiFeatures() {
-        if (!isInitialized(PREF_HIDE_ANTI_FEATURE_APPS)) {
-            initialize(PREF_HIDE_ANTI_FEATURE_APPS);
-            filterAppsWithAntiFeatures = preferences.getBoolean(PREF_HIDE_ANTI_FEATURE_APPS, DEFAULT_HIDE_ANTI_FEATURE_APPS);
-        }
-        return filterAppsWithAntiFeatures;
-    }
 
     public void registerPrivextChangeListener(ChangeListener listener) {
         privextListeners.add(listener);
-    }
-
-    public void registerAppsRequiringRootChangeListener(ChangeListener listener) {
-        filterAppsRequiringRootListeners.add(listener);
-    }
-
-    public void unregisterAppsRequiringRootChangeListener(ChangeListener listener) {
-        filterAppsRequiringRootListeners.remove(listener);
-    }
-
-    public void registerAppsRequiringAntiFeaturesChangeListener(ChangeListener listener) {
-        filterAppsRequiringAntiFeaturesListeners.add(listener);
-    }
-
-    public void unregisterAppsRequiringAntiFeaturesChangeListener(ChangeListener listener) {
-        filterAppsRequiringAntiFeaturesListeners.remove(listener);
     }
 
     public void registerUnstableUpdatesChangeListener(ChangeListener listener) {
         unstableUpdatesListeners.add(listener);
     }
 
-    public void unregisterUnstableUpdatesChangeListener(ChangeListener listener) {
-        unstableUpdatesListeners.remove(listener);
-    }
-
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         Utils.debugLog(TAG, "Invalidating preference '" + key + "'.");
-        uninitialize(key);
 
         switch (key) {
-            case PREF_ROOTED:
-                for (ChangeListener listener : filterAppsRequiringRootListeners) {
-                    listener.onPreferenceChange();
-                }
-                break;
             case PREF_PRIVILEGED_INSTALLER:
                 for (ChangeListener listener : privextListeners) {
-                    listener.onPreferenceChange();
-                }
-                break;
-            case PREF_HIDE_ANTI_FEATURE_APPS:
-                for (ChangeListener listener : filterAppsRequiringAntiFeaturesListeners) {
                     listener.onPreferenceChange();
                 }
                 break;
@@ -373,10 +267,6 @@ public final class Preferences implements SharedPreferences.OnSharedPreferenceCh
 
     public void registerUpdateHistoryListener(ChangeListener listener) {
         updateHistoryListeners.add(listener);
-    }
-
-    public void unregisterUpdateHistoryListener(ChangeListener listener) {
-        updateHistoryListeners.remove(listener);
     }
 
     public interface ChangeListener {
