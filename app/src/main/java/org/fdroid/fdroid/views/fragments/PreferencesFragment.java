@@ -33,22 +33,13 @@ import info.guardianproject.netcipher.proxy.OrbotHelper;
 
 public class PreferencesFragment extends PreferenceFragmentCompat
         implements SharedPreferences.OnSharedPreferenceChangeListener {
-
+    private static final String TAG = "PreferencesFragment";
     private static final String[] SUMMARIES_TO_UPDATE = {
             Preferences.PREF_UPD_INTERVAL,
-            Preferences.PREF_UPD_WIFI_ONLY,
-            Preferences.PREF_UPD_NOTIFY,
             Preferences.PREF_UPD_HISTORY,
-            Preferences.PREF_ROOTED,
-            Preferences.PREF_HIDE_ANTI_FEATURE_APPS,
-            Preferences.PREF_INCOMP_VER,
             Preferences.PREF_THEME,
-            Preferences.PREF_IGN_TOUCH,
             Preferences.PREF_LANGUAGE,
             Preferences.PREF_KEEP_CACHE_TIME,
-            Preferences.PREF_EXPERT,
-            Preferences.PREF_PRIVILEGED_INSTALLER,
-            Preferences.PREF_ENABLE_PROXY,
             Preferences.PREF_PROXY_HOST,
             Preferences.PREF_PROXY_PORT,
     };
@@ -91,14 +82,15 @@ public class PreferencesFragment extends PreferenceFragmentCompat
         });
     }
 
-    private void checkSummary(String key, int resId) {
-        CheckBoxPreference pref = findPreference(key);
-        pref.setSummary(resId);
-    }
-
-    private void entrySummary(String key) {
-        ListPreference pref = findPreference(key);
-        pref.setSummary(pref.getEntry());
+    private boolean hasTouchscreen() {
+        boolean hasTouchscreen = false;
+        for (FeatureInfo fi : getActivity().getPackageManager().getSystemAvailableFeatures()) {
+            if ("android.hardware.touchscreen".equals(fi.name)) {
+                hasTouchscreen = true;
+                break;
+            }
+        }
+        return hasTouchscreen;
     }
 
     private void textSummary(String key, int resId) {
@@ -106,7 +98,7 @@ public class PreferencesFragment extends PreferenceFragmentCompat
         pref.setSummary(getString(resId, pref.getText()));
     }
 
-    private void updateSummary(String key, boolean changing) {
+    private void handlePreferenceChange(String key, boolean changing) {
 
         int result = 0;
 
@@ -125,20 +117,11 @@ public class PreferencesFragment extends PreferenceFragmentCompat
                 }
                 break;
 
-            case Preferences.PREF_UPD_WIFI_ONLY:
-                checkSummary(key, R.string.automatic_scan_wifi_on);
-                break;
-
-            case Preferences.PREF_UPD_NOTIFY:
-                checkSummary(key, R.string.notify_on);
-                break;
-
             case Preferences.PREF_UPD_HISTORY:
                 textSummary(key, R.string.update_history_summ);
                 break;
 
             case Preferences.PREF_THEME:
-                entrySummary(key);
                 if (changing) {
                     Activity activity = getActivity();
                     result |= PreferencesActivity.RESULT_RESTART;
@@ -150,24 +133,7 @@ public class PreferencesFragment extends PreferenceFragmentCompat
                 }
                 break;
 
-            case Preferences.PREF_INCOMP_VER:
-                checkSummary(key, R.string.show_incompat_versions_on);
-                break;
-
-            case Preferences.PREF_ROOTED:
-                checkSummary(key, R.string.rooted_on);
-                break;
-
-            case Preferences.PREF_HIDE_ANTI_FEATURE_APPS:
-                checkSummary(key, R.string.hide_anti_feature_apps_on);
-                break;
-
-            case Preferences.PREF_IGN_TOUCH:
-                checkSummary(key, R.string.ignoreTouch_on);
-                break;
-
             case Preferences.PREF_LANGUAGE:
-                entrySummary(key);
                 if (changing) {
                     ListPreference language_Pref = findPreference(Preferences.PREF_LANGUAGE);
                     LocaleListCompat appLocale = LocaleListCompat.forLanguageTags(language_Pref.getValue());
@@ -176,24 +142,10 @@ public class PreferencesFragment extends PreferenceFragmentCompat
                 break;
 
             case Preferences.PREF_KEEP_CACHE_TIME:
-                entrySummary(key);
                 if (changing
                         && currentKeepCacheTime != Preferences.get().getKeepCacheTime()) {
                     CleanCacheService.schedule(getActivity());
                 }
-                break;
-
-            case Preferences.PREF_EXPERT:
-                checkSummary(key, R.string.expert_on);
-                break;
-
-            case Preferences.PREF_PRIVILEGED_INSTALLER:
-                checkSummary(key, R.string.system_installer_on);
-                break;
-
-            case Preferences.PREF_ENABLE_PROXY:
-                CheckBoxPreference checkPref = findPreference(key);
-                checkPref.setSummary(R.string.enable_proxy_summary);
                 break;
 
             case Preferences.PREF_PROXY_HOST:
@@ -251,7 +203,7 @@ public class PreferencesFragment extends PreferenceFragmentCompat
         getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
 
         for (final String key : SUMMARIES_TO_UPDATE) {
-            updateSummary(key, false);
+            handlePreferenceChange(key, false);
         }
 
         currentKeepCacheTime = Preferences.get().getKeepCacheTime();
@@ -261,24 +213,21 @@ public class PreferencesFragment extends PreferenceFragmentCompat
         boolean useTor = Preferences.get().isTorEnabled();
         useTorCheckPref.setDefaultValue(useTor);
         useTorCheckPref.setChecked(useTor);
-        useTorCheckPref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-            @Override
-            public boolean onPreferenceChange(Preference preference, Object enabled) {
-                if ((Boolean) enabled) {
-                    final Activity activity = getActivity();
-                    enableProxyCheckPref.setEnabled(false);
-                    if (OrbotHelper.isOrbotInstalled(activity)) {
-                        NetCipher.useTor();
-                    } else {
-                        Intent intent = OrbotHelper.getOrbotInstallIntent(activity);
-                        activity.startActivityForResult(intent, REQUEST_INSTALL_ORBOT);
-                    }
+        useTorCheckPref.setOnPreferenceChangeListener((preference, enabled) -> {
+            if ((Boolean) enabled) {
+                final Activity activity = getActivity();
+                enableProxyCheckPref.setEnabled(false);
+                if (OrbotHelper.isOrbotInstalled(activity)) {
+                    NetCipher.useTor();
                 } else {
-                    enableProxyCheckPref.setEnabled(true);
-                    NetCipher.clearProxy();
+                    Intent intent = OrbotHelper.getOrbotInstallIntent(activity);
+                    activity.startActivityForResult(intent, REQUEST_INSTALL_ORBOT);
                 }
-                return true;
+            } else {
+                enableProxyCheckPref.setEnabled(true);
+                NetCipher.clearProxy();
             }
+            return true;
         });
 
         if (PrivilegedInstaller.isDefault(getActivity())) {
@@ -297,7 +246,7 @@ public class PreferencesFragment extends PreferenceFragmentCompat
     @Override
     public void onSharedPreferenceChanged(
             SharedPreferences sharedPreferences, String key) {
-        updateSummary(key, true);
+        handlePreferenceChange(key, true);
     }
 
 }
