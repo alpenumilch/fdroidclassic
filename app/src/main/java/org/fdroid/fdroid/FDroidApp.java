@@ -23,13 +23,10 @@ import android.app.ActivityManager;
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.StrictMode;
-import android.preference.PreferenceManager;
 import android.util.Log;
 
-import androidx.annotation.NonNull;
 import androidx.collection.LongSparseArray;
 
 import com.nostra13.universalimageloader.cache.disc.DiskCache;
@@ -48,7 +45,6 @@ import org.fdroid.fdroid.net.ImageLoaderForUIL;
 import org.ligi.tracedroid.TraceDroid;
 
 import java.io.IOException;
-import java.util.Locale;
 
 import info.guardianproject.netcipher.NetCipher;
 import info.guardianproject.netcipher.proxy.OrbotHelper;
@@ -56,8 +52,6 @@ import info.guardianproject.netcipher.proxy.OrbotHelper;
 public class FDroidApp extends Application {
 
     private static final String TAG = "FDroidApp";
-
-    private static Locale locale;
 
     private static Theme curTheme = Theme.follow_system;
 
@@ -129,27 +123,6 @@ public class FDroidApp extends Application {
         activity.overridePendingTransition(0, 0);
     }
 
-    public void updateLanguage() {
-        Context ctx = getBaseContext();
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ctx);
-        String lang = prefs.getString(Preferences.PREF_LANGUAGE, "");
-        locale = Utils.getLocaleFromAndroidLangTag(lang);
-        applyLanguage();
-    }
-
-    private void applyLanguage() {
-        Context ctx = getBaseContext();
-        Configuration cfg = new Configuration();
-        cfg.locale = locale == null ? Locale.getDefault() : locale;
-        ctx.getResources().updateConfiguration(cfg, null);
-    }
-
-    @Override
-    public void onConfigurationChanged(@NonNull Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        applyLanguage();
-    }
-
     public static int getTimeout() {
         return timeout;
     }
@@ -209,7 +182,6 @@ public class FDroidApp extends Application {
                     .penaltyLog()
                     .build());
         }
-        updateLanguage();
 
         Preferences.setup(this);
         curTheme = Preferences.get().getTheme();

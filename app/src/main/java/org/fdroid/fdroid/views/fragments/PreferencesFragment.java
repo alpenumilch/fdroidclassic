@@ -3,10 +3,16 @@ package org.fdroid.fdroid.views.fragments;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.FeatureInfo;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.text.TextUtils;
 
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.os.LocaleListCompat;
 import androidx.preference.CheckBoxPreference;
 import androidx.preference.EditTextPreference;
 import androidx.preference.ListPreference;
@@ -151,10 +157,9 @@ public class PreferencesFragment extends PreferenceFragmentCompat
             case Preferences.PREF_LANGUAGE:
                 entrySummary(key);
                 if (changing) {
-                    result |= PreferencesActivity.RESULT_RESTART;
-                    Activity activity = getActivity();
-                    activity.setResult(result);
-                    ((FDroidApp) activity.getApplication()).updateLanguage();
+                    ListPreference language_Pref = findPreference(Preferences.PREF_LANGUAGE);
+                    LocaleListCompat appLocale = LocaleListCompat.forLanguageTags(language_Pref.getValue());
+                    AppCompatDelegate.setApplicationLocales(appLocale);
                 }
                 break;
 
