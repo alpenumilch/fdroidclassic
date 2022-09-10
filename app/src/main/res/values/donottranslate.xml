@@ -40,7 +40,7 @@
     </string-array>
 
     <string-array name="languageValues">
-        <item></item>
+        <item />
         <item>en</item>
         <item>ar</item>
         <item>ast</item>
@@ -74,8 +74,8 @@
         <item>nb</item>
         <item>nl</item>
         <item>pl</item>
-        <item>pt-rBR</item>
-        <item>pt-rPT</item>
+        <item>pt-BR</item>
+        <item>pt-PT</item>
         <item>ro</item>
         <item>ru</item>
         <item>sc</item>
@@ -92,9 +92,9 @@
         <item>uk</item>
         <item>ur</item>
         <item>vi</item>
-        <item>zh-rCN</item>
-        <item>zh-rHK</item>
-        <item>zh-rTW</item>
+        <item>zh-CN</item>
+        <item>zh-HK</item>
+        <item>zh-TW</item>
     </string-array>
 
     <string-array name="languageNames">
