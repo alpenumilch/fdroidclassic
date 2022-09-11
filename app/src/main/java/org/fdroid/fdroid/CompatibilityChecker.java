@@ -6,8 +6,9 @@ import android.content.pm.FeatureInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.preference.PreferenceManager;
-import androidx.annotation.Nullable;
 import android.text.TextUtils;
+
+import androidx.annotation.Nullable;
 
 import org.fdroid.fdroid.compat.SupportedArchitectures;
 import org.fdroid.fdroid.data.Apk;
