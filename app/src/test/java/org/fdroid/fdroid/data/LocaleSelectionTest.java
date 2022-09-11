@@ -1,6 +1,10 @@
 package org.fdroid.fdroid.data;
 
 
+import static com.google.common.truth.Truth.assertThat;
+import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.spy;
+
 import android.os.Build;
 
 import org.fdroid.fdroid.TestUtils;
@@ -10,16 +14,12 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
-import static com.google.common.truth.Truth.assertThat;
-import static org.mockito.Mockito.doReturn;
-import static org.mockito.Mockito.spy;
-
 
 public class LocaleSelectionTest {
 
     @Test
     public void correctLocaleSelectionBeforeSDK24() throws Exception {
-        TestUtils.setFinalStatic(Build.VERSION.class.getDeclaredField("SDK_INT"), 19);
+        TestUtils.setFinalStatic(Build.VERSION.class.getDeclaredField("SDK_INT"), 23);
         assertThat(Build.VERSION.SDK_INT).isLessThan(24);
         App app;
 
