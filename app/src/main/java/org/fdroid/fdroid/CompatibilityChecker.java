@@ -6,9 +6,8 @@ import android.content.pm.FeatureInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.preference.PreferenceManager;
-import android.text.TextUtils;
-
 import androidx.annotation.Nullable;
+import android.text.TextUtils;
 
 import org.fdroid.fdroid.compat.SupportedArchitectures;
 import org.fdroid.fdroid.data.Apk;
@@ -42,15 +41,18 @@ public class CompatibilityChecker {
 
         features = new HashSet<>();
         if (pm != null) {
-            if (BuildConfig.DEBUG) {
-                StringBuilder logMsg = new StringBuilder("Available device features:");
-                for (FeatureInfo fi : pm.getSystemAvailableFeatures()) {
-                    logMsg.append('\n').append(fi.name);
+            final FeatureInfo[] featureArray = pm.getSystemAvailableFeatures();
+            if (featureArray != null) {
+                if (BuildConfig.DEBUG) {
+                    StringBuilder logMsg = new StringBuilder("Available device features:");
+                    for (FeatureInfo fi : pm.getSystemAvailableFeatures()) {
+                        logMsg.append('\n').append(fi.name);
+                    }
+                    Utils.debugLog(TAG, logMsg.toString());
                 }
-                Utils.debugLog(TAG, logMsg.toString());
-            }
-            for (FeatureInfo fi : pm.getSystemAvailableFeatures()) {
-                features.add(fi.name);
+                for (FeatureInfo fi : pm.getSystemAvailableFeatures()) {
+                    features.add(fi.name);
+                }
             }
         }
 
