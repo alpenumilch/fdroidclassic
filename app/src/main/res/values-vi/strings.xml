@@ -314,4 +314,9 @@
     <string name="button_download">Tải xuống</string>
     <string name="add_repo_enter_details">Nhập chi tiết</string>
     <string name="scan_qr_code">Quét mã QR</string>
+    <string name="disable_pull_to_refresh">Tắt cử chỉ kéo để làm mới</string>
+    <string name="build_type_source">nguồn</string>
+    <string name="build_type_bin">nhị phân</string>
+    <string name="clear_cache_summary">Xoá và tải lại tất cả thông tin ứng dụng.</string>
+    <string name="clear_cache">Xoá bộ nhớ đệm và tải lại</string>
 </resources>
