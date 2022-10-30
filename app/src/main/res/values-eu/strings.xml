@@ -140,7 +140,7 @@
     <string name="proxy_port_summary">Konfiguratu zure proxyaren ataka zenbakia (adib. 8118)</string>
     <string name="status_download">Deskargatzen\n%2$s / %3$s (%4$d%%) hemendik:\n%1$s</string>
     <string name="status_processing_xml_percent">%2$s / %3$s (%4$d%%) prozesatzen %1$s(e)tik</string>
-    <string name="no_handler_app">Ez duzu %s tratatu dezakeen aplikaziorik eskura.</string>
+    <string name="no_handler_app">Ez duzu %s erabil dezakeen aplikaziorik eskura.</string>
     <string name="unverified">Egiaztatu gabea</string>
     <string name="repo_details">Biltegia</string>
     <string name="repo_url">Helbidea</string>
@@ -201,7 +201,7 @@ Gaitu behar duzu dauzkan aplikazioak ikusteko.</string>
     <string name="open_qr_code_scanner">Ireki QR eskanerra</string>
     <string name="system_install_post_success">Ongi instalatu da Pribilegiodun F-Droid Luzapena</string>
     <string name="system_install_post_fail">Huts egin du Pribilegiodun F-Droid Luzapena instalatzea</string>
-    <string name="system_install_post_success_message">Pribilegiodun F-Droid Luzapena ongi instalatu da. Honek F-Droidek bere kabuz aplikazioak instalatu, eguneratu eta desinstalatzea ahalbidetzen du.</string>
+    <string name="system_install_post_success_message">Pribilegiodun F-Droid Luzapena ongi instalatu da. Honek F-Droid Classic-ek bere kabuz aplikazioak instalatu, eguneratu eta desinstalatzea ahalbidetzen du.</string>
     <string name="system_install_post_fail_message">Pribilegiodun F-Droid Luzapenaren instalazioak huts egin du. Instalazio metodoa ez dabil Android banaketa guztietan, Kontsultatu F-Droid Bug Trackerra informazio gehiagorako.</string>
     <string name="system_uninstall">Pribilegiodun F-Droid Luzapena desinstalatu nahi duzu?</string>
     <string name="install_confirm">baimen hauek behar ditu</string>
@@ -222,7 +222,7 @@ Ez du baimen berezirik behar.</string>
     <string name="uninstall_confirm">Aplikazio hau desinstalatu nahi duzu?</string>
     <string name="download_error">Deskargak huts egin du</string>
     <string name="perms_description_app">%1$sk hornitua.</string>
-    <string name="more">Gehiago</string>
+    <string name="more">Irakurri gehiago</string>
     <string name="less">Gutxiago</string>
     <string name="status_download_unknown_size">%2$s
 \ndeskargatzen\n%1$s(e)tik</string>
@@ -298,7 +298,7 @@ Ez du baimen berezirik behar.</string>
         <item quantity="one">%1$d urte eguneratu da</item>
         <item quantity="other">%1$d urte eguneratu zen</item>
     </plurals>
-    <string name="app_permission_storage">F-Droid-ek biltegiratzeko baimena behar du hau biltegian instalatzeko. Mesedez, utzi hurrengo pantailan instalazioarekin jarraitzeko.</string>
+    <string name="app_permission_storage">F-Droid Classic-ek biltegiratzeko baimena behar du hau biltegian instalatzeko. Mesedez, onartu hurrengo pantailan instalazioarekin jarraitzeko.</string>
     <string name="repo_official_mirrors">Ispilu ofizialak</string>
     <string name="repo_user_mirrors">Erabiltzailearen ispiluak</string>
     <string name="repo_exists_add_mirror">%1$s-ren kopia da hau, ispilu gisa gehitu\?</string>
@@ -319,4 +319,8 @@ Ez du baimen berezirik behar.</string>
     <string name="button_download">Deskargatu</string>
     <string name="screenshot">Pantaila-argazkia</string>
     <string name="screenshots_pref_summary">Egin klik gehigarria behar du pantaila-argazkiak eskuratzen hasi aurretik</string>
+    <string name="liberapay">Liberapay</string>
+    <string name="opencollective">Open Collective</string>
+    <string name="disable_pull_to_refresh">Desgaitu tira egin errefreskatzeko zeinua</string>
+    <string name="clear_cache_summary">Ezabatu eta berdeskargatzen du aplikazioaren informazio guztia</string>
 </resources>
