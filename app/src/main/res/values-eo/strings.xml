@@ -321,4 +321,8 @@
     <string name="disable_pull_to_refresh">Malaktivigi la geston “ŝovi malsupren” por aktualigi</string>
     <string name="clear_cache_summary">Forigi kaj reelŝuti ĉiujn informojn pri aplikaĵoj.</string>
     <string name="clear_cache">Forviŝi kaŝmemoron kaj reelŝuti</string>
+    <string name="build_type_source">fontkodo</string>
+    <string name="build_type_bin">binaraĵo</string>
+    <string name="theme_follow_system">Laŭ operaciumo</string>
+    <string name="pref_language_in_system_settings">Ŝanĝebla en agordoj de la operaciumo</string>
 </resources>
