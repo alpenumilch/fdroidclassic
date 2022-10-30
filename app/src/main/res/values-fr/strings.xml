@@ -279,21 +279,25 @@ perdues. Elle ne requiert aucune autorisation particulière.</string>
     <string name="download_404">Le fichier demandé n\'a pas été trouvé.</string>
     <plurals name="details_last_update_days" tools:ignore="MissingQuantity">
         <item quantity="one">Mis à jour il y a %1$d jour</item>
+        <item quantity="many">Mis à jour il y a %1$d jours</item>
         <item quantity="other">Mis à jour il y a %1$d jours</item>
     </plurals>
     <plurals name="details_last_update_weeks" tools:ignore="MissingQuantity">
         <item quantity="one">Mis à jour il y a %1$d semaine</item>
+        <item quantity="many">Mis à jour il y a %1$d semaines</item>
         <item quantity="other">Mis à jour il y a %1$d semaines</item>
     </plurals>
     <string name="signed">Signé : %s</string>
     <string name="app_installed_media">Fichier installé sur %s</string>
     <string name="qr_code">Code QR</string>
     <plurals name="details_last_update_months" tools:ignore="MissingQuantity">
-        <item quantity="one">Actualisé il y a un mois en %1$d</item>
+        <item quantity="one">Actualisé il y a %1$d mois</item>
+        <item quantity="many">Actualisé il y a %1$d mois</item>
         <item quantity="other">Actualisé il y a %1$d mois</item>
     </plurals>
     <plurals name="details_last_update_years" tools:ignore="MissingQuantity">
         <item quantity="one">Actualisé il y a un an en %1$d</item>
+        <item quantity="many">Actualisé en %1$d ans</item>
         <item quantity="other">Actualisé en %1$d ans</item>
     </plurals>
     <string name="warning_no_internet">Impossible de mettre à jour, êtes-vous connecté(e) à internet \?</string>
@@ -325,4 +329,11 @@ perdues. Elle ne requiert aucune autorisation particulière.</string>
     <string name="button_close_menu">Fermer menu</string>
     <string name="button_download">Télécharger</string>
     <string name="repo_url_invalid">L\'URL du dépôt n\'est pas valide !</string>
+    <string name="theme_follow_system">Suivre le thème du système</string>
+    <string name="pref_language_in_system_settings">Disponible dans les paramètres du système</string>
+    <string name="disable_pull_to_refresh">Désactiver le geste \"Tirer pour rafraîchir\"</string>
+    <string name="build_type_source">source</string>
+    <string name="build_type_bin">binaire</string>
+    <string name="clear_cache_summary">Supprime et retélécharge toutes les informations de l\'application.</string>
+    <string name="clear_cache">Vider le cache et recharger</string>
 </resources>
