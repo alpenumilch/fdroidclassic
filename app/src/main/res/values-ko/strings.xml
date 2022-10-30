@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SignatureMismatch">새 버전은 기존 버전과 다른 키로 서명되어 있습니다. 새 버전을 설치하려면 기존 버전을 반드시 먼저 삭제해야 합니다. 그 다음에 다시 시도하세요. (참고로, 삭제를 할 경우 앱이 저장한 모든 내부 자료도 같이 삭제됩니다)</string>
     <string name="installIncompatible">이 패키지가 기기와 호환되지 않는 것 같습니다. 계속 설치를 진행할까요?</string>
@@ -137,7 +137,6 @@
     <string name="system_install_denied_title">시스템 권한 거부됨</string>
     <string name="system_install_denied_body">이 옵션은 F-Droid가 시스템 앱으로 설치된 경우에만 사용 가능합니다.</string>
     <string name="open_qr_code_scanner">QR 코드 스캐너 열기</string>
-
     <string name="unstable_updates">불안정 업데이트</string>
     <string name="unstable_updates_summary">불안정한 버전으로의 업데이트를 제안</string>
     <string name="login_title">인증이 필요합니다</string>
@@ -145,15 +144,12 @@
     <string name="login_password">암호</string>
     <string name="repo_edit_credentials">암호 변경</string>
     <string name="repo_error_empty_username">사용자 이름이 비어있습니다. 인증서가 변경되지 않았습니다</string>
-
     <string name="about_source">소스 코드</string>
     <string name="about_license">라이센스</string>
-
     <string name="app_incompatible">호환되지 않음</string>
     <string name="links">링크</string>
     <string name="more">펼치기</string>
     <string name="less">접기</string>
-
     <string name="back">뒤로</string>
     <string name="tab_installed_apps">설치됨</string>
     <string name="tab_installed_apps_count">설치됨 (%d)</string>
@@ -166,8 +162,6 @@
     <string name="menu_bitcoin">비트코인</string>
     <string name="menu_litecoin">라이트코인</string>
     <string name="menu_flattr">Flattr</string>
-
-
     <string name="status_download_unknown_size">%1$s 에서\n%2$s\n다운로드 중</string>
     <string name="update_notification_title">저장소 업데이트 중</string>
     <string name="status_processing_xml_percent">%1$s에서 %2$s / %3$s (%4$d%%) 처리 중</string>
@@ -177,8 +171,6 @@
     <string name="repo_url">주소</string>
     <string name="pref_language">언어</string>
     <string name="pref_language_default">시스템 기본값</string>
-
-
     <string name="category_Connectivity">접속성</string>
     <string name="category_Graphics">그래픽</string>
     <string name="category_Money">금융</string>
@@ -186,11 +178,9 @@
     <string name="category_Theming">꾸미기</string>
     <string name="category_Time">시간</string>
     <string name="category_Writing">작성</string>
-
     <string name="empty_installed_app_list">앱이 설치되지 않았습니다.\n\n기기에 앱이 있지만, F-Droid에서는 구할 수 없습니다. 저장소를 업데이트해야 하거나, 정말로 저장소에 앱이 존재하지 않기 때문인 것 같습니다.</string>
     <string name="empty_available_app_list">이 카테고리에는 앱이 없습니다.\n\n다른 카테고리를 선택하거나 최신 앱 목록을 얻기 위해 저장소를 업데이트 해보세요.</string>
     <string name="empty_can_update_app_list">모든 앱이 최신 상태입니다.\n\n모든 앱이 최신 상태이거나 저장소가 아직 업데이트 되지 않았습니다.</string>
-
     <string name="install_error_unknown">알 수 없는 이유로 인해 설치할 수 없습니다</string>
     <string name="uninstall_error_unknown">알 수 없는 이유로 인해 삭제할 수 없습니다</string>
     <string name="system_install_denied_signature">확장의 서명이 올바르지 않습니다! 오류 보고서를 작성해주세요!</string>
@@ -209,9 +199,7 @@
     <string name="system_install_warning_lollipop">최대 10초가 소요되며 이후 기기가 <b>재시작</b>됩니다.</string>
     <string name="system_uninstall">F-Droid 특별 권한 확장을 삭제할까요?</string>
     <string name="system_uninstall_button">삭제</string>
-
     <string name="loading">불러오는 중…</string>
-
     <string name="install_confirm">다음에의 접근 권한이 필요합니다</string>
     <string name="install_confirm_update">기존의 앱을 업데이트 하시겠습니까? 기존의 데이터는 남아있을 것입니다. 업데이트된 앱은 다음에 접근할 수 있습니다:</string>
     <string name="install_confirm_update_system">기존의 내장 앱을 업데이트 하시겠습니까? 기존의 데이터는 남아있을 것입니다. 업데이트된 앱은 다음에 접근할 수 있습니다:</string>
@@ -224,11 +212,9 @@
     <string name="uninstall_confirm">이 앱을 삭제하시겠습니까?</string>
     <string name="tap_to_install">다운로드가 완료되었습니다, 눌러서 설치하세요</string>
     <string name="download_error">다운로드 실패</string>
-
     <string name="perms_new_perm_prefix">"새로운: "</string>
     <string name="perms_description_app">%1$s 제공.</string>
     <string name="downloading">다운로드 중…</string>
-
     <string name="interval_never">없음</string>
     <string name="interval_1h">1시간</string>
     <string name="interval_4h">4시간</string>
@@ -236,38 +222,73 @@
     <string name="interval_1d">매일</string>
     <string name="interval_1w">매주</string>
     <string name="interval_2w">2주</string>
-
     <string name="theme_light">밝음</string>
     <string name="theme_dark">어두움</string>
     <string name="theme_night">야간</string>
     <string name="update_auto_download">업데이트를 자동으로 다운로드</string>
     <string name="update_auto_download_summary">업데이트 파일을 백그라운드에서 다운로드합니다</string>
     <string name="repo_provider">저장소: %s</string>
-
     <string name="menu_email">제작자에게 이메일 보내기</string>
     <string name="antinonfreeassetslist">이 앱은 자유롭지 않은 구성요소를 포함하고 있습니다</string>
-
     <string name="useTor">Tor 사용</string>
     <string name="useTorSummary">향상된 프라이버시를 위해 Tor를 통한 다운로드 트래픽을 강제합니다</string>
     <string name="empty_search_installed_app_list">설치된 앱 중 일치하는 결과가 없습니다.</string>
     <string name="empty_search_available_app_list">일치하는 앱이 없습니다.</string>
     <string name="empty_search_can_update_app_list">일치하는 업데이트가 없습니다.</string>
-
     <string name="tap_to_install_format">%s 설치하려면 터치하세요</string>
     <string name="tap_to_update_format">%s 업데이트하려면 터치하세요</string>
     <string name="download_pending">다운로드 시작을 기다리는 중…</string>
     <string name="install_error_notify_title">%s 설치 오류</string>
     <string name="uninstall_error_notify_title">%s 삭제 오류</string>
-
-
     <string name="downloading_apk">%1$s 다운로드 중</string>
     <string name="installing">설치하는 중…</string>
     <string name="uninstalling">제거하는 중…</string>
-
     <string name="keep_hour">1시간</string>
     <string name="keep_day">1일</string>
     <string name="keep_week">1주</string>
     <string name="keep_month">1달</string>
     <string name="keep_year">1년</string>
     <string name="keep_forever">계속 보관</string>
+    <string name="repo_add_mirror">미러 추가</string>
+    <string name="show_screenshots">스크린샷 보기</string>
+    <plurals name="details_last_update_days">
+        <item quantity="other">%1$d일 전에 업데이트됨</item>
+    </plurals>
+    <string name="copied_to_clipboard">클립보드에 복사됨</string>
+    <string name="update_auto_install_summary">앱 업데이트를 백그라운드에서 받고 설치하기</string>
+    <string name="warning_no_internet">업데이트 할 수 없습니다, 인터넷에 연결되어있나요\?</string>
+    <string name="repo_official_mirrors">공식 미러</string>
+    <string name="repo_user_mirrors">사용자 미러</string>
+    <string name="app_installed_media">%s 에 파일 설치됨</string>
+    <string name="menu_update_this_repo">이 저장소 업데이트</string>
+    <string name="qr_code">QR-코드</string>
+    <string name="link_translate">번역</string>
+    <plurals name="details_last_update_weeks">
+        <item quantity="other">%1$d주 전에 업데이트됨</item>
+    </plurals>
+    <string name="download_all_updates">업데이트 받기</string>
+    <string name="antidisabledalgorithmlist">이 앱은 취약한 보안 서명이 존재합니다</string>
+    <string name="by_author_format">by %s</string>
+    <string name="reset_transient_title">데이터베이스 초기화\?</string>
+    <string name="repo_exists_add_mirror">%1$s의 복사본입니다, 미러로 추가할까요\?</string>
+    <string name="signed">서명됨: %s</string>
+    <string name="details_new_in_version">%s 버전에서 새로 추가됨</string>
+    <plurals name="details_last_update_months">
+        <item quantity="other">%1$d달 전에 업데이트됨</item>
+    </plurals>
+    <plurals name="details_last_update_years">
+        <item quantity="other">%1$d년 전에 업데이트됨</item>
+    </plurals>
+    <string name="download_404">요청한 파일이 존재하지 않습니다.</string>
+    <string name="share_repository">저장소 공유</string>
+    <string name="install_all_updates">업데이트 설치</string>
+    <string name="links_and_donations">주소 &amp; 기부</string>
+    <string name="update_auto_install">자동으로 업데이트 설치하기</string>
+    <string name="menu_appinfo">앱 정보 (시스템 설정)</string>
+    <string name="antiknownvulnlist">이 앱은 알려진 보안 취약점이 포함되어있습니다</string>
+    <string name="antinosourcesince">소스 코드가 더 이상 유효하지 않습니다, 업데이트가 불가능합니다.</string>
+    <string name="details_last_updated_today">오늘 업데이트됨</string>
+    <string name="app_permission_storage">저장소에 설치하기 위해 F-Droid Classic에 저장소 권한이 필요합니다. 다음 화면에서 허용하여 설치를 진행해주세요.</string>
+    <string name="force_update">강제 업데이트</string>
+    <string name="screenshot">스크린샷</string>
 </resources>
