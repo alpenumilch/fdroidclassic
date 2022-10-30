@@ -317,4 +317,6 @@ Um darin bereitgestellte Anwendungen anzuzeigen, muss sie aktiviert werden.</str
     <string name="clear_cache_summary">Entfernt alle Appinformationen und lädt sie erneut herunter.</string>
     <string name="clear_cache">Cache leeren und neu laden</string>
     <string name="disable_pull_to_refresh">Deaktiviere die \"Ziehen zum neu laden\" Geste</string>
+    <string name="theme_follow_system">System-Thema folgen</string>
+    <string name="pref_language_in_system_settings">Verfügbar unter Systemeinstellungen</string>
 </resources>
