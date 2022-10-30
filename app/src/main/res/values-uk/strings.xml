@@ -40,7 +40,7 @@
     <string name="category_All">Усі</string>
     <string name="category_Whats_New">Недавно додані</string>
     <string name="category_Recently_Updated">Недавно оновлені</string>
-    <string name="installIncompatible">Схоже, цей пакунок не сумісний із Вашим пристроєм. Спробувати встановити його в будь-якому разі\?</string>
+    <string name="installIncompatible">Схоже, цей пакунок несумісний із Вашим пристроєм. Спробувати встановити його в будь-якому разі\?</string>
     <string name="installDowngrade">Ви збираєтеся встановити старішу версію програми. Це можете призвести до некоректної робити і навіть втрати Ваших даних. Установити старішу версію\?</string>
     <string name="delete">Видалити</string>
     <string name="other">Інше</string>
@@ -94,7 +94,7 @@
     <string name="uninstall_confirm">Бажаєте видалити цей застосунок\?</string>
     <string name="overwrite">Перезаписати</string>
     <string name="bad_fingerprint">Поганий відбиток</string>
-    <string name="invalid_url">Це неправильна URL.</string>
+    <string name="invalid_url">Це некоректна URL.</string>
     <string name="antitracklist">Цей застосунок збирає дані і звітує про Вашу активність</string>
     <string name="antinonfreedeplist">Цей застосунокк залежить від іншого невільного застосунку</string>
     <string name="expert_on">Показати додаткову інформацію та ввімкнути розширені параметри</string>
@@ -173,14 +173,12 @@
     <string name="antiupstreamnonfreelist">Джерельний код не повністю вільний</string>
     <string name="display">Відображення</string>
     <string name="show_incompat_versions">Не сумісні версії</string>
-    <string name="show_incompat_versions_on">Показувати версії застосунків, що не сумісні з пристроєм</string>
+    <string name="show_incompat_versions_on">Показувати версії застосунків, що несумісні з пристроєм</string>
     <string name="all_other_repos_fine">Усі інші репозиторії не містять помилок.</string>
-    <string name="no_handler_app">Ви не маєте програми для обробки «%s».</string>
+    <string name="no_handler_app">У Вас нема програми для обробки «%s».</string>
     <string name="repo_num_apps">Кількість застосунків</string>
     <string name="repo_fingerprint">Відбиток ключа підпису (SHA-256)</string>
-    <string name="unsigned_description">Це означає, що список додатків
- не може бути перевірено. Ви повинні бути обачними
- із додатками, які завантажуєте з не підписаних джерел.</string>
+    <string name="unsigned_description">Це означає, що список програм неможливо перевірити. Будьте обачні з програмами, які завантажуєте з не підписаних джерел.</string>
     <string name="repo_not_yet_updated">Цей репозиторій ще не використовувався. Ввімкніть його, щоб побачити застосунки, які він містить.</string>
     <string name="repo_confirm_delete_body">Видалення репозиторію означає, що застосунки в ньому не будуть доступними через F-Droid Classic.
 \n
@@ -261,7 +259,7 @@
     <string name="update_auto_install_summary">Завантажити та встановити оновлення фоново</string>
     <string name="update_auto_install">Автоматично встановлені оновлення</string>
     <string name="show_screenshots">Показати знімки екрана</string>
-    <string name="screenshots_on_demand">Завантажити знімки екрана за запитом</string>
+    <string name="screenshots_on_demand">Завантажувати знімки за запитом</string>
     <string name="details_new_in_version">Нове у версії %s</string>
     <string name="copied_to_clipboard">Скопійовано в буфер обміну</string>
     <plurals name="details_last_update_years">
@@ -324,4 +322,7 @@
     <string name="button_download">Завантаживши</string>
     <string name="add_repo_enter_details">Уведіть дані</string>
     <string name="scan_qr_code">Сканувати QR-код</string>
+    <string name="disable_pull_to_refresh">Вимкнути жест вниз для оновлення</string>
+    <string name="clear_cache_summary">Вилучити і перезавантажити всю інформацію про програми.</string>
+    <string name="clear_cache">Очистити кеш і перезавантажити</string>
 </resources>
