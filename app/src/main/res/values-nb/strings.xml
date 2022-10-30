@@ -319,4 +319,11 @@ gå tapt. Det krever ingen spesiell tilgang.</string>
     <string name="button_download">Last ned</string>
     <string name="add_repo_enter_details">Skriv inn detaljer</string>
     <string name="scan_qr_code">Skann QR-kode</string>
+    <string name="theme_follow_system">Følg systemet</string>
+    <string name="pref_language_in_system_settings">Tilgjengelig i systeminnstillingene</string>
+    <string name="disable_pull_to_refresh">Skru av dragning for gjenoppfrisking</string>
+    <string name="build_type_source">kilde</string>
+    <string name="build_type_bin">bin</string>
+    <string name="clear_cache_summary">Fjerner og laster ned igjen all programinfo.</string>
+    <string name="clear_cache">Tøm hurtiglager og last inn igjen</string>
 </resources>
