@@ -140,7 +140,7 @@ Para ver las aplicaciones que ofrece tienes que activarlo.</string>
     <string name="category_Security">Seguridad</string>
     <string name="category_System">Sistema</string>
     <string name="system_install_denied_title">La extensión de F-Droid con permisos de sistema no está disponible</string>
-    <string name="system_install_denied_body">"Esta opción sólo está disponible cuando la extensión de  F-Droid con permisos de sistema está instalada."</string>
+    <string name="system_install_denied_body">Esta opción sólo está disponible cuando la extensión de F-Droid con permisos de sistema está instalada.</string>
     <string name="open_qr_code_scanner">Abrir el escáner de códigos QR</string>
     <string name="about_source">Código fuente</string>
     <string name="app_incompatible">Incompatible</string>
