@@ -173,7 +173,7 @@
     <string name="antiupstreamnonfreelist">Джерельний код не повністю вільний</string>
     <string name="display">Відображення</string>
     <string name="show_incompat_versions">Не сумісні версії</string>
-    <string name="show_incompat_versions_on">Показувати версії застосунків, що несумісні з пристроєм</string>
+    <string name="show_incompat_versions_on">Показувати несумісні з пристроєм версії застосунків</string>
     <string name="all_other_repos_fine">Усі інші репозиторії не містять помилок.</string>
     <string name="no_handler_app">У Вас нема програми для обробки «%s».</string>
     <string name="repo_num_apps">Кількість застосунків</string>
@@ -325,4 +325,8 @@
     <string name="disable_pull_to_refresh">Вимкнути жест вниз для оновлення</string>
     <string name="clear_cache_summary">Вилучити і перезавантажити всю інформацію про програми.</string>
     <string name="clear_cache">Очистити кеш і перезавантажити</string>
+    <string name="build_type_source">джерело</string>
+    <string name="theme_follow_system">Наслідувати системну тему</string>
+    <string name="build_type_bin">bin</string>
+    <string name="pref_language_in_system_settings">Доступно в налаштуваннях системи</string>
 </resources>
