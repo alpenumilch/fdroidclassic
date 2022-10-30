@@ -312,4 +312,9 @@ Um darin bereitgestellte Anwendungen anzuzeigen, muss sie aktiviert werden.</str
     <string name="repo_url_invalid">Keine gültige Repo-URL!</string>
     <string name="button_close_menu">Menü schließen</string>
     <string name="button_download">Herunterladen</string>
+    <string name="build_type_source">Quelle</string>
+    <string name="build_type_bin">bin</string>
+    <string name="clear_cache_summary">Entfernt alle Appinformationen und lädt sie erneut herunter.</string>
+    <string name="clear_cache">Cache leeren und neu laden</string>
+    <string name="disable_pull_to_refresh">Deaktiviere die \"Ziehen zum neu laden\" Geste</string>
 </resources>
