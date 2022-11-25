@@ -1,0 +1,6 @@
+* Minimum supported Android version is now 5.1
+* add an option to follow system theme (new default)
+* add night mode dark splash screen for Android 12+
+* opt into Android 13 per-app language selection
+* fix app language selector
+* update dependencies and translations
