@@ -1,6 +1,15 @@
+### 1.3-beta1 (26.11.2022)
+
+* Minimum supported Android version is now 5.1
+* add an option to follow system theme (new default)
+* add night mode dark splash screen for Android 12+
+* opt into Android 13 per-app language selection
+* fix app language selector (on Android 13+ it should be done through system settings)
+* update dependencies and translations
+
 ### 1.2 (28.05.2022)
 
-**NOTE**: F-Droid Classic 1.2 will be the last version to support Android 4.4
+**NOTE:** F-Droid Classic 1.2 will be the last version to support Android 4.4
 
 * Improve accessibility of the 'add repo' speed dial
 * remove leftover "write external storage" permission
@@ -10,7 +19,7 @@
 
 ### 1.2-rc1 (23.05.2022)
 
-**NOTE**: F-Droid Classic 1.2 will be the last version to support Android 4.4
+**NOTE:** F-Droid Classic 1.2 will be the last version to support Android 4.4
 
 * Add (disabled) NewPipe and Briar repos for new installs
 * Switch new installs to using ftp.fau.de F-Droid mirrors instead of slow f-droid.org
