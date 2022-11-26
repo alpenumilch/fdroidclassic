@@ -1,0 +1,2 @@
+* only show "load screenshot" button when app has screenshots
+* fix toolbar layout when rotating to a different orientation than on app startup
