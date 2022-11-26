@@ -1,6 +1,7 @@
-### 1.3 (unreleased)
+### 1.3-beta2 (26.11.2022)
 
 * only show "load screenshot" button when app has screenshots
+* fix toolbar layout when rotating to a different orientation than on app startup
 
 ### 1.3-beta1 (26.11.2022)
 
