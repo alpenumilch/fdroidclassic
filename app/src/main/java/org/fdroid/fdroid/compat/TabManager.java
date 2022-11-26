@@ -1,12 +1,12 @@
 package org.fdroid.fdroid.compat;
 
-import android.content.res.Configuration;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.viewpager.widget.ViewPager;
-import androidx.appcompat.app.ActionBar;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Spinner;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.viewpager.widget.ViewPager;
 
 import org.fdroid.fdroid.FDroid;
 
@@ -87,10 +87,6 @@ public class TabManager {
     public void refreshTabLabel(int index) {
         CharSequence text = getLabel(index);
         actionBar.getTabAt(index).setText(text);
-    }
-
-    public void onConfigurationChanged(Configuration newConfig) {
-        dirtyConfig = true;
     }
 
     /**
