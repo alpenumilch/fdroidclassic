@@ -934,7 +934,7 @@ public class AppDetails extends AppCompatActivity {
             TextView whatsNewView = view.findViewById(R.id.whats_new);
             RecyclerView screenshots = view.findViewById(R.id.screnshot_list);
             TextView show_screenshots_button = view.findViewById(R.id.show_screenshots);
-            if (Preferences.get().onlyShowScreenshotsOnDemand()) {
+            if (app.getAllScreenshots(getContext()).length != 0 && Preferences.get().onlyShowScreenshotsOnDemand()) {
                 show_screenshots_button.setVisibility(View.VISIBLE);
                 screenshots.setVisibility(View.GONE);
                 show_screenshots_button.setOnClickListener(v -> {
