@@ -1,3 +1,7 @@
+### 1.3 (unreleased)
+
+* only show "load screenshot" button when app has screenshots
+
 ### 1.3-beta1 (26.11.2022)
 
 * Minimum supported Android version is now 5.1
